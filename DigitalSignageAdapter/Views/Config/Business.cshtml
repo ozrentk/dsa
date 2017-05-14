@@ -1,0 +1,41 @@
+﻿@model DigitalSignageAdapter.Models.Config.Business
+
+@{
+    ViewBag.Title = "Business";
+    string title = "Business";
+    if (Model.Id == default(int))
+    {
+        title = "Add new Business";
+    }
+}
+
+<h2>@title</h2>
+
+@using (Html.BeginForm("Business", "Config", FormMethod.Post, new { @class = "user-form" }))
+{
+    <p style="height: 30px">&nbsp;</p>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Id, "Code")
+        @Html.TextBoxFor(m => m.Id, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>
+    @*<div class="form-group">
+        @Html.LabelFor(m => m.Code)
+        @Html.TextBoxFor(m => m.Code, new { @class = "form-control" })
+    </div>*@
+    <p style="height: 30px">&nbsp;</p>
+    <input type="submit" id="btnSaveConfig" value="Save" class="btn btn-primary">
+    @Html.ActionLink("« Cancel", "Businesses", null, new { @class = "btn btn-primary" })
+    if (Model.IsFailed)
+    {
+        <p style="height: 30px">&nbsp;</p>
+        <div class="alert alert-danger fade in">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>Error!</strong> There was a problem with saving the Business.
+        </div>
+    }
+}
+

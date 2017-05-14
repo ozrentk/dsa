@@ -1,0 +1,25 @@
+﻿@model DigitalSignageAdapter.Models.Config.SignupTicket
+
+@{
+    ViewBag.Title = "Delete Signup Ticket";
+}
+
+<h2>Delete Signup Ticket</h2>
+
+@using (Html.BeginForm("DeleteSignupTicket", "Config", FormMethod.Post, new { @class = "user-form" }))
+{
+    <p style="height: 30px">&nbsp;</p>
+    <table>
+        <tr>
+            <td>
+                @Html.HiddenFor(m => m.Id)
+                @Html.LabelFor(m => m.Name)
+                @Html.DisplayFor(m => m.Name)
+            </td>
+        </tr>
+    </table>
+    <p style="height: 30px">&nbsp;</p>
+    <input type="submit" id="btnSaveConfig" value="Delete" class="btn btn-danger">
+    @Html.ActionLink("« Cancel", "SignupTicketList", null, new { @class = "btn btn-primary" })
+}
+

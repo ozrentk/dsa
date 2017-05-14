@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@if (!HttpContext.Current.User.Identity.IsAuthenticated)
+{
+    <h2>Please use top menu to log in or register.</h2>
+    return;
+}
+
+<div class="row">
+    <div class="col-lg-6">
+        <h3>Overview</h3>
+        <p>All the created objects are accounted for and displayed in the system overview.</p>
+        <p>@Html.ActionLink("Go »", "Index", "Config", null, new { @class="btn btn-primary" })</p>
+    </div>
+    <div class="col-lg-6">
+        <h3>Options</h3>
+        <p>Review and/or modify system parameters. You can change the main system UTC offset, how frequently the system takes snapshots (backup) of the Digital Signage data, or last interval (number of days) the system uses to ask for data from Digital Signage.</p>
+        <p>@Html.ActionLink("Go »", "Options", "Config", null, new { @class = "btn btn-primary" })</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <h3>Business management</h3>
+        <p>Review and/or modify each business and lines. Each business and its lines have names and <b>unique</b> codes they use to connect to the Digital Signage. You can add new data, modify or delete existing data.</p>
+        <p class="text-danger">You cannot remove business that already has snapshots of data (backed up data), because this would delete the data history and it is not supported.</p>
+        <p>@Html.ActionLink("Go »", "Businesses", "Config", null, new { @class = "btn btn-primary" })</p>
+    </div>
+    <div class="col-lg-6">
+        <h3>Signup tickets</h3>
+        <p>No user can register without a signup ticket. This is the easy way to allow target audience to have the autonomy to register with arbitrary email/password, but restrict access to unknown users.
+        Besides, when user registers and enters ticket number, every business that is added to that ticket is assigned to the registered user.</p>
+        <p class="text-danger">If the ticket with the same business is issued to another user, when he registers the business will be reassigned to him.</p>
+        <p>@Html.ActionLink("Go »", "SignupTicketList", "Config", null, new { @class = "btn btn-primary" })</p>
+    </div>
+</div>
+
+
+@*<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+            enables a clean separation of concerns and gives you full control over markup
+            for enjoyable, agile development.
+        </p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Get more libraries</h2>
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Web Hosting</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
+</div>*@

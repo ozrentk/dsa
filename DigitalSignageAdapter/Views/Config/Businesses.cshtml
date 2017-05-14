@@ -1,0 +1,45 @@
+﻿@model List<DigitalSignageAdapter.Models.Config.Business>
+    
+@{
+    ViewBag.Title = "Business administration";
+}
+
+@Html.Partial("_SubNavBar")
+
+<h2>List of Businesses</h2>
+
+@using (Html.BeginForm("Businesses", "Config", FormMethod.Post, new { @class = "user-form" }))
+{
+    <fieldset>
+        <legend></legend>
+        <table>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                string ticketMsg = Model[i].TicketId.HasValue ? "T" : "-";
+                <tr>
+                    <td>
+                        @Html.ActionLink(Model[i].Name + " »", "Business", new { businessId = Model[i].Id }, new { @class = "btn btn-default" })
+                        @Html.ActionLink("❌", "DeleteBusiness", new { businessId = Model[i].Id }, new { @class = "btn btn-danger" })
+                    </td>
+                    <td>
+                        @if (Model[i].Lines != null)
+                        {
+                            for (int j = 0; j < Model[i].Lines.Count; j++)
+                            {
+                                @Html.ActionLink(Model[i].Lines[j].Name, "Line", new { businessId = Model[i].Id, lineId = Model[i].Lines[j].Id }, new { @class = "btn btn-default" })
+                            }
+                        }
+                        @Html.ActionLink("+", "Line", new { businessId = Model[i].Id }, new { @class = "btn btn-primary" })
+                    </td>
+                </tr>
+            }
+            <tr>
+                <td>
+                    @Html.ActionLink("New business", "Business", null, new { @class="btn btn-primary" })
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+    </fieldset>
+}
+

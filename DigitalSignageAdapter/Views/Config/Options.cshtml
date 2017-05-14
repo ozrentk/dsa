@@ -1,0 +1,37 @@
+﻿@model DigitalSignageAdapter.Models.Config.Options
+
+@{
+    ViewBag.Title = "Options";
+}
+
+@Html.Partial("_SubNavBar")
+
+<h2>Options</h2>
+
+@using (Html.BeginForm("Options", "Config", FormMethod.Post, new { @class = "user-form" }))
+{
+    <p style="height: 30px">&nbsp;</p>
+    <div class="form-group">
+        @Html.LabelFor(m => m.DataCollectionCronSchedule)
+        @Html.TextBoxFor(m => m.DataCollectionCronSchedule, new { @class = "form-control" })
+        <p class="text-danger"><small>reconfiguration needs application restart</small></p>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.CleanupTreshold)
+        @Html.TextBoxFor(m => m.CleanupTreshold, new { @class = "form-control", type = "number", min = "1", max = "30" })
+        <small>counted from today backwards</small>
+    </div>
+    <p style="height: 30px" />
+    <fieldset name="fieldset3">
+        <input type="submit" id="btnSaveConfig" value="Save" class="btn btn-primary">
+    </fieldset>
+    if (Model.IsFailed)
+    {
+        <p style="height: 30px">&nbsp;</p>
+        <div class="alert alert-danger fade in">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>Error!</strong> There was a problem with saving options.
+        </div>
+    }
+}
+

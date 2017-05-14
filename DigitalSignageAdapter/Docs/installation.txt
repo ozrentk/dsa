@@ -1,0 +1,28 @@
+﻿Installation:
+* install .NET 4.5
+* install sql server (express)
+* add sql server user
+* CHECKPOINT: login with the new user (sysadmin)
+* restore database DigitalSignageAdapter
+* execute:
+  delete from batch
+  delete from dataitem
+  delete from businessmember
+  delete from usersignupticket
+  delete from sec.[user] where id > 1
+  delete from [SEC].[UserRoles] where userid > 1
+* CHECKPOINT: login to the new database with the new user
+* install IIS
+* install .NET 3.5 and .NET 4.5
+* CHECKPOINT: create a "Hello World!" test page
+* copy DataCollector release folder to server
+* set user/pwd in DataCollector.exe.config file
+* CHECKPOINT: run DataCollector.exe, check logfile (should not contain errors)
+* create scheduled task (SYSTEM user, trigger each two minutes)
+* CHECKPOINT: wait for start time, check logfile
+* create App_Data and copy ReportTemplate.xlsx template into it
+* on App_Data folder, add Full Control permission to 'IIS APPPOOL\DigitalSignageAdapter'
+* in web.config file set my:collectData to false
+* in web.config file set connection strings: DsaConnection and AdapterDbEntities
+* create web site in IIS (pay attention to binding)
+* CHECKPOINT: log in to the application, open a report on some business/line

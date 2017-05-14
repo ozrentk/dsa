@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Download Excel report";
+}
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Please choose business and line id to download Excel report.</p>
+
+@using (Html.BeginForm("ReportFile",
+                       "Excel",
+                       FormMethod.Get,
+                       new{ @class= "user-form" }))
+
+{
+    <fieldset name="fieldset1">
+        <legend></legend>
+
+        <div class="field">
+            <label for="line_id">Line ID</label>
+            <input type="number" name="line_id" min="1">
+        </div>
+
+        <div class="field">
+            <label for="business_id">Business ID</label>
+            <input type="number" name="business_id" min="1"><br />
+        </div>
+
+        <div class="field">
+            <label for="days">Nr. of days</label>
+            <input type="number" name="days" min="1" max="50"><br />
+        </div>
+        <p />
+    </fieldset>
+    <input type="submit">
+}

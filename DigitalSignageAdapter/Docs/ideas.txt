@@ -1,0 +1,25 @@
+﻿22.10.
+
+* throw away transactions that are called and serviced under a minute (bad data from someone that got more then one number on accident)
+* throw away transactions that are older than X hours and not called or serviced
+* on the raw data that we have been using for the signage adaptor, a data fwill give us theield "called by" has been added. This  data we need to understand transaction times for each employee. You can reference it at a link like this https://secure.digitalsignage.com/LineAnalyticsOpen?line_id=1530&business_id=434746&days=30
+* the dashboard should just have another section below "Businesses" that has all of that is called "Employee Transaction Times Avg" and list every employee in order of fastest to slowest
+* once you click a specific business it should do the same thing but only show results for that business
+
+* build a website/web application that is very secure but would allow me to essentially allow people to renew their vehicle registration online
+  * the users data has to be very secure
+  * it would be good if the entry process is implemented as a wizard
+  * we don't handle titling
+  * we have to include handicap tags
+  * "All we have to do is motor vehicle renewals but I see profit in handicap tags as well"
+* rebuild my website with some fancy features such a cost estimator - since were in 17 offices and each is unique, it would need to estimate cost by
+  1.) amount of offices 
+  2.) Length of contract
+* My advertising system lets me point the system to a URL link that contains only a file and it will place it on my screens. I want a dashboard where my clients can login and have a folder for each office advertised in; the folder will contain only their ad and have a provide a static URL. This will essentially allow my advertising customers to easily replace their current ads without going through me. For security of my screens though, when a change is made, it should not be made effective until I approve it (just in case, someone breaks our terms)
+* integrate Media AdNet
+
+* My advertising system lets me point the system to a URL link that contains only a file and it will place it on my screens. I want a dashboard where my clients can login and have a folder for each office advertised in; the folder will contain only their ad and have a provide a static URL. This will essentially allow my advertising customers to easily replace their current ads without going through me. For security of my screens though, when a change is made, it should not be made effective until I approve it (just in case, someone breaks our terms)
+
+* as for tracking the "called by" is so we can see employee average service times and compare them just like how we can compare the entire offices average wait times
+I'm not sure yet. I have very rough ideas and need to polish them. 
+But I'll share what I'm thinking so we're on the same page, but I need more information before you put effort in it.

@@ -1,0 +1,51 @@
+﻿@model DigitalSignageAdapter.Models.Config.Overview
+
+@{
+    ViewBag.Title = "Configuration";
+}
+
+@Html.Partial("_SubNavBar")
+
+<h2>Overview</h2>
+
+@using (Html.BeginForm("Index", "Config", FormMethod.Post, new { @class = "user-form" }))
+{
+    <p style="height: 30px">&nbsp;</p>
+    <div class="form-group">
+        @Html.LabelFor(m => m.UserCount)
+        @Html.TextBoxFor(m => m.UserCount, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.SignupTicketCount)
+        @Html.TextBoxFor(m => m.SignupTicketCount, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.BusinessCount)
+        @Html.TextBoxFor(m => m.BusinessCount, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.LineCount)
+        @Html.TextBoxFor(m => m.LineCount, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.CachedLineCount)
+        @Html.TextBoxFor(m => m.CachedLineCount, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.DataItemCount)
+        @Html.TextBoxFor(m => m.DataItemCount, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.BatchCount)
+        @Html.TextBoxFor(m => m.BatchCount, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ServerUtcOffset)
+        @Html.TextBoxFor(m => m.ServerUtcOffset, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ClientUtcOffset)
+        @Html.TextBoxFor(m => m.ClientUtcOffset, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <p style="height: 30px">&nbsp;</p>
+}

@@ -1,0 +1,86 @@
+﻿@model DigitalSignageAdapter.Models.Config.Options
+
+@section Scripts {
+    <script type="text/javascript" src="~/Scripts/homeConfig.js"></script>
+}
+
+@using (Html.BeginForm("Config", "Home", FormMethod.Post, new { @class = "user-form" }))
+
+{
+    <fieldset name="fieldset1">
+        <legend>Line/business parameters</legend>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Line</th>
+                    <th>Business</th>
+                    <th>Remove?</th>
+                    <th></th>
+                </tr>
+            </thead>
+            @for (int i = 0; i < Model.ConfigLineBusinessItems.Count; i++)
+            {
+                <tr>
+                    <td>@Html.TextBoxFor(model => model.ConfigLineBusinessItems[@i].LineId, new { type = "number", min = "1", @readonly= "readonly" })
+                        @*<input type="number" name="ConfigLineBusinessItems[@i].LineId" min="1" value="@Model.ConfigLineBusinessItems[i].LineId">*@</td>
+                    <td>@Html.TextBoxFor(model => model.ConfigLineBusinessItems[@i].BusinessId, new { type = "number", min = "1", @readonly = "readonly" })
+                        @*<input type="number" name="ConfigLineBusinessItems[@i].BusinessId" min="1" value="@Model.ConfigLineBusinessItems[i].BusinessId">*@</td>
+                    <td>@Html.CheckBoxFor(model => model.ConfigLineBusinessItems[@i].Remove)
+                        @*<input type="checkbox" name="ConfigLineBusinessItems[@i].Remove" value="@Model.ConfigLineBusinessItems[i].Remove" class="cfg-add-remove">*@</td>
+                    <td>
+                    @if(i == Model.ConfigLineBusinessItems.Count - 1) {
+                        @Html.HiddenFor(model => model.RemoveLineBusinesses)
+                        @*<input type="hidden" id="RemoveLineBusinesses" name="RemoveLineBusinesses" value="false">*@
+                        <input type="submit" id="btnRemoveLineBusinesses" value="Remove" class="cfg-add-remove">
+                    }
+                    </td>
+                </tr>
+            }
+            <tr>
+                <td>&nbsp;</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>@Html.TextBoxFor(model => model.NewLineBusiness.LineId, new { type = "number", min="1" })
+                    @*<input type="number" name="NewLineBusiness.LineId" min="1">*@</td>
+                <td>@Html.TextBoxFor(model => model.NewLineBusiness.BusinessId, new { type = "number", min = "1" })
+                    @*<input type="number" name="NewLineBusiness.BusinessId" min="1"></td>*@
+                <td>@Html.HiddenFor(model => model.AddLineBusiness)
+                    @*<input type="hidden" id="AddLineBusiness" name="AddLineBusiness" value="false">*@</td>
+                <td><input type="submit" id="btnAddLineBusiness" value="Add" class="cfg-add-remove"></td>
+            </tr>
+        </table>
+    </fieldset>
+    <p style="height: 30px" />
+    <fieldset name="fieldset2">
+        <legend>Other parameters</legend>
+
+        <table>
+            <tr>
+                <td>Time offset</td>
+                <td>@Html.TextBoxFor(model => model.ConfigItems.TimeOffsetHours, new { type = "number", min = "1" })
+                    @*<input type="number" name="ConfigItems.TimeOffsetHours" min="1" value="@Model.ConfigItems.TimeOffsetHours" >*@</td>
+            </tr>
+            <tr>
+                <td>Backup schedule (CRON expression)</td>
+                <td>@Html.TextBoxFor(model => model.ConfigItems.BackupCronSchedule)
+                    @*<input type="text" name="ConfigItems.BackupCronSchedule" value="@Model.ConfigItems.BackupCronSchedule">*@</td>
+            </tr>
+            <tr>
+                <td>Backup days</td>
+                <td>@Html.TextBoxFor(model => model.ConfigItems.BackupDays, new { type = "number", min = "1" })
+                    @*<input type="text" name="ConfigItems.BackupDays" value="@Model.ConfigItems.BackupDays">*@</td>
+            </tr>
+        </table>
+    </fieldset>
+    <p style="height: 30px" />
+    <fieldset name="fieldset3">
+        <legend></legend>
+        @Html.HiddenFor(model => model.SaveConfig)
+        @*<input type="hidden" id="SaveConfig" name="SaveConfig" value="false">*@
+        <input type="submit" id="btnSaveConfig" value="Save">
+    </fieldset>
+}

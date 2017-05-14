@@ -1,0 +1,21 @@
+﻿@model AdapterDb.User
+
+@{
+    ViewBag.Title = "Remove user";
+}
+
+<h2>Are you sure you want to remove user @Model.UserName?</h2>
+
+@using (Html.BeginForm("RemoveUser", "Home", FormMethod.Post, new { @class = "user-form" }))
+{
+    @Html.HiddenFor(m => m.Id)
+    <a href="javascript:$('form').submit()" class="btn btn-primary">
+        <span class="glyphicon glyphicon-trash"></span>
+        Yes
+    </a>
+    <a href="javascript:history.back()" class="btn btn-primary">
+        <span class="glyphicon glyphicon"></span>
+        « Cancel
+    </a>
+}
+

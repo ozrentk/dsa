@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f9ad413dc3c047a0b06e9dd3d4645a2d" Name="Diagram1">
+        <EntityTypeShape EntityType="AdapterDbModel.Log" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="AdapterDbModel.Batch" Width="1.5" PointX="9.25" PointY="13.125" />
+        <EntityTypeShape EntityType="AdapterDbModel.ConfigItem" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="AdapterDbModel.UserSignupTicket" Width="1.5" PointX="0.75" PointY="8.125" />
+        <EntityTypeShape EntityType="AdapterDbModel.User" Width="2.25" PointX="5.25" PointY="16" />
+        <EntityTypeShape EntityType="AdapterDbModel.BusinessMember" Width="1.875" PointX="8.25" PointY="10.125" />
+        <AssociationConnector Association="AdapterDbModel.FK_BusinessMember_User" />
+        <EntityTypeShape EntityType="AdapterDbModel.Roles" Width="1.5" PointX="8.25" PointY="17.25" />
+        <AssociationConnector Association="AdapterDbModel.UserRoles" />
+        <EntityTypeShape EntityType="AdapterDbModel.Business" Width="1.5" PointX="3" PointY="7.75" />
+        <EntityTypeShape EntityType="AdapterDbModel.Line" Width="1.5" PointX="5.25" PointY="12.5" />
+        <AssociationConnector Association="AdapterDbModel.FK_Business_UserSignupTicket" />
+        <AssociationConnector Association="AdapterDbModel.FK_BusinessMember_Business" />
+        <AssociationConnector Association="AdapterDbModel.FK_Line_Business" />
+        <EntityTypeShape EntityType="AdapterDbModel.Employee" Width="1.5" PointX="5.25" PointY="6.125" />
+        <AssociationConnector Association="AdapterDbModel.FK_Employee_Business" />
+        <EntityTypeShape EntityType="AdapterDbModel.EmployeeLine" Width="1.5" PointX="10.5" PointY="6.375" />
+        <AssociationConnector Association="AdapterDbModel.FK_EmployeeLine_Employee" />
+        <AssociationConnector Association="AdapterDbModel.FK_EmployeeLine_Line" />
+        <EntityTypeShape EntityType="AdapterDbModel.DataItem" Width="1.5" PointX="11.5" PointY="9.625" />
+        <AssociationConnector Association="AdapterDbModel.FK_DataItem_Batch" />
+        <AssociationConnector Association="AdapterDbModel.FK_DataItem_Business" />
+        <AssociationConnector Association="AdapterDbModel.FK_DataItem_Employee" />
+        <AssociationConnector Association="AdapterDbModel.FK_DataItem_Employee1" />
+        <AssociationConnector Association="AdapterDbModel.FK_DataItem_Line" />
+        <EntityTypeShape EntityType="AdapterDbModel.EmployeeStats" Width="1.5" PointX="7.5" PointY="6" />
+        <AssociationConnector Association="AdapterDbModel.FK_EmployeeStats_Employee" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

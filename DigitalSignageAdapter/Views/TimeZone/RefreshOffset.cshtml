@@ -1,0 +1,15 @@
+﻿@model DigitalSignageAdapter.Models.TimeZone.RefreshOffset
+
+@section Scripts{
+    <script type="text/javascript" src="~/Scripts/TimeZone.js"></script>
+    <script type="text/javascript">
+        sendOffset("@Model.ReturnUrl");
+    </script>
+}
+
+@{
+    ViewBag.Title = "Redirecting";
+}
+
+Please wait...
+

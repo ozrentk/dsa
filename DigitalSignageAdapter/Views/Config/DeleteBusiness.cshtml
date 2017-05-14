@@ -1,0 +1,25 @@
+﻿@model DigitalSignageAdapter.Models.Config.Business
+
+@{
+    ViewBag.Title = "Delete Business";
+}
+
+<h2>Delete Business</h2>
+
+@using (Html.BeginForm("DeleteBusiness", "Config", FormMethod.Post, new { @class = "user-form" }))
+{
+    <p style="height: 30px">&nbsp;</p>
+    <table>
+        <tr>
+            <td>
+                @Html.HiddenFor(m => m.Id)
+                @Html.LabelFor(m => m.Name)
+                @Html.DisplayFor(m => m.Name)
+            </td>
+        </tr>
+    </table>
+    <p style="height: 30px">&nbsp;</p>
+    <input type="submit" id="btnSaveConfig" value="Delete" class="btn btn-danger">
+    @Html.ActionLink("« Cancel", "Businesses", null, new { @class = "btn btn-primary" })
+}
+

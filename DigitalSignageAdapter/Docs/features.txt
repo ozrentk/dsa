@@ -1,0 +1,60 @@
+﻿Authentication
+ * log in/log off using email/pwd
+ * remember me
+ * forgot pwd
+ * user self registration (using token)
+
+Data collection/backup and cleanup
+ * data has to be collected and backed up into database, because source data is regularly erased
+ * data is collected on interval basis
+ * old irrelevant data is deleted (not serviced after 5 hours)
+ * data for "entered" column is offset by 1:55:42 forward
+
+Dashboard > Users
+ * Shown for administrator only
+ * List users with their roles
+ * Assign any business to any user
+ * Delete user
+
+Dashboard > Business
+ * Data analytics for current day
+ * Avg. Wait Time, Avg. Service Time, Total Customers Waiting, Total Customers Being Serviced, Total Customers for all businesses
+ * Analytics for each line type
+ * Analytics for each business
+ * Drill-down from business to line to get analytics by lines
+ * When administrator is logged in, all businesses are visible
+ * When owner of multiple businesses is logged in, businesses assigned to that user are visible
+ * When owner of a single businesses is logged in, lines assigned to that user are visible
+ * Data interval shown in the footer
+
+Data comparison
+ * Compare data for specified time (interval in days or from/to)
+ * Data analytics available for comparison: Avg. wait time, Avg. svc time, Customers serviced
+ * Compare max. three columns
+ * Compare-column can be filtered by business
+ * Compare-column can be aditionally filtered by one or multiple lines
+ * Compare-column can be aditionally filtered by an employee
+ * Comparison interval shown in the footer
+
+Excel file
+ * Generate file for specified time (interval in days or from/to, or today only)
+ * File is generated for Business and line selection
+ * File contains source file columns: line_id, service_id, analytic_id, business_id, name, queue_id, verification, serviced, serviced_by, called, 
+   called_by, entered
+ * File contains additional columns derived from the source - wait_time and service_time
+ * Top row is frozen
+ * Bottom row contains totals (wait time, service time, number of lines)
+ * File data is refreshed after an interval (1 minute)
+ * File data can be refreshed on demand
+
+Configuration
+ * Shown for administrator only
+ * Business management (add/modify/remove)
+ * Line management (add/modify/remove)
+ * Signup tickets management (add/modify/remove)
+
+Responsive UI
+ * log in/register/log off
+ * Home
+ * Compare
+ * Excel, selectioon of business/line only (not excel file, it depends on the device configuration)

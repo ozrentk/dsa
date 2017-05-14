@@ -1,0 +1,45 @@
+﻿@model List<DigitalSignageAdapter.Models.Config.SignupTicket>
+
+@{
+    ViewBag.Title = "Tickets for opening user accounts";
+}
+
+@Html.Partial("_SubNavBar")
+
+<h2>List of Signup tickets</h2>
+
+@using (Html.BeginForm("SignupTickets", "Config", FormMethod.Post, new { @class = "user-form" }))
+{
+    <fieldset>
+        <legend></legend>
+        <table>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+
+                <tr>
+                    <td>
+                        @Html.ActionLink(Model[i].Name + " »", "SignupTicket", new { ticketId = Model[i].Id }, new { @class = "btn btn-default" })
+                        @Html.ActionLink("❌", "DeleteSignupTicket", new { ticketId = Model[i].Id }, new { @class = "btn btn-danger" })
+                    </td>
+                    <td>
+                        @if (Model[i].Businesses != null)
+                        {
+                            for (int j = 0; j < Model[i].Businesses.Count; j++)
+                            {
+                                @Html.ActionLink(Model[i].Businesses[j].Name, "AddBusinessToSignupTicket", new { ticketId = Model[i].Id }, new { @class = "btn btn-default" })
+                            }
+                        }
+                        @Html.ActionLink("+", "AddBusinessToSignupTicket", new { ticketId = Model[i].Id }, new { @class = "btn btn-primary" })
+                    </td>
+                </tr>
+            }
+            <tr>
+                <td>
+                    @Html.ActionLink("New ticket", "SignupTicket", null, new { @class = "btn btn-primary" })
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+    </fieldset>
+}
+

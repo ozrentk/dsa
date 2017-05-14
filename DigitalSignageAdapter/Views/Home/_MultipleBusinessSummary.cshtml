@@ -1,0 +1,71 @@
+﻿@model DigitalSignageAdapter.Models.Home.MultipleBusinesses
+
+@{
+    TimeSpan totalAvgWait = TimeSpan.FromSeconds(Model.TotalData.AverageWaitTime);
+    TimeSpan totalAvgSvc = TimeSpan.FromSeconds(Model.TotalData.AverageServiceTime);
+    string txtCustomersWaiting = Model.TotalData.CustomersWaitingCount.ToString("#,##0");
+    string txtCustomersBeingServiced = Model.TotalData.CustomersBeingServicedCount.ToString("#,##0");
+    string txtCustomersCount = Model.TotalData.CustomersCount.ToString("#,##0");
+}
+
+<table class="table table-condensed table-hover">
+    <thead>
+        <tr>
+            <th class="col-md-3">&nbsp;</th>
+            <th class="col-md-1 text-right">&nbsp;</th>
+            <th class="col-md-1">&nbsp;</th>
+            @for (int i = 0; i < Model.DataByLineName.Count; i++)
+            {
+                <th class="col-md-2">@Model.DataByLineName[i].LineName</th>
+            }
+            <td class="col-md-1">&nbsp;</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Avg. Wait Time</td>
+            <td class="text-right">@totalAvgWait.ToString()</td>
+            <td>&nbsp;</td>
+            @for (int i = 0; i < Model.DataByLineName.Count; i++)
+            {
+                <td class="col-md-2">@TimeSpan.FromSeconds(Model.DataByLineName[i].AverageWaitTime)</td>
+            }
+        </tr>
+        <tr>
+            <td>Avg. Service Time</td>
+            <td class="text-right">@totalAvgSvc.ToString()</td>
+            <td>&nbsp;</td>
+            @for (int i = 0; i < Model.DataByLineName.Count; i++)
+            {
+                <td class="col-md-2">@TimeSpan.FromSeconds(Model.DataByLineName[i].AverageServiceTime)</td>
+            }
+        </tr>
+        <tr>
+            <td>Total Customers Waiting</td>
+            <td class="text-right">@txtCustomersWaiting</td>
+            <td>&nbsp;</td>
+            @for (int i = 0; i < Model.DataByLineName.Count; i++)
+            {
+                <td class="col-md-2">@Model.DataByLineName[i].CustomersWaitingCount</td>
+            }
+        </tr>
+        <tr>
+            <td>Total Customers Being Serviced</td>
+            <td class="text-right">@txtCustomersBeingServiced</td>
+            <td>&nbsp;</td>
+            @for (int i = 0; i < Model.DataByLineName.Count; i++)
+            {
+                <td class="col-md-2">@Model.DataByLineName[i].CustomersBeingServicedCount</td>
+            }
+        </tr>
+        <tr>
+            <td>Total Customers</td>
+            <td class="text-right">@txtCustomersCount</td>
+            <td>&nbsp;</td>
+            @for (int i = 0; i < Model.DataByLineName.Count; i++)
+            {
+                <td class="col-md-2">@Model.DataByLineName[i].CustomersCount</td>
+            }
+        </tr>
+    </tbody>
+</table>

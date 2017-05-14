@@ -1,0 +1,89 @@
+﻿@model DigitalSignageAdapter.Models.Excel.DataFilters
+
+@section Css{
+    <link rel="stylesheet" href="~/Content/bootstrap-datetimepicker.css" />
+}
+
+@section Scripts{
+    <script type="text/javascript" src="~/Scripts/moment-with-locales.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap-datetimepicker.js"></script>
+    <script type="text/javascript" src="~/Scripts/Excel.js"></script>
+}
+
+@{
+    ViewBag.Title = "Download Excel file report";
+}
+
+@using (Html.BeginForm("Index", "Excel", FormMethod.Post, new { @class = "user-form" }))
+{
+    @Html.HiddenFor(m => m.TimeEntryType)
+    <div class="row top-buffer form-inline @(Model.TimeEntryType == DigitalSignageAdapter.Models.Shared.TimeEntryType.Days ? "hidden" : "")">
+        <div class="col-sm-2" style="margin-left: -5px">
+            @Html.LabelFor(m => m.From, "From/to", new { @class = "btn btn-primary" })
+        </div>
+        <div class="col-sm-5">
+            <div class="form-group">
+                <div class="input-group date" id="dtpFrom">
+                    @Html.TextBoxFor(m => m.From, new { @class = "form-control" })
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <div class="form-group">
+                <div class="input-group date" id="dtpTo">
+                    @Html.TextBoxFor(m => m.To, new { @class = "form-control" })
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row top-buffer form-inline @(Model.TimeEntryType == DigitalSignageAdapter.Models.Shared.TimeEntryType.FromTo ? "hidden" : "")">
+        <div class="col-sm-2" style="margin-left: -5px">
+            @Html.LabelFor(m => m.Days, "Days", new { @class = "btn btn-primary" })
+        </div>
+        <div class="col-sm-10">
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.Days, new { type = "number", min = "0", @class = "form-control" })
+                <em>(0 = today)</em>
+            </div>
+        </div>
+    </div>
+    <div class="row top-buffer">
+        @Html.HiddenFor(m => m.BusinessId)
+        <div id="drdBusiness" class="dropdown pull-left" style="margin: 5px">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                Select business
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                @for (int i = 0; i < Model.BusinessList.Count; i++)
+            {
+                    <li><a href="#" data-business-id="@Model.BusinessList[i].Id">@Model.BusinessList[i].Name</a></li>
+                }
+            </ul>
+        </div>
+        @Html.HiddenFor(m => m.LineId)
+        <div id="drdLine" class="dropdown pull-left" style="margin: 5px">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" disabled>
+                Select line
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu"></ul>
+        </div>
+    </div>
+    @*<input type="button" id="btnOpenExcel" value="Open Excel file" class="btn btn-primary" disabled>*@
+    <button type="submit" id="btnOpenExcel" class="btn btn-primary" disabled>Open Excel file</button>
+    <p style="height: 30px" />
+    <p class="text-warning">
+        Excel file displays data for selected number of last days
+        <small>
+            <span class="glyphicon glyphicon-question-sign" title="Showing data for selected period"></span>
+        </small>
+    </p>
+}
+

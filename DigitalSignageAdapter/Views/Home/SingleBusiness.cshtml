@@ -1,0 +1,134 @@
+﻿@model DigitalSignageAdapter.Models.Home.SingleBusiness
+
+@{
+    ViewBag.Title = "Statistics for business";
+
+    TimeSpan totalAvgWait = TimeSpan.FromSeconds(Model.TotalData.AverageWaitTime);
+    TimeSpan totalAvgSvc = TimeSpan.FromSeconds(Model.TotalData.AverageServiceTime);
+    string txtCustomersWaiting = Model.TotalData.CustomersWaitingCount.ToString("#,##0");
+    string txtCustomersBeingServiced = Model.TotalData.CustomersBeingServicedCount.ToString("#,##0");
+    string txtCustomersCount = Model.TotalData.CustomersCount.ToString("#,##0");
+
+    //int offsetHours = AdapterDb.Database.TimeOffsetHours;
+    //DateTime now = DateTime.Now;
+    System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
+    //string strNow = now.ToString("hh:mm tt MM/dd/yyyy", culture);
+    //string strFrom = Model.TimeFrom.AddHours(offsetHours).ToString("hh:mm tt", culture);
+    //DateTime dateTimeTo = Model.TimeTo.AddHours(offsetHours);
+    //string timeTo = dateTimeTo.ToString("hh:mm tt", culture);
+    //string dateTo = dateTimeTo.ToString("MM/dd/yyyy", culture);
+}
+
+<h2>Statistics for <b>@Model.BusinessName</b></h2>
+<table class="table table-condensed table-hover">
+    <thead>
+        <tr>
+            <th class="col-md-3">&nbsp;</th>
+            <th class="col-md-1 text-right">&nbsp;</th>
+            @*<th class="col-md-1">&nbsp;</th>
+            <th class="col-md-2">Dr</th>
+            <th class="col-md-2">MV</th>
+            <th class="col-md-2">XYZ</th>
+            <td class="col-md-1">&nbsp;</td>*@
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Avg. Wait Time</td>
+            <td class="text-right">@totalAvgWait.ToString()</td>
+            @*<td>&nbsp;</td>
+            <td>@totalAvgWait.ToString()</td>
+            <td>@totalAvgWait.ToString()</td>
+            <td>@totalAvgWait.ToString()</td>
+            <td>&nbsp;</td>*@
+        </tr>
+        <tr>
+            <td>Avg. Service Time</td>
+            <td class="text-right">@totalAvgSvc.ToString()</td>
+            @*<td>&nbsp;</td>
+            <td>@totalAvgSvc.ToString()</td>
+            <td>@totalAvgSvc.ToString()</td>
+            <td>@totalAvgSvc.ToString()</td>
+            <td>&nbsp;</td>*@
+        </tr>
+        <tr>
+            <td>Total Customers Waiting</td>
+            <td class="text-right">@txtCustomersWaiting</td>
+            @*<td>&nbsp;</td>
+            <td>@txtCustomersWaiting</td>
+            <td>@txtCustomersWaiting</td>
+            <td>@txtCustomersWaiting</td>
+            <td>&nbsp;</td>*@
+        </tr>
+        <tr>
+            <td>Total Customers Being Serviced</td>
+            <td class="text-right">@txtCustomersBeingServiced</td>
+            @*<td>&nbsp;</td>
+            <td>@txtCustomersBeingServiced</td>
+            <td>@txtCustomersBeingServiced</td>
+            <td>@txtCustomersBeingServiced</td>
+            <td>&nbsp;</td>*@
+        </tr>
+        <tr>
+            <td>Total Customers</td>
+            <td class="text-right">@txtCustomersCount</td>
+            @*<td>&nbsp;</td>
+            <td>@txtCustomersCount</td>
+            <td>@txtCustomersCount</td>
+            <td>@txtCustomersCount</td>
+            <td>&nbsp;</td>*@
+        </tr>
+    </tbody>
+    @*<tfoot>
+        <tr>
+            <td colspan="6">Data for @dateTo, current as of @timeTo</td>
+        </tr>
+    </tfoot>*@
+</table>
+<p style="height: 10px">&nbsp;</p>
+<h2>Lines</h2>
+<table class="table table-condensed table-hover">
+    <thead>
+        <tr>
+            <th class="col-md-2">&nbsp;</th>
+            <th class="col-md-1 text-right">Avg. wait</th>
+            <th class="col-md-1 text-right">Avg. service</th>
+            <th class="col-md-1 text-right">Waiting</th>
+            <th class="col-md-1 text-right">Being serviced</th>
+            <th class="col-md-1 text-right">Serviced</th>
+            <th class="col-md-1 text-right">Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.DataByLine.Count; i++)
+        {
+            TimeSpan avgWait = TimeSpan.FromSeconds(Model.DataByLine[i].AverageWaitTime);
+            TimeSpan avgSvc = TimeSpan.FromSeconds(Model.DataByLine[i].AverageServiceTime);
+            <tr>
+                <td><b>@Model.DataByLine[i].LineName</b></td>
+                <td class="text-right">@avgWait.ToString()</td>
+                <td class="text-right">@avgSvc.ToString()</td>
+                <td class="text-right">@Model.DataByLine[i].CustomersWaitingCount.ToString("#,##0")</td>
+                <td class="text-right">@Model.DataByLine[i].CustomersBeingServicedCount.ToString("#,##0")</td>
+                <td class="text-right">@Model.DataByLine[i].CustomersServicedCount.ToString("#,##0")</td>
+                <td class="text-right">@Model.DataByLine[i].CustomersCount.ToString("#,##0")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p style="height: 10px">&nbsp;</p>
+<h2>Employee Stats</h2>
+@Html.Partial("_EmployeeStats", Model.EmployeeData)
+<p class="text-warning">
+    Data for
+    @Model.ClientTimeFrom.ToString("d", culture), current as of
+    @Model.ClientTimeTo.ToString("t", culture)
+    <small>
+        <span class="glyphicon glyphicon-question-sign" title="Showing data from midnight on"></span>
+    </small>
+</p>
+
+@if (@Model.UserHasMultipleBusinesses)
+{
+    @Html.ActionLink("« Back", "MultipleBusinesses", null, new { @class = "btn btn-primary" })
+}

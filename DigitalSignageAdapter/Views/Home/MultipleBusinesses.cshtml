@@ -1,0 +1,28 @@
+﻿@model DigitalSignageAdapter.Models.Home.MultipleBusinesses
+
+@{
+    ViewBag.Title = "Statistics for all businesses";
+
+    //int offsetHours = AdapterDb.Database.TimeOffsetHours;
+    System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
+    //DateTime dateTimeTo = Model.UtcTimeTo.AddHours(offsetHours);
+    //string timeTo = dateTimeTo.ToString("hh:mm tt", culture);
+    //string dateTo = dateTimeTo.ToString("MM/dd/yyyy", culture);
+}
+
+<h2>Summary</h2>
+@Html.Partial("_MultipleBusinessSummary", Model)
+<p style="height: 10px">&nbsp;</p>
+<h2>Businesses</h2>
+@Html.Partial("_MultipleBusinessTable", Model)
+<p style="height: 10px">&nbsp;</p>
+<h2>Employee Stats</h2>
+@Html.Partial("_EmployeeStats", Model.EmployeeData)
+<p class="text-warning">
+    Data for
+    @Model.ClientTimeFrom.ToString("d", culture), current as of
+    @Model.ClientTimeTo.ToString("t", culture)
+    <small>
+        <span class="glyphicon glyphicon-question-sign" title="Showing data from midnight on"></span>
+    </small>
+</p>

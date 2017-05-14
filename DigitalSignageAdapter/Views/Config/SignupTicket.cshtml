@@ -1,0 +1,42 @@
+﻿@model DigitalSignageAdapter.Models.Config.SignupTicket
+
+@section Scripts{
+    <script type="text/javascript" src="~/Scripts/Config.js"></script>
+}
+
+@{
+    ViewBag.Title = "Signup Ticket";
+    string title = "Signup Ticket";
+    if (Model.Id == default(int))
+    {
+        title = "Add new Signup Ticket";
+    }
+}
+
+<h2>@title</h2>
+
+@using (Html.BeginForm("SignupTicket", "Config", FormMethod.Post, new { @class = "user-form" }))
+{
+    @Html.HiddenFor(m => m.Id)
+    <p style="height: 30px">&nbsp;</p>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Guid)
+        @Html.TextBoxFor(m => m.Guid, new { @class = "form-control" })
+    </div>
+    <p style="height: 30px">&nbsp;</p>
+    <input type="submit" id="btnSaveConfig" value="Save" class="btn btn-primary" />
+    @Html.ActionLink("« Cancel", "SignupTicketList", null, new { @class = "btn btn-primary" })
+    if (Model.IsFailed)
+    {
+        <p style="height: 30px">&nbsp;</p>
+        <div class="alert alert-danger fade in">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>Error!</strong> There was a problem with saving the Signup Ticket.
+        </div>
+    }
+}
+

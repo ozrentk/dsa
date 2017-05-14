@@ -1,0 +1,540 @@
+﻿using EntityFramework.Utilities;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity.Migrations;
+using System.Linq;
+using AdapterDb;
+using System.Text;
+using System.Threading.Tasks;
+using System.Reflection;
+using System.Data.SqlClient;
+using log4net;
+using System.Data.Entity.Infrastructure;
+
+namespace AdapterDb
+{
+    public class Database
+    {
+        private static readonly ILog log = LogManager.GetLogger(typeof(Database));
+
+        public Database()
+        {
+        }
+
+        public static Overview GetOverview()
+        {
+            var stats = new Overview();
+
+            using (var db = new AdapterDbEntities())
+            {
+                Overview item = db.Database.SqlQuery<Overview>("GetOverview").FirstOrDefault();
+
+                return item;
+            }
+        }
+
+        public static List<ConfigItem> GetConfigItems()
+        {
+
+            using (var db = new AdapterDbEntities())
+            {
+                var items = from i in db.ConfigItem
+                            select i;
+
+                return items.ToList();
+            }
+        }
+
+        public static bool SaveConfigItems(List<ConfigItem> configItems)
+        {
+            try
+            {
+                using (var db = new AdapterDbEntities())
+                {
+                    // Update configuration items
+                    foreach (var dbItem in db.ConfigItem)
+                    {
+                        var match = configItems.First(i => i.Name.Equals(dbItem.Name));
+                        dbItem.Value = match.Value.Trim();
+                    }
+
+                    db.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                log.Error("SaveConfigItems error", ex);
+                return false;
+            }
+        }
+
+        public static List<User> GetUsers()
+        {
+
+            using (var db = new AdapterDbEntities())
+            {
+                var items = from i in db.User
+                            select i;
+
+                return items.ToList();
+            }
+        }
+
+        public static Business GetBusiness(int businessId)
+        {
+            using (var db = new AdapterDbEntities())
+            {
+                var item = db.Business.Include("Line").First(b => b.Id == businessId);
+                return item;
+            }
+        }
+
+        public static bool HasMultipleBusiness(string userName)
+        {
+            using (var db = new AdapterDbEntities())
+            {
+                var item = db.User.Where(u => u.UserName == userName).First();
+                return item.Business.Count > 1;
+            }
+        }
+
+        public static List<Business> GetBusinessList(string userName)
+        {
+            using (var db = new AdapterDbEntities())
+            {
+                var item = db.User.Include("Business").Include("Business.Line").Where(u => u.UserName == userName).First();
+                return item.Business.ToList();
+            }
+        }
+
+        public static bool SaveBusiness(Business dbBusiness)
+        {
+            try
+            {
+                using (var db = new AdapterDbEntities())
+                {
+                    db.Business.AddOrUpdate(dbBusiness);
+
+                    db.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                log.Error("SaveBusiness error", ex);
+                return false;
+            }
+        }
+
+        public static bool DeleteBusiness(int businessId)
+        {
+            try
+            {
+                using (var db = new AdapterDbEntities())
+                {
+                    var biz = db.Business.Find(businessId);
+                    db.Line.RemoveRange(biz.Line);
+                    db.Business.Remove(biz);
+
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error("DeleteBusiness error", ex);
+                return false;
+            }
+        }
+
+        public static Line GetLine(int lineId)
+        {
+            using (var db = new AdapterDbEntities())
+            {
+                var item = db.Line.Include("Business").First(l => l.Id == lineId);
+                return item;
+            }
+        }
+
+        public static bool SaveLine(Line dbLine)
+        {
+            try
+            {
+                using (var db = new AdapterDbEntities())
+                {
+                    db.Line.AddOrUpdate(dbLine);
+
+                    db.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                log.Error("SaveLine error", ex);
+                return false;
+            }
+        }
+
+        public static bool DeleteLine(int lineId)
+        {
+            try
+            {
+                using (var db = new AdapterDbEntities())
+                {
+                    var ln = db.Line.Find(lineId);
+                    db.Line.Remove(ln);
+
+                    db.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                log.Error("DeleteLine error", ex);
+                return false;
+            }
+        }
+
+        public static bool CheckSignupTicketNumber(Guid guid)
+        {
+            using (var db = new AdapterDbEntities())
+            {
+                var item = db.UserSignupTicket.FirstOrDefault(t => t.Guid == guid);
+                return item != null;
+            }
+        }
+
+        public static List<UserSignupTicket> GetSignupTickets()
+        {
+            using (var db = new AdapterDbEntities())
+            {
+                var items = db.UserSignupTicket.Include("Business").Include("Business.Line");
+
+                return items.ToList();
+            }
+        }
+
+        public static object GetSignupTicket(int ticketId)
+        {
+            using (var db = new AdapterDbEntities())
+            {
+                var item = db.UserSignupTicket.Include("Business").Include("Business.Line").First(b => b.Id == ticketId);
+                return item;
+            }
+        }
+
+        public static void DeleteSignupTickets(List<int> signupTicketIds)
+        {
+            using (var db = new AdapterDbEntities())
+            {
+                var deleteTickets = from t in db.UserSignupTicket
+                                    where signupTicketIds.Contains(t.Id)
+                                    select t;
+
+                db.UserSignupTicket.RemoveRange(deleteTickets);
+
+                db.SaveChanges();
+            }
+        }
+
+        public static void SaveSignupTickets(List<UserSignupTicket> signupTickets)
+        {
+            using (var db = new AdapterDbEntities())
+            {
+                db.UserSignupTicket.AddOrUpdate(signupTickets.ToArray());
+
+                db.SaveChanges();
+            }
+        }
+
+        public static bool SaveSignupTicket(UserSignupTicket signupTicket)
+        {
+            try
+            {
+                using (var db = new AdapterDbEntities())
+                {
+                    db.UserSignupTicket.AddOrUpdate(signupTicket);
+
+                    db.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                log.Error("SaveSignupTicket error", ex);
+                return false;
+            }
+        }
+
+        public static bool DeleteSignupTicket(int ticketId)
+        {
+            try
+            {
+                using (var db = new AdapterDbEntities())
+                {
+                    var ticket = db.UserSignupTicket.Find(ticketId);
+                    foreach(var biz in ticket.Business)
+                    {
+                        biz.TicketId = null;
+                        biz.UserSignupTicket = null;
+                    }
+                    db.UserSignupTicket.Remove(ticket);
+
+                    db.SaveChanges();
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error("DeleteSignupTicket error", ex);
+                return false;
+            }
+        }
+
+        public static bool AddBusinessToSignupTicket(int ticketId, List<int> selectedBusinesses)
+        {
+            try
+            {
+                using (var db = new AdapterDbEntities())
+                {
+                    var ticket = db.UserSignupTicket.Find(ticketId);
+                    ticket.Business.Clear();
+                    foreach (int bizId in selectedBusinesses)
+                    {
+                        var biz = db.Business.Find(bizId);
+                        ticket.Business.Add(biz);
+                    }
+
+                    db.SaveChanges();
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error("DeleteSignupTicket error", ex);
+                return false;
+            }
+        }
+
+        public static List<Business> GetBusinesses()
+        {
+
+            using (var db = new AdapterDbEntities())
+            {
+                var items = db.Business.Include("Line");
+
+                return items.ToList();
+            }
+        }
+
+        public static void SaveBusinesses(List<Business> businesses)
+        {
+            using (var db = new AdapterDbEntities())
+            {
+                db.Business.AddOrUpdate(businesses.ToArray());
+
+                db.SaveChanges();
+            }
+        }
+
+        public static List<Line> GetLines(int? businessId = null)
+        {
+
+            using (var db = new AdapterDbEntities())
+            {
+                var items = from i in db.Line.Include("Business")
+                            where businessId.HasValue && i.BusinessId == businessId.Value
+                            select i;
+
+                return items.ToList();
+            }
+        }
+
+        public static void SaveLines(List<Line> lines)
+        {
+            using (var db = new AdapterDbEntities())
+            {
+                db.Line.AddOrUpdate(lines.ToArray());
+
+                db.SaveChanges();
+            }
+        }
+
+        public static void SaveConfig(List<ConfigItem> configItems)
+        {
+            using (var db = new AdapterDbEntities())
+            {
+                // Update configuration items
+                foreach (var dbItem in db.ConfigItem)
+                {
+                    var match = configItems.First(i => i.Name.Equals(dbItem.Name));
+                    dbItem.Value = match.Value;
+                }
+
+                //// Line/business deletes
+                //foreach (var dbLbItem in db.ConfigLineBusiness)
+                //{
+                //    if (!configLineBusinessItems.Exists(i => i.LineId == dbLbItem.LineId && i.BusinessId == dbLbItem.BusinessId))
+                //    {
+                //        db.ConfigLineBusiness.Remove(dbLbItem);
+                //    }
+                //}
+
+                //// Line/business inserts
+                //foreach (var lbItem in configLineBusinessItems)
+                //{
+                //    if (!db.ConfigLineBusiness.Any(i => i.LineId == lbItem.LineId && i.BusinessId == lbItem.BusinessId))
+                //    {
+                //        db.ConfigLineBusiness.Add(new ConfigLineBusiness()
+                //        {
+                //            LineId = lbItem.LineId,
+                //            BusinessId = lbItem.BusinessId
+                //        });
+                //    }
+                //}
+
+                db.SaveChanges();
+            }
+        }
+
+        public static bool AssignBusinesses(int userId, Guid guidTicketNumber)
+        {
+            try
+            {
+                using (var db = new AdapterDbEntities())
+                {
+                    var ticket = db.UserSignupTicket.First(t => t.Guid == guidTicketNumber);
+                    var user = db.User.Find(userId);
+                    foreach (var biz in ticket.Business)
+                    {
+                        user.Business.Add(biz);
+                    }
+
+                    db.SaveChanges();
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error("AssignBusinesses error", ex);
+                return false;
+            }
+        }
+
+        public static List<DataItem> GetDataItems(int lineId, int businessId, int days)
+        {
+            using (var db = new AdapterDbEntities())
+            {
+                var items = from i in db.DataItem
+                            where lineId == i.LineId && businessId == i.BusinessId
+                            select i;
+
+                return items.ToList();
+            }
+        }
+
+        public static List<AggregatedData> GetAggregatedData(List<int> businessIds)
+        {
+            var stats = new Overview();
+
+            using (var db = new AdapterDbEntities())
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Value", typeof(int));
+                foreach (var bid in businessIds)
+                {
+                    dt.Rows.Add(bid);
+                }
+
+                var identsParam = new SqlParameter("@identifiers", SqlDbType.Structured);
+                identsParam.Value = dt;
+                identsParam.TypeName = "dbo.Integers";
+
+                var items = db.Database.SqlQuery<AggregatedData>(
+                    "EXEC GetAggregatedData @identifiers",
+                    identsParam).ToList();
+
+                return items;
+            }
+        }
+
+
+        public static void DoBackup(Func<int, int, List<DataItem>> itemSource)
+        {
+            Batch newBatch;
+            using (var db = new AdapterDbEntities())
+            {
+                log.Debug("creating a new batch...");
+                newBatch = db.Batch.Add(new Batch() { Created = DateTime.UtcNow });
+                db.SaveChanges();
+                log.Debug("batch created");
+            }
+
+            var tblSyncItems = new DataTable();
+            tblSyncItems.Columns.Add("LineId", typeof(int));
+            tblSyncItems.Columns.Add("ServiceId", typeof(int));
+            tblSyncItems.Columns.Add("AnalyticId", typeof(int));
+            tblSyncItems.Columns.Add("BusinessId", typeof(int));
+            tblSyncItems.Columns.Add("Name", typeof(string));
+            tblSyncItems.Columns.Add("QueueId", typeof(int));
+            tblSyncItems.Columns.Add("Verification", typeof(string));
+            tblSyncItems.Columns.Add("Serviced", typeof(DateTime));
+            tblSyncItems.Columns.Add("Called", typeof(DateTime));
+            tblSyncItems.Columns.Add("Entered", typeof(DateTime));
+            tblSyncItems.Columns.Add("WaitTimeSec", typeof(int));
+            tblSyncItems.Columns.Add("ServiceTimeSec", typeof(int));
+
+            log.Debug("retrieving line/business configuration...");
+            var dbLines = GetLines();
+
+            foreach (var dbLn in dbLines)
+            {
+                log.DebugFormat("retrieving items for line {0}, business {1}...", dbLn.Id, dbLn.BusinessId);
+                var items = itemSource(dbLn.Id, dbLn.BusinessId);
+                log.DebugFormat("{0} rows retrieved", items.Count);
+                items.ForEach(i =>
+                {
+                    tblSyncItems.Rows.Add(new object[12] {
+                        i.BusinessId,
+                        i.LineId,
+                        i.ServiceId,
+                        i.AnalyticId,
+                        i.QueueId,
+                        i.Name,
+                        i.Verification,
+                        i.Serviced,
+                        i.Called,
+                        i.Entered,
+                        i.WaitTimeSec,
+                        i.ServiceTimeSec
+                    });
+                });
+            }
+
+            using (var db = new AdapterDbEntities())
+            {
+                SqlParameter batchIdParam = new SqlParameter("@batchId", newBatch.Id);
+                SqlParameter syncItemsParam = new SqlParameter("@items", tblSyncItems);
+                syncItemsParam.TypeName = "DataItem";
+                syncItemsParam.SqlDbType = SqlDbType.Structured;
+
+                log.DebugFormat("merging {0} items with database...", tblSyncItems.Rows.Count);
+                db.Database.ExecuteSqlCommand("EXEC MergeItems @batchId, @items", batchIdParam, syncItemsParam);
+                log.DebugFormat("items merged", tblSyncItems.Rows.Count);
+            }
+
+            using (var db = new AdapterDbEntities())
+            {
+                log.Debug("updating batch...");
+                db.AttachAndModify(newBatch).Set(b => b.Collected, DateTime.UtcNow);
+                db.SaveChanges();
+                log.Debug("batch updated");
+            }
+        }
+    }
+}

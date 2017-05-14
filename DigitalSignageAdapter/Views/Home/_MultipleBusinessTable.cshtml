@@ -1,0 +1,32 @@
+﻿@model DigitalSignageAdapter.Models.Home.MultipleBusinesses
+
+<table class="table table-condensed table-hover">
+    <thead>
+        <tr>
+            <th class="col-md-2">&nbsp;</th>
+            <th class="col-md-1 text-right">Avg. wait</th>
+            <th class="col-md-1 text-right">Avg. service</th>
+            <th class="col-md-1 text-right">Waiting</th>
+            <th class="col-md-1 text-right">Being serviced</th>
+            <th class="col-md-1 text-right">Serviced</th>
+            <th class="col-md-1 text-right">Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.DataByBusiness.Count; i++)
+        {
+            TimeSpan avgWait = TimeSpan.FromSeconds(Model.DataByBusiness[i].AverageWaitTime);
+            TimeSpan avgSvc = TimeSpan.FromSeconds(Model.DataByBusiness[i].AverageServiceTime);
+            <tr>
+                <td><b>@Html.ActionLink(@Model.DataByBusiness[i].BusinessName, "SingleBusiness", new { businessId = @Model.DataByBusiness[i].BusinessId })</b></td>
+                <td class="text-right">@avgWait.ToString()</td>
+                <td class="text-right">@avgSvc.ToString()</td>
+                <td class="text-right">@Model.DataByBusiness[i].CustomersWaitingCount.ToString("#,##0")</td>
+                <td class="text-right">@Model.DataByBusiness[i].CustomersBeingServicedCount.ToString("#,##0")</td>
+                <td class="text-right">@Model.DataByBusiness[i].CustomersServicedCount.ToString("#,##0")</td>
+                <td class="text-right">@Model.DataByBusiness[i].CustomersCount.ToString("#,##0")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,39 @@
+﻿@model DigitalSignageAdapter.Models.Home.AssignBusiness
+
+@{
+    ViewBag.Title = "Assign business";
+}
+
+<h2>Select business</h2>
+
+@using (Html.BeginForm("AssignBusiness", "Home", FormMethod.Post, new { @class = "user-form" }))
+{
+    <p style="height: 30px">&nbsp;</p>
+    @Html.HiddenFor(m => m.User.Id)
+    <div class="form-group">
+        @Html.LabelFor(m => m.User.Name)
+        @Html.TextBoxFor(m => m.User.Name, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div class="form" @*data-toggle="buttons"*@>
+        @for (int i = 0; i < Model.User.BusinessList.Count; i++)
+        {
+            @*<label class="btn btn-primary">*@
+            @Html.HiddenFor(m => m.User.BusinessList[i].Id)
+            @Html.HiddenFor(m => m.User.BusinessList[i].Name)
+            @Html.CheckBoxFor(m => m.User.BusinessList[i].IsActive)
+            @Model.User.BusinessList[i].Name
+            @*</label>*@<br />
+        }
+    </div>
+    <p style="height: 30px">&nbsp;</p>
+    <input type="submit" id="btnAssignBusiness" value="Save" class="btn btn-primary" />
+    @Html.ActionLink("« Cancel", "AdminDashboard", null, new { @class = "btn btn-primary" })
+    if (Model.IsFailed)
+    {
+        <p style="height: 30px">&nbsp;</p>
+        <div class="alert alert-danger fade in">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>Error!</strong> There was a problem with assigning business to user.
+        </div>
+    }
+}

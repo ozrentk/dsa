@@ -1,0 +1,77 @@
+﻿@model DigitalSignageAdapter.Models.Home.AdminDashboard
+
+@{
+    ViewBag.Title = "Admin dashboard";
+
+    //int offsetHours = AdapterDb.Database.TimeOffsetHours;
+    System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
+    //DateTime dateTimeTo = Model.BusinessData.TimeTo.AddHours(offsetHours);
+    //string timeTo = dateTimeTo.ToString("hh:mm tt", culture);
+    //string dateTo = dateTimeTo.ToString("MM/dd/yyyy", culture);
+}
+
+<h2>Users</h2>
+@Html.HiddenFor(m => m.DeactivateUserId)
+<table class="table table-condensed table-hover">
+    <thead>
+        <tr>
+            <th class="col-md-2">&nbsp;</th>
+            <th class="col-md-2">Role</th>
+            <th class="col-md-6">Business list</th>
+            <th class="col-md-2">&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.UserList.Count; i++)
+        {
+            <tr>
+                <td class="col-md-2">@Model.UserList[i].Name</td>
+                <td class="col-md-2">
+                    @for (int j = 0; j < Model.UserList[i].Roles.Count; j++)
+                    {
+                        @Html.CheckBoxFor(m => Model.UserList[i].Roles[j].IsActive, new { @disabled = "disabled" })
+                        <text>&nbsp;</text>
+                        if (@Model.UserList[i].Roles[j].Name.Equals("Admin"))
+                        {
+                            <span class="text-danger">@Model.UserList[i].Roles[j].Name</span>
+                        }
+                        else
+                        {
+                            @Model.UserList[i].Roles[j].Name
+                        }
+                        <br />
+                    }
+                </td>
+                <td class="col-md-6">
+                    @for (int j = 0; j < Model.UserList[i].BusinessList.Count; j++)
+                    {
+                        if (Model.UserList[i].BusinessList[j].IsActive)
+                        {
+                            @*@Html.ActionLink(Model.UserList[i].BusinessList[j].Name, "SingleBusiness", new { businessId = Model.UserList[i].BusinessList[j].Id }, new { @class = "btn btn-primary disabled" })*@
+                            <a href="#" class="btn btn-primary">@Model.UserList[i].BusinessList[j].Name</a>
+                        }
+                    }
+                    @Html.ActionLink("+", "AssignBusiness", new { userId = Model.UserList[i].Id }, new { @class = "btn btn-primary" })
+                </td>
+                <td class="col-md-2">
+                    @Html.ActionLink("Delete", "RemoveUser", new { userId = Model.UserList[i].Id }, new { @class = "btn btn-primary" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<h2>Business Summary</h2>
+@Html.Partial("_MultipleBusinessSummary", Model.BusinessData)
+<p style="height: 10px">&nbsp;</p>
+<h2>Business List</h2>
+@Html.Partial("_MultipleBusinessTable", Model.BusinessData)
+<p style="height: 10px">&nbsp;</p>
+<h2>Employee Stats</h2>
+@Html.Partial("_EmployeeStats", Model.EmployeeData)
+<p class="text-warning">Data for 
+    @Model.BusinessData.ClientTimeFrom.ToString("d", culture), current as of 
+    @Model.BusinessData.ClientTimeTo.ToString("g", culture)
+    <small>
+        <span class="glyphicon glyphicon-question-sign" title="Showing data from midnight on"></span>
+    </small>
+</p>

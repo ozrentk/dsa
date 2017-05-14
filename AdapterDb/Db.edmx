@@ -1,0 +1,1019 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AdapterDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Batch">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InsertedItemCount" Type="int" Nullable="false" />
+          <Property Name="UpdatedItemCount" Type="int" Nullable="false" />
+          <Property Name="DeletedItemCount" Type="int" Nullable="false" />
+          <Property Name="Started" Type="datetime" />
+          <Property Name="Ended" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Business">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Created" Type="datetime" />
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="TicketId" Type="int" />
+        </EntityType>
+        <EntityType Name="BusinessMember">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BusinessId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ConfigItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" />
+          <Property Name="Value" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="DataItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Created" Type="datetime" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BusinessId" Type="int" Nullable="false" />
+          <Property Name="LineId" Type="int" Nullable="false" />
+          <Property Name="ServiceId" Type="int" Nullable="false" />
+          <Property Name="AnalyticId" Type="int" Nullable="false" />
+          <Property Name="QueueId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" />
+          <Property Name="Verification" Type="nvarchar" MaxLength="256" />
+          <Property Name="Serviced" Type="datetime" />
+          <Property Name="ServicedByName" Type="nvarchar" MaxLength="256" />
+          <Property Name="ServicedById" Type="int" />
+          <Property Name="Called" Type="datetime" />
+          <Property Name="CalledByName" Type="nvarchar" MaxLength="256" />
+          <Property Name="CalledById" Type="int" />
+          <Property Name="Entered" Type="datetime" />
+          <Property Name="BatchId" Type="int" Nullable="false" />
+          <Property Name="WaitTimeSec" Type="int" StoreGeneratedPattern="Computed" />
+          <Property Name="ServiceTimeSec" Type="int" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Created" Type="datetime" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BusinessId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmployeeLine">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Created" Type="datetime" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeId" Type="int" Nullable="false" />
+          <Property Name="LineId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmployeeStats">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Created" Type="datetime" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BusinessId" Type="int" Nullable="false" />
+          <Property Name="LineId" Type="int" Nullable="false" />
+          <Property Name="EmployeeId" Type="int" Nullable="false" />
+          <Property Name="EnteredYear" Type="int" Nullable="false" />
+          <Property Name="EnteredMonth" Type="int" Nullable="false" />
+          <Property Name="WaitTimeSec" Type="int" Nullable="false" />
+          <Property Name="ServiceTimeSec" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Line">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Created" Type="datetime" />
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="BusinessId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Created" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserSignupTicket">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Created" Type="datetime" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Created" Type="datetime" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="LastTicketNumber" Type="nvarchar" MaxLength="36" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AspNetUserRoles_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="UserRoles" Type="Self.UserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Business_UserSignupTicket">
+          <End Role="UserSignupTicket" Type="Self.UserSignupTicket" Multiplicity="0..1" />
+          <End Role="Business" Type="Self.Business" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserSignupTicket">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Business">
+              <PropertyRef Name="TicketId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessMember_Business">
+          <End Role="Business" Type="Self.Business" Multiplicity="1" />
+          <End Role="BusinessMember" Type="Self.BusinessMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BusinessMember">
+              <PropertyRef Name="BusinessId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessMember_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="BusinessMember" Type="Self.BusinessMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BusinessMember">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DataItem_Batch">
+          <End Role="Batch" Type="Self.Batch" Multiplicity="1" />
+          <End Role="DataItem" Type="Self.DataItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Batch">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DataItem">
+              <PropertyRef Name="BatchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DataItem_Business">
+          <End Role="Business" Type="Self.Business" Multiplicity="1" />
+          <End Role="DataItem" Type="Self.DataItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DataItem">
+              <PropertyRef Name="BusinessId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DataItem_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="DataItem" Type="Self.DataItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DataItem">
+              <PropertyRef Name="ServicedById" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DataItem_Employee1">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="DataItem" Type="Self.DataItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DataItem">
+              <PropertyRef Name="CalledById" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DataItem_Line">
+          <End Role="Line" Type="Self.Line" Multiplicity="1" />
+          <End Role="DataItem" Type="Self.DataItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Line">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DataItem">
+              <PropertyRef Name="LineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserRoles" Type="Self.UserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Business">
+          <End Role="Business" Type="Self.Business" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="BusinessId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeLine_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="EmployeeLine" Type="Self.EmployeeLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmployeeLine">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeLine_Line">
+          <End Role="Line" Type="Self.Line" Multiplicity="1" />
+          <End Role="EmployeeLine" Type="Self.EmployeeLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Line">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmployeeLine">
+              <PropertyRef Name="LineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeStats_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="EmployeeStats" Type="Self.EmployeeStats" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmployeeStats">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Line_Business">
+          <End Role="Business" Type="Self.Business" Multiplicity="1" />
+          <End Role="Line" Type="Self.Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Line">
+              <PropertyRef Name="BusinessId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AdapterDbModelStoreContainer">
+          <EntitySet Name="Batch" EntityType="Self.Batch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Business" EntityType="Self.Business" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BusinessMember" EntityType="Self.BusinessMember" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConfigItem" EntityType="Self.ConfigItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DataItem" EntityType="Self.DataItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeLine" EntityType="Self.EmployeeLine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeStats" EntityType="Self.EmployeeStats" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Line" EntityType="Self.Line" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserSignupTicket" EntityType="Self.UserSignupTicket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="SEC" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="SEC" store:Type="Tables" />
+          <EntitySet Name="UserRoles" EntityType="Self.UserRoles" Schema="SEC" store:Type="Tables" />
+          <AssociationSet Name="FK_AspNetUserRoles_User" Association="Self.FK_AspNetUserRoles_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserRoles" EntitySet="UserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Business_UserSignupTicket" Association="Self.FK_Business_UserSignupTicket">
+            <End Role="UserSignupTicket" EntitySet="UserSignupTicket" />
+            <End Role="Business" EntitySet="Business" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessMember_Business" Association="Self.FK_BusinessMember_Business">
+            <End Role="Business" EntitySet="Business" />
+            <End Role="BusinessMember" EntitySet="BusinessMember" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessMember_User" Association="Self.FK_BusinessMember_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="BusinessMember" EntitySet="BusinessMember" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DataItem_Batch" Association="Self.FK_DataItem_Batch">
+            <End Role="Batch" EntitySet="Batch" />
+            <End Role="DataItem" EntitySet="DataItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DataItem_Business" Association="Self.FK_DataItem_Business">
+            <End Role="Business" EntitySet="Business" />
+            <End Role="DataItem" EntitySet="DataItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DataItem_Employee" Association="Self.FK_DataItem_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="DataItem" EntitySet="DataItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DataItem_Employee1" Association="Self.FK_DataItem_Employee1">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="DataItem" EntitySet="DataItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DataItem_Line" Association="Self.FK_DataItem_Line">
+            <End Role="Line" EntitySet="Line" />
+            <End Role="DataItem" EntitySet="DataItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="UserRoles" EntitySet="UserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Business" Association="Self.FK_Employee_Business">
+            <End Role="Business" EntitySet="Business" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeLine_Employee" Association="Self.FK_EmployeeLine_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmployeeLine" EntitySet="EmployeeLine" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeLine_Line" Association="Self.FK_EmployeeLine_Line">
+            <End Role="Line" EntitySet="Line" />
+            <End Role="EmployeeLine" EntitySet="EmployeeLine" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeStats_Employee" Association="Self.FK_EmployeeStats_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmployeeStats" EntitySet="EmployeeStats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Line_Business" Association="Self.FK_Line_Business">
+            <End Role="Business" EntitySet="Business" />
+            <End Role="Line" EntitySet="Line" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AdapterDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AdapterDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Log" EntityType="AdapterDbModel.Log" />
+          <EntitySet Name="Batch" EntityType="AdapterDbModel.Batch" />
+          <EntitySet Name="ConfigItem" EntityType="AdapterDbModel.ConfigItem" />
+          <EntitySet Name="UserSignupTicket" EntityType="AdapterDbModel.UserSignupTicket" />
+          <EntitySet Name="User" EntityType="AdapterDbModel.User" />
+          <EntitySet Name="BusinessMember" EntityType="AdapterDbModel.BusinessMember" />
+          <AssociationSet Name="FK_BusinessMember_User" Association="AdapterDbModel.FK_BusinessMember_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="BusinessMember" EntitySet="BusinessMember" />
+          </AssociationSet>
+          <EntitySet Name="Roles" EntityType="AdapterDbModel.Roles" />
+          <AssociationSet Name="UserRoles" Association="AdapterDbModel.UserRoles">
+            <End Role="User" EntitySet="User" />
+            <End Role="Roles" EntitySet="Roles" />
+          </AssociationSet>
+          <EntitySet Name="Business" EntityType="AdapterDbModel.Business" />
+          <EntitySet Name="Line" EntityType="AdapterDbModel.Line" />
+          <AssociationSet Name="FK_Business_UserSignupTicket" Association="AdapterDbModel.FK_Business_UserSignupTicket">
+            <End Role="UserSignupTicket" EntitySet="UserSignupTicket" />
+            <End Role="Business" EntitySet="Business" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessMember_Business" Association="AdapterDbModel.FK_BusinessMember_Business">
+            <End Role="Business" EntitySet="Business" />
+            <End Role="BusinessMember" EntitySet="BusinessMember" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Line_Business" Association="AdapterDbModel.FK_Line_Business">
+            <End Role="Business" EntitySet="Business" />
+            <End Role="Line" EntitySet="Line" />
+          </AssociationSet>
+          <EntitySet Name="Employee" EntityType="AdapterDbModel.Employee" />
+          <AssociationSet Name="FK_Employee_Business" Association="AdapterDbModel.FK_Employee_Business">
+            <End Role="Business" EntitySet="Business" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <EntitySet Name="EmployeeLine" EntityType="AdapterDbModel.EmployeeLine" />
+          <AssociationSet Name="FK_EmployeeLine_Employee" Association="AdapterDbModel.FK_EmployeeLine_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmployeeLine" EntitySet="EmployeeLine" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeLine_Line" Association="AdapterDbModel.FK_EmployeeLine_Line">
+            <End Role="Line" EntitySet="Line" />
+            <End Role="EmployeeLine" EntitySet="EmployeeLine" />
+          </AssociationSet>
+          <EntitySet Name="DataItem" EntityType="AdapterDbModel.DataItem" />
+          <AssociationSet Name="FK_DataItem_Batch" Association="AdapterDbModel.FK_DataItem_Batch">
+            <End Role="Batch" EntitySet="Batch" />
+            <End Role="DataItem" EntitySet="DataItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DataItem_Business" Association="AdapterDbModel.FK_DataItem_Business">
+            <End Role="Business" EntitySet="Business" />
+            <End Role="DataItem" EntitySet="DataItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DataItem_Employee" Association="AdapterDbModel.FK_DataItem_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="DataItem" EntitySet="DataItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DataItem_Employee1" Association="AdapterDbModel.FK_DataItem_Employee1">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="DataItem" EntitySet="DataItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DataItem_Line" Association="AdapterDbModel.FK_DataItem_Line">
+            <End Role="Line" EntitySet="Line" />
+            <End Role="DataItem" EntitySet="DataItem" />
+          </AssociationSet>
+          <EntitySet Name="EmployeeStats" EntityType="AdapterDbModel.EmployeeStats" />
+          <AssociationSet Name="FK_EmployeeStats_Employee" Association="AdapterDbModel.FK_EmployeeStats_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmployeeStats" EntitySet="EmployeeStats" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Batch">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="DataItem" Relationship="AdapterDbModel.FK_DataItem_Batch" FromRole="Batch" ToRole="DataItem" />
+          <Property Name="InsertedItemCount" Type="Int32" Nullable="false" />
+          <Property Name="UpdatedItemCount" Type="Int32" Nullable="false" />
+          <Property Name="DeletedItemCount" Type="Int32" Nullable="false" />
+          <Property Name="Started" Type="DateTime" Precision="3" />
+          <Property Name="Ended" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ConfigItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Value" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserSignupTicket">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Guid" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Business" Relationship="AdapterDbModel.FK_Business_UserSignupTicket" FromRole="UserSignupTicket" ToRole="Business" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="LastTicketNumber" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BusinessMember" Relationship="AdapterDbModel.FK_BusinessMember_User" FromRole="User" ToRole="BusinessMember" />
+          <NavigationProperty Name="Roles" Relationship="AdapterDbModel.UserRoles" FromRole="User" ToRole="Roles" />
+        </EntityType>
+        <EntityType Name="BusinessMember">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BusinessId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="AdapterDbModel.FK_BusinessMember_User" FromRole="BusinessMember" ToRole="User" />
+          <NavigationProperty Name="Business" Relationship="AdapterDbModel.FK_BusinessMember_Business" FromRole="BusinessMember" ToRole="Business" />
+        </EntityType>
+        <Association Name="FK_BusinessMember_User">
+          <End Type="AdapterDbModel.User" Role="User" Multiplicity="1" />
+          <End Type="AdapterDbModel.BusinessMember" Role="BusinessMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BusinessMember">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="AdapterDbModel.UserRoles" FromRole="Roles" ToRole="User" />
+        </EntityType>
+        <Association Name="UserRoles">
+          <End Type="AdapterDbModel.User" Role="User" Multiplicity="*" />
+          <End Type="AdapterDbModel.Roles" Role="Roles" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Business">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="TicketId" Type="Int32" />
+          <NavigationProperty Name="UserSignupTicket" Relationship="AdapterDbModel.FK_Business_UserSignupTicket" FromRole="Business" ToRole="UserSignupTicket" />
+          <NavigationProperty Name="BusinessMember" Relationship="AdapterDbModel.FK_BusinessMember_Business" FromRole="Business" ToRole="BusinessMember" />
+          <NavigationProperty Name="Line" Relationship="AdapterDbModel.FK_Line_Business" FromRole="Business" ToRole="Line" />
+          <NavigationProperty Name="Employee" Relationship="AdapterDbModel.FK_Employee_Business" FromRole="Business" ToRole="Employee" />
+          <NavigationProperty Name="DataItem" Relationship="AdapterDbModel.FK_DataItem_Business" FromRole="Business" ToRole="DataItem" />
+        </EntityType>
+        <EntityType Name="Line">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="BusinessId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Business" Relationship="AdapterDbModel.FK_Line_Business" FromRole="Line" ToRole="Business" />
+          <NavigationProperty Name="EmployeeLine" Relationship="AdapterDbModel.FK_EmployeeLine_Line" FromRole="Line" ToRole="EmployeeLine" />
+          <NavigationProperty Name="DataItem" Relationship="AdapterDbModel.FK_DataItem_Line" FromRole="Line" ToRole="DataItem" />
+        </EntityType>
+        <Association Name="FK_Business_UserSignupTicket">
+          <End Type="AdapterDbModel.UserSignupTicket" Role="UserSignupTicket" Multiplicity="0..1" />
+          <End Type="AdapterDbModel.Business" Role="Business" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserSignupTicket">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Business">
+              <PropertyRef Name="TicketId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessMember_Business">
+          <End Type="AdapterDbModel.Business" Role="Business" Multiplicity="1" />
+          <End Type="AdapterDbModel.BusinessMember" Role="BusinessMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BusinessMember">
+              <PropertyRef Name="BusinessId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Line_Business">
+          <End Type="AdapterDbModel.Business" Role="Business" Multiplicity="1" />
+          <End Type="AdapterDbModel.Line" Role="Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Line">
+              <PropertyRef Name="BusinessId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BusinessId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Business" Relationship="AdapterDbModel.FK_Employee_Business" FromRole="Employee" ToRole="Business" />
+          <NavigationProperty Name="EmployeeLine" Relationship="AdapterDbModel.FK_EmployeeLine_Employee" FromRole="Employee" ToRole="EmployeeLine" />
+          <NavigationProperty Name="ServicedDataItem" Relationship="AdapterDbModel.FK_DataItem_Employee" FromRole="Employee" ToRole="DataItem" />
+          <NavigationProperty Name="CalledDataItem" Relationship="AdapterDbModel.FK_DataItem_Employee1" FromRole="Employee" ToRole="DataItem" />
+          <NavigationProperty Name="EmployeeStats" Relationship="AdapterDbModel.FK_EmployeeStats_Employee" FromRole="Employee" ToRole="EmployeeStats" />
+        </EntityType>
+        <Association Name="FK_Employee_Business">
+          <End Type="AdapterDbModel.Business" Role="Business" Multiplicity="1" />
+          <End Type="AdapterDbModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="BusinessId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="EmployeeLine">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+          <Property Name="LineId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="AdapterDbModel.FK_EmployeeLine_Employee" FromRole="EmployeeLine" ToRole="Employee" />
+          <NavigationProperty Name="Line" Relationship="AdapterDbModel.FK_EmployeeLine_Line" FromRole="EmployeeLine" ToRole="Line" />
+        </EntityType>
+        <Association Name="FK_EmployeeLine_Employee">
+          <End Type="AdapterDbModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="AdapterDbModel.EmployeeLine" Role="EmployeeLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmployeeLine">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeLine_Line">
+          <End Type="AdapterDbModel.Line" Role="Line" Multiplicity="1" />
+          <End Type="AdapterDbModel.EmployeeLine" Role="EmployeeLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Line">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmployeeLine">
+              <PropertyRef Name="LineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DataItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BusinessId" Type="Int32" Nullable="false" />
+          <Property Name="LineId" Type="Int32" Nullable="false" />
+          <Property Name="ServiceId" Type="Int32" Nullable="false" />
+          <Property Name="AnalyticId" Type="Int32" Nullable="false" />
+          <Property Name="QueueId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Verification" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Serviced" Type="DateTime" Precision="3" />
+          <Property Name="ServicedByName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ServicedById" Type="Int32" />
+          <Property Name="Called" Type="DateTime" Precision="3" />
+          <Property Name="CalledByName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="CalledById" Type="Int32" />
+          <Property Name="Entered" Type="DateTime" Precision="3" />
+          <Property Name="BatchId" Type="Int32" Nullable="false" />
+          <Property Name="WaitTimeSec" Type="Int32" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="ServiceTimeSec" Type="Int32" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Batch" Relationship="AdapterDbModel.FK_DataItem_Batch" FromRole="DataItem" ToRole="Batch" />
+          <NavigationProperty Name="Business" Relationship="AdapterDbModel.FK_DataItem_Business" FromRole="DataItem" ToRole="Business" />
+          <NavigationProperty Name="ServicingEmployee" Relationship="AdapterDbModel.FK_DataItem_Employee" FromRole="DataItem" ToRole="Employee" />
+          <NavigationProperty Name="CallingEmployee" Relationship="AdapterDbModel.FK_DataItem_Employee1" FromRole="DataItem" ToRole="Employee" />
+          <NavigationProperty Name="Line" Relationship="AdapterDbModel.FK_DataItem_Line" FromRole="DataItem" ToRole="Line" />
+        </EntityType>
+        <Association Name="FK_DataItem_Batch">
+          <End Type="AdapterDbModel.Batch" Role="Batch" Multiplicity="1" />
+          <End Type="AdapterDbModel.DataItem" Role="DataItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Batch">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DataItem">
+              <PropertyRef Name="BatchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DataItem_Business">
+          <End Type="AdapterDbModel.Business" Role="Business" Multiplicity="1" />
+          <End Type="AdapterDbModel.DataItem" Role="DataItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DataItem">
+              <PropertyRef Name="BusinessId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DataItem_Employee">
+          <End Type="AdapterDbModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="AdapterDbModel.DataItem" Role="DataItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DataItem">
+              <PropertyRef Name="ServicedById" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DataItem_Employee1">
+          <End Type="AdapterDbModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="AdapterDbModel.DataItem" Role="DataItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DataItem">
+              <PropertyRef Name="CalledById" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DataItem_Line">
+          <End Type="AdapterDbModel.Line" Role="Line" Multiplicity="1" />
+          <End Type="AdapterDbModel.DataItem" Role="DataItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Line">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DataItem">
+              <PropertyRef Name="LineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="EmployeeStats">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BusinessId" Type="Int32" Nullable="false" />
+          <Property Name="LineId" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+          <Property Name="EnteredYear" Type="Int32" Nullable="false" />
+          <Property Name="EnteredMonth" Type="Int32" Nullable="false" />
+          <Property Name="WaitTimeSec" Type="Int32" Nullable="false" />
+          <Property Name="ServiceTimeSec" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="AdapterDbModel.FK_EmployeeStats_Employee" FromRole="EmployeeStats" ToRole="Employee" />
+        </EntityType>
+        <Association Name="FK_EmployeeStats_Employee">
+          <End Type="AdapterDbModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="AdapterDbModel.EmployeeStats" Role="EmployeeStats" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmployeeStats">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AdapterDbModelStoreContainer" CdmEntityContainer="AdapterDbEntities">
+          <EntitySetMapping Name="Log">
+            <EntityTypeMapping TypeName="AdapterDbModel.Log">
+              <MappingFragment StoreEntitySet="Log">
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Batch">
+            <EntityTypeMapping TypeName="AdapterDbModel.Batch">
+              <MappingFragment StoreEntitySet="Batch">
+                <ScalarProperty Name="Ended" ColumnName="Ended" />
+                <ScalarProperty Name="Started" ColumnName="Started" />
+                <ScalarProperty Name="DeletedItemCount" ColumnName="DeletedItemCount" />
+                <ScalarProperty Name="UpdatedItemCount" ColumnName="UpdatedItemCount" />
+                <ScalarProperty Name="InsertedItemCount" ColumnName="InsertedItemCount" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConfigItem">
+            <EntityTypeMapping TypeName="AdapterDbModel.ConfigItem">
+              <MappingFragment StoreEntitySet="ConfigItem">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserSignupTicket">
+            <EntityTypeMapping TypeName="AdapterDbModel.UserSignupTicket">
+              <MappingFragment StoreEntitySet="UserSignupTicket">
+                <ScalarProperty Name="Guid" ColumnName="Guid" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="AdapterDbModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="LastTicketNumber" ColumnName="LastTicketNumber" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BusinessMember">
+            <EntityTypeMapping TypeName="AdapterDbModel.BusinessMember">
+              <MappingFragment StoreEntitySet="BusinessMember">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="BusinessId" ColumnName="BusinessId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="AdapterDbModel.Roles">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="UserRoles" TypeName="AdapterDbModel.UserRoles" StoreEntitySet="UserRoles">
+            <EndProperty Name="Roles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="User">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Business">
+            <EntityTypeMapping TypeName="AdapterDbModel.Business">
+              <MappingFragment StoreEntitySet="Business">
+                <ScalarProperty Name="TicketId" ColumnName="TicketId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Line">
+            <EntityTypeMapping TypeName="AdapterDbModel.Line">
+              <MappingFragment StoreEntitySet="Line">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="BusinessId" ColumnName="BusinessId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="AdapterDbModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="BusinessId" ColumnName="BusinessId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeLine">
+            <EntityTypeMapping TypeName="AdapterDbModel.EmployeeLine">
+              <MappingFragment StoreEntitySet="EmployeeLine">
+                <ScalarProperty Name="LineId" ColumnName="LineId" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DataItem">
+            <EntityTypeMapping TypeName="AdapterDbModel.DataItem">
+              <MappingFragment StoreEntitySet="DataItem">
+                <ScalarProperty Name="ServiceTimeSec" ColumnName="ServiceTimeSec" />
+                <ScalarProperty Name="WaitTimeSec" ColumnName="WaitTimeSec" />
+                <ScalarProperty Name="BatchId" ColumnName="BatchId" />
+                <ScalarProperty Name="Entered" ColumnName="Entered" />
+                <ScalarProperty Name="CalledById" ColumnName="CalledById" />
+                <ScalarProperty Name="CalledByName" ColumnName="CalledByName" />
+                <ScalarProperty Name="Called" ColumnName="Called" />
+                <ScalarProperty Name="ServicedById" ColumnName="ServicedById" />
+                <ScalarProperty Name="ServicedByName" ColumnName="ServicedByName" />
+                <ScalarProperty Name="Serviced" ColumnName="Serviced" />
+                <ScalarProperty Name="Verification" ColumnName="Verification" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="QueueId" ColumnName="QueueId" />
+                <ScalarProperty Name="AnalyticId" ColumnName="AnalyticId" />
+                <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+                <ScalarProperty Name="LineId" ColumnName="LineId" />
+                <ScalarProperty Name="BusinessId" ColumnName="BusinessId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeStats">
+            <EntityTypeMapping TypeName="AdapterDbModel.EmployeeStats">
+              <MappingFragment StoreEntitySet="EmployeeStats">
+                <ScalarProperty Name="ServiceTimeSec" ColumnName="ServiceTimeSec" />
+                <ScalarProperty Name="WaitTimeSec" ColumnName="WaitTimeSec" />
+                <ScalarProperty Name="EnteredMonth" ColumnName="EnteredMonth" />
+                <ScalarProperty Name="EnteredYear" ColumnName="EnteredYear" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="LineId" ColumnName="LineId" />
+                <ScalarProperty Name="BusinessId" ColumnName="BusinessId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

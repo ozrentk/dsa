@@ -1,0 +1,31 @@
+﻿@model List<DigitalSignageAdapter.Models.Home.EmployeeTimes>
+
+<table class="table table-condensed table-hover">
+    <thead>
+        <tr>
+            <th class="col-md-2">&nbsp;</th>
+            <th class="col-md-6 text-center" colspan="3">Average service times</th>
+            <th class="col-md-4">&nbsp;</th>
+        </tr>
+        <tr>
+            <th class="col-md-2">&nbsp;</th>
+            <th class="col-md-2 text-right">Today</th>
+            <th class="col-md-2 text-right">This month</th>
+            <th class="col-md-2 text-right">This year</th>
+            <th class="col-md-4">&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <tr>
+                <td>@Model[i].EmployeeName</td>
+                <td class="text-right">@Model[i].AverageServiceTime.ToString()</td>
+                <td class="text-right">@Model[i].MonthlyServiceTime.ToString()</td>
+                <td class="text-right">@Model[i].YearlyServiceTime.ToString()</td>
+                <td class="text-right">&nbsp;</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

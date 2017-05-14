@@ -1,0 +1,47 @@
+﻿@model IEnumerable<DigitalSignageAdapter.Models.Shared.DataItem>
+
+@{
+    Layout = "";
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>line_id</th>
+            <th>service_id</th>
+            <th>analytic_id</th>
+            <th>business_id</th>
+            <th>name</th>
+            <th>queue_id</th>
+            <th>verification</th>
+            <th>serviced</th>
+            <th>serviced_by</th>
+            <th>called</th>
+            <th>called_by</th>
+            <th>entered</th>
+            <th>wait_time</th>
+            <th>service_time</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (DigitalSignageAdapter.Models.Shared.DataItem item in Model)
+        {
+            <tr>
+                <td>@item.LineId</td>
+                <td>@item.ServiceId</td>
+                <td>@item.AnalyticId</td>
+                <td>@item.BusinessId</td>
+                <td>@item.Name</td>
+                <td>@item.QueueId</td>
+                <td>@item.Verification</td>
+                <td>@item.Serviced</td>
+                <td>@item.ServicedByName</td>
+                <td>@item.Called</td>
+                <td>@item.CalledByName</td>
+                <td>@item.Entered</td>
+                <td>@item.WaitTime</td>
+                <td>@item.ServiceTime</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,41 @@
+﻿@model DigitalSignageAdapter.Models.Config.AddBusinessToSignupTicket
+
+@{
+    ViewBag.Title = "Add Business to Signup Ticket";
+}
+
+<h2>Add Business to Signup Ticket</h2>
+
+@using (Html.BeginForm("AddBusinessToSignupTicket", "Config", FormMethod.Post, new { @class = "user-form" }))
+{
+    <p style="height: 30px">&nbsp;</p>
+    @Html.HiddenFor(m => m.Ticket.Id)
+    <div class="form-group">
+        @Html.LabelFor(m => m.Ticket.Name)
+        @Html.TextBoxFor(m => m.Ticket.Name, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div class="form" @*data-toggle="buttons"*@>
+        @for (int i = 0; i < Model.AllBusinessList.Count; i++)
+        {
+            @*<label class="btn btn-primary">*@
+                @Html.HiddenFor(m => m.AllBusinessList[i].Id)
+                @Html.CheckBoxFor(m => m.AllBusinessList[i].IsSelected)
+                @Model.AllBusinessList[i].Name
+            @*</label>*@<br />
+        }
+    </div>
+    <p style="height: 30px">&nbsp;</p>
+    <input type="submit" id="btnSaveConfig" value="Save" class="btn btn-primary" />
+    @Html.ActionLink("« Cancel", "SignupTicketList", null, new { @class = "btn btn-primary" })
+    if (Model.IsFailed)
+    {
+        <p style="height: 30px">&nbsp;</p>
+        <div class="alert alert-danger fade in">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>Error!</strong> There was a problem with saving the Signup Ticket.
+        </div>
+    }
+}
+
+
+

@@ -27,9 +27,6 @@
     </div>
 </div>
 
-<script id="headertmpl" type="text/x-dot-template">
-    <h1>{{=it.title}}</h1>
-</script>
 <div id="dot-test"></div>
 
 <div data-bind="text: test"></div>
@@ -52,3 +49,6 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+<!-- This is suppose to render a view with the ID 'jedan-mali-template' -->
+<!-- In normal cases, simply render views at the bottom of the page -->
+@Html.Partial("/Templates/Test/jedan-mali-template.cshtml")

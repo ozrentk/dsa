@@ -116,8 +116,9 @@ namespace DigitalSignageAdapter.Controllers
                                                 HttpContext.Request.Url.Authority,
                                                 Url.Action("HtmlData", "Excel", new
                                                 {
-                                                    LineId = excelFilters.LineId,
                                                     BusinessId = excelFilters.BusinessId,
+                                                    LineId = excelFilters.LineId,
+                                                    EmployeeId = excelFilters.EmployeeId,
                                                     TimeEntryType = excelFilters.TimeEntryType,
                                                     Days = excelFilters.Days,
                                                     From = excelFilters.From.ToString("s"),
@@ -157,6 +158,7 @@ namespace DigitalSignageAdapter.Controllers
                         Database.GetDataItems(
                             businessId: excelFilters.BusinessId,
                             lineId: excelFilters.LineId,
+                            employeeId: excelFilters.EmployeeId,
                             timeFrom: clientTimeFrom,
                             timeTo: clientTimeTo);
 
@@ -230,6 +232,15 @@ namespace DigitalSignageAdapter.Controllers
             return PartialView(lineList);
         }
 
+        [Authorize]
+        public ActionResult Employees(int businessId)
+        {
+            var dbEmployeeList = Database.GetEmployeeList(businessId);
+            var employeeList = Mapper.Map<List<Models.Config.Employee>>(dbEmployeeList);
+
+            return PartialView(employeeList);
+        }
+
         /// <summary>
         /// Get data from external JSON result and output it as HTML table (for Excel refresh)
         /// </summary>
@@ -268,6 +279,7 @@ namespace DigitalSignageAdapter.Controllers
                     Database.GetDataItems(
                         businessId: excelFilters.BusinessId,
                         lineId: excelFilters.LineId,
+                        employeeId: excelFilters.EmployeeId,
                         timeFrom: clientTimeFrom,
                         timeTo: clientTimeTo);
 

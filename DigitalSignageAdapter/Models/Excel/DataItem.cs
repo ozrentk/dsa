@@ -9,7 +9,7 @@ namespace DigitalSignageAdapter.Models.Excel
     {
         public int? BusinessId { get; set; }
         public int? LineId { get; set; }
-        public int? CalledById { get; set; }
+        public int? CalledById { get; set; } // The referent ID for employee is CalledById
         public int? QueueId { get; set; }
 
         public int? ServiceId { get; set; }

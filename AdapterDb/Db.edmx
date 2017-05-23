@@ -21,7 +21,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Created" Type="datetime" />
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="TicketId" Type="int" />
         </EntityType>
@@ -102,7 +103,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Created" Type="datetime" />
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="int" Nullable="false" />
           <Property Name="BusinessId" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
@@ -596,6 +598,7 @@
           <NavigationProperty Name="Line" Relationship="AdapterDbModel.FK_Line_Business" FromRole="Business" ToRole="Line" />
           <NavigationProperty Name="Employee" Relationship="AdapterDbModel.FK_Employee_Business" FromRole="Business" ToRole="Employee" />
           <NavigationProperty Name="DataItem" Relationship="AdapterDbModel.FK_DataItem_Business" FromRole="Business" ToRole="DataItem" />
+          <Property Name="Code" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Line">
           <Key>
@@ -608,6 +611,7 @@
           <NavigationProperty Name="Business" Relationship="AdapterDbModel.FK_Line_Business" FromRole="Line" ToRole="Business" />
           <NavigationProperty Name="EmployeeLine" Relationship="AdapterDbModel.FK_EmployeeLine_Line" FromRole="Line" ToRole="EmployeeLine" />
           <NavigationProperty Name="DataItem" Relationship="AdapterDbModel.FK_DataItem_Line" FromRole="Line" ToRole="DataItem" />
+          <Property Name="Code" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="FK_Business_UserSignupTicket">
           <End Type="AdapterDbModel.UserSignupTicket" Role="UserSignupTicket" Multiplicity="0..1" />
@@ -916,6 +920,7 @@
           <EntitySetMapping Name="Business">
             <EntityTypeMapping TypeName="AdapterDbModel.Business">
               <MappingFragment StoreEntitySet="Business">
+                <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="TicketId" ColumnName="TicketId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -926,6 +931,7 @@
           <EntitySetMapping Name="Line">
             <EntityTypeMapping TypeName="AdapterDbModel.Line">
               <MappingFragment StoreEntitySet="Line">
+                <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="BusinessId" ColumnName="BusinessId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

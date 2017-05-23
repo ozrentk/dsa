@@ -19,7 +19,8 @@ namespace DigitalSignageAdapter.Models.Shared
 
         public static DateTime ClientCurrentTime(int offset)
         {
-            return UtcToClient(DateTime.UtcNow, offset);
+            //return UtcToClient(DateTime.UtcNow, offset);
+            return (new DateTime(2017, 3, 7)).AddHours(16);
         }
 
     }

@@ -614,38 +614,65 @@ namespace AdapterDb
 
         }
 
-        public static List<Employee> GetEmployeeDetails(IPrincipal user, DateTime timeFrom, DateTime timeTo)
+        public static List<Employee> GetEmployeeList(int businessId)
         {
-            List<Employee> itemList;
             using (var db = new AdapterDbEntities())
             {
                 db.Configuration.ProxyCreationEnabled = false;
 
-                if (user == null || user.IsInRole("Admin"))
+                    var items = (from emp in db.Employee
+                                 where emp.BusinessId == businessId
+                                 orderby emp.Name
+                                 select emp).ToList();
+
+                    return items;
+            }
+        }
+
+        public static List<Employee> GetEmployeeDetails(IPrincipal user, int? businessId, DateTime timeFrom, DateTime timeTo)
+        {
+            List<Employee> itemList;
+
+            using (var db = new AdapterDbEntities())
+            {
+                db.Configuration.ProxyCreationEnabled = false;
+
+                if (businessId.HasValue && user.IsInRole("Admin"))
+                {
+                    itemList = (from i in db.Employee.Include("CalledDataItem").Include("EmployeeStats")
+                                where i.BusinessId == businessId.Value
+                                select i).ToList();
+                }
+                else if (businessId.HasValue && !user.IsInRole("Admin"))
+                {
+                    var dbUser = db.User.Include("BusinessMember").Where(u => u.UserName == user.Identity.Name).First();
+                    var allowedBizIds = dbUser.BusinessMember.Select(bm => bm.BusinessId);
+                    if (!allowedBizIds.Contains(businessId.Value))
+                        return new List<Employee>();
+
+                    itemList = (from i in db.Employee.Include("CalledDataItem").Include("EmployeeStats")
+                                where i.BusinessId == businessId.Value
+                                select i).ToList();
+                }
+                else if (!businessId.HasValue && /*user == null || */user.IsInRole("Admin"))
                 {
                     itemList = (from i in db.Employee.Include("CalledDataItem")
                                 select i).ToList();
-
-                    itemList.ForEach(i =>
-                    {
-                        i.CalledDataItem = i.CalledDataItem.Where(di => di.Entered >= timeFrom && di.Entered <= timeTo).ToList();
-                    });
                 }
-                else
+                else //if (!businessId.HasValue && !user.IsInRole("Admin"))
                 {
                     var dbUser = db.User.Include("BusinessMember").Where(u => u.UserName == user.Identity.Name).First();
                     var allowedBizIds = dbUser.BusinessMember.Select(bm => bm.BusinessId);
                     itemList = (from i in db.Employee.Include("CalledDataItem").Include("EmployeeStats") //.Select(e => e.Id).ToList();
                                 where allowedBizIds.Contains(i.BusinessId)
                                 select i).ToList();
-
-                    itemList.ForEach(i =>
-                    {
-                        i.CalledDataItem = i.CalledDataItem.Where(di => di.Entered >= timeFrom && di.Entered <= timeTo).ToList();
-                    });
-
                 }
             }
+
+            itemList.ForEach(i =>
+            {
+                i.CalledDataItem = i.CalledDataItem.Where(di => di.Entered >= timeFrom && di.Entered <= timeTo).ToList();
+            });
 
             var filteredItems = itemList.Where(i => i.CalledDataItem.Count > 0).ToList();
             return filteredItems;
@@ -682,14 +709,15 @@ namespace AdapterDb
 
         #region Data items
 
-        public static List<DataItem> GetDataItems(int businessId, int lineId, DateTime timeFrom, DateTime timeTo)
+        public static List<DataItem> GetDataItems(int businessId, int? lineId, int? employeeId, DateTime timeFrom, DateTime timeTo)
         {
             using (var db = new AdapterDbEntities())
             {
-                var allItems = (from i in db.DataItem.Include("ServicingEmployee").Include("CallingEmployee")
+                var allItems = (from i in db.DataItem.Include("ServicingEmployee").Include("CallingEmployee").Include("Business").Include("Line")
                                 where
-                                    lineId == i.LineId &&
-                                    businessId == i.BusinessId &&
+                                    i.BusinessId == businessId &&
+                                    (!lineId.HasValue || lineId.HasValue && lineId.Value == i.LineId) &&
+                                    (!employeeId.HasValue || employeeId.HasValue && employeeId.Value == i.CalledById) &&
                                     i.Entered >= timeFrom &&
                                     i.Entered <= timeTo
                                 select i).ToList();

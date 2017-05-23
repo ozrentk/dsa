@@ -36,7 +36,7 @@
     $("label[for=From]").click(toggleTimeEntryType);
 
     $("#drdBusiness ul.dropdown-menu li a").click(function (event) {
-        console.log("drdBusiness click");
+        //console.log("drdBusiness click");
 
         var $divBiz = $("#drdBusiness");
         var $divBizBtn = $divBiz.find("button");
@@ -50,6 +50,10 @@
         var $divLine = $("#drdLine");
         var $divLineBtn = $divLine.find("button");
         var $divLineUl = $divLine.find("ul.dropdown-menu");
+
+        var $divEmployee = $("#drdEmployee");
+        var $divEmployeeBtn = $divEmployee.find("button");
+        var $divEmployeeUl = $divEmployee.find("ul.dropdown-menu");
 
         businessId = $(this).data("business-id");
         $("#BusinessId").val(businessId);
@@ -65,34 +69,40 @@
             }
         });
 
+        $.ajax({
+            url: "/Excel/Employees",
+            data: { businessId: businessId },
+            success: function (markup) {
+                $divEmployeeBtn.html("Select employee <span class='caret'></span>");
+                $divEmployeeBtn.removeAttr("disabled");
+                $divEmployeeUl.html("");
+                $divEmployeeUl.append(markup);
+            }
+        });
+
         //event.preventDefault();
         //return false;
     });
 
     $("body").delegate("#drdLine ul.dropdown-menu li a", "click", function () {
-        console.log("drdLine click");
-
         var $divLine = $("#drdLine");
         var $divLineBtn = $divLine.find("button");
-
         lineId = $(this).data("line-id");
         $("#LineId").val(lineId);
-
         $divLineBtn.html("Line: " + $(this).text() + " <span class='caret'></span>");
 
         var $btnOpenExcel = $("#btnOpenExcel");
         $btnOpenExcel.removeAttr("disabled");
-
-        //$divBiz.removeClass("open");
-
-        //event.preventDefault();
-        //return false;
     });
 
-    //$("#btnOpenExcel").click(function (event) {
-    //    console.log("btnOpenExcel click");
+    $("body").delegate("#drdEmployee ul.dropdown-menu li a", "click", function () {
+        var $divEmployee = $("#drdEmployee");
+        var $divEmployeeBtn = $divEmployee.find("button");
+        employeeId = $(this).data("employee-id");
+        $("#EmployeeId").val(employeeId);
+        $divEmployeeBtn.html("Employee: " + $(this).text() + " <span class='caret'></span>");
 
-    //    window.location.href = "/Excel/ReportFile?lineId=" + lineId + "&businessId=" + businessId + "&days=" + $("#txtDays").val();
-    //});
-
+        var $btnOpenExcel = $("#btnOpenExcel");
+        $btnOpenExcel.removeAttr("disabled");
+    });
 });

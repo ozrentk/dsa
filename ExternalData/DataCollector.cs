@@ -101,17 +101,17 @@ namespace ExternalData
 
                 foreach (var biz in businessList)
                 {
-                    log.DebugFormat("Creating data collection tasks for business ({0}, {1})", biz.Id, biz.Name);
+                    log.DebugFormat("Creating data collection tasks for business (id={0}, code={1}, name={2})", biz.Id, biz.Code, biz.Name);
 
                     foreach (var ln in biz.Line)
                     {
-                        log.DebugFormat("Creating data collection task for line ({0}, {1})", ln.Id, ln.Name);
+                        log.DebugFormat("Creating data collection task for line (id={0}, code={1}, name={2})", ln.Id, ln.Code, ln.Name);
 
                         Task t = Task.Run(() =>
                         {
-                            log.DebugFormat("Starting data collection task for business/line {0}/{1}...", biz.Id, ln.Id);
+                            log.DebugFormat("Starting data collection task for business/line {0}/{1}...", biz.Code, ln.Code);
 
-                            var items = Fetcher.FetchItems(biz.Id, ln.Id, 2);
+                            var items = Fetcher.FetchItems(biz.Code, ln.Code, 2);
                             log.DebugFormat("Collected {0} items", items.Count);
                             lock (listLocker)
                             {

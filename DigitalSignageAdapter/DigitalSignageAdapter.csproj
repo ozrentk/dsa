@@ -227,6 +227,7 @@
     <Compile Include="CustomModelBinders\DateTimeCultureModelBinder.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Config\AddBusinessToSignupTicket.cs" />
+    <Compile Include="Models\Config\Employee.cs" />
     <Compile Include="Models\Config\Options.cs" />
     <Compile Include="Models\Config\Business.cs" />
     <Compile Include="Models\Config\Line.cs" />
@@ -375,6 +376,7 @@
     <Content Include="Views\TimeZone\RefreshOffset.cshtml" />
     <Content Include="Views\Home\Diagnostics.cshtml" />
     <Content Include="Views\Home\_EmployeeStats.cshtml" />
+    <Content Include="Views\Excel\Employees.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\typings\knockout\knockout.d.ts" />

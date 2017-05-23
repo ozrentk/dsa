@@ -55,6 +55,10 @@ namespace DigitalSignageAdapter
                         d.Add(new AdapterDb.ConfigItem { Name = "CleanupTreshold", Value = s.CleanupTreshold.ToString() });
                     });
 
+                cfg.CreateMap<AdapterDb.Employee, Models.Config.Employee>()
+                    .ForMember(d => d.BusinessName, opt => opt.MapFrom(s => s.Business.Name))
+                    .ReverseMap();
+
                 cfg.CreateMap<AdapterDb.Line, Models.Config.Line>()
                     .ForMember(d => d.BusinessName, opt => opt.MapFrom(s => s.Business.Name))
                     .ReverseMap();
@@ -69,8 +73,8 @@ namespace DigitalSignageAdapter
 
                 cfg.CreateMap<AdapterDb.DataItem, Models.Excel.DataItem>()
                     // BEGIN: special handling for null's, for total row in excel
-                   .ForMember(s => s.BusinessId, opt => opt.MapFrom(d => d.BusinessId != default(int) ? (int?)d.BusinessId : null))
-                   .ForMember(s => s.LineId, opt => opt.MapFrom(d => d.LineId != default(int) ? (int?)d.LineId : null))
+                   .ForMember(s => s.BusinessId, opt => opt.MapFrom(d => d.BusinessId != default(int) ? (int?)d.Business.Code : null))
+                   .ForMember(s => s.LineId, opt => opt.MapFrom(d => d.LineId != default(int) ? (int?)d.Line.Code : null))
                    .ForMember(s => s.ServiceId, opt => opt.MapFrom(d => d.ServiceId != default(int) ? (int?)d.ServiceId : null))
                    .ForMember(s => s.AnalyticId, opt => opt.MapFrom(d => d.AnalyticId != default(int) ? (int?)d.AnalyticId : null))
                    .ForMember(s => s.QueueId, opt => opt.MapFrom(d => d.QueueId != default(int) ? (int?)d.QueueId : null))
@@ -96,9 +100,18 @@ namespace DigitalSignageAdapter
                 cfg.CreateMap<AdapterDb.Employee, Models.Home.EmployeeTimes>()
                    .ForMember(d => d.EmployeeId, opt => opt.MapFrom(s => s.Id))
                    .ForMember(d => d.EmployeeName, opt => opt.MapFrom(s => s.Name))
-                   .ForMember(d => d.AverageServiceTime, opt => opt.MapFrom(s => new TimeSpan(0, 0, (int?)s.CalledDataItem.Average(i => i.ServiceTimeSec) ?? 0)))
-                   .ForMember(d => d.MonthlyServiceTime, opt => opt.MapFrom(s => new TimeSpan(0, 0, (int?)s.EmployeeStats.Average(i => i.ServiceTimeSec) ?? 0)))
-                   .ForMember(d => d.YearlyServiceTime, opt => opt.MapFrom(s => new TimeSpan(0, 0, (int?)s.EmployeeStats.Average(i => i.ServiceTimeSec) ?? 0)));
+                   .ForMember(d => d.AverageServiceTime, opt => opt.MapFrom(s =>
+                        (s.CalledDataItem != null && s.CalledDataItem.Count > 0) ?
+                            new TimeSpan(0, 0, (int)s.CalledDataItem.Average(i => i.ServiceTimeSec ?? 0)) :
+                            new TimeSpan(0, 0, 0)))
+                   .ForMember(d => d.MonthlyServiceTime, opt => opt.MapFrom(s =>
+                        (s.EmployeeStats != null && s.EmployeeStats.Count > 0) ?
+                            new TimeSpan(0, 0, (int)s.EmployeeStats.Average(i => i.ServiceTimeSec)) :
+                            new TimeSpan(0, 0, 0)))
+                   .ForMember(d => d.YearlyServiceTime, opt => opt.MapFrom(s =>
+                        (s.EmployeeStats != null && s.EmployeeStats.Count > 0) ?
+                            new TimeSpan(0, 0, (int)s.EmployeeStats.Average(i => i.ServiceTimeSec)) :
+                            new TimeSpan(0, 0, 0)));
             });
 
         }

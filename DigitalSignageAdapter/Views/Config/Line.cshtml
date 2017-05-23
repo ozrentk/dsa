@@ -7,7 +7,7 @@
 @{
     ViewBag.Title = "Line";
     bool isNew = false;
-    if (Model.Id == default(int))
+    if (!Model.Code.HasValue)
     {
         isNew = true;
     }
@@ -17,21 +17,18 @@
 
 @using (Html.BeginForm("Line", "Config", FormMethod.Post, new { @class = "user-form" }))
 {
+    @Html.HiddenFor(m => m.Id)
     @Html.HiddenFor(m => m.BusinessId)
     @Html.HiddenFor(m => m.IsDelete)
     <p style="height: 30px">&nbsp;</p>
     <div class="form-group">
-        @Html.LabelFor(m => m.Id, "Code")
-        @Html.TextBoxFor(m => m.Id, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Code)
+        @Html.TextBoxFor(m => m.Code, new { @class = "form-control" })
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Name)
         @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
     </div>
-    @*<div class="form-group">
-        @Html.LabelFor(m => m.Code)
-        @Html.TextBoxFor(m => m.Code, new { @class = "form-control" })
-    </div>*@
     <p style="height: 30px">&nbsp;</p>
     <input type="submit" id="btnSaveConfig" value="Save" class="btn btn-primary">
     if (!isNew)

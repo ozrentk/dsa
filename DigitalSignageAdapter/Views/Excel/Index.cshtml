@@ -62,7 +62,7 @@
             </button>
             <ul class="dropdown-menu">
                 @for (int i = 0; i < Model.BusinessList.Count; i++)
-            {
+                {
                     <li><a href="#" data-business-id="@Model.BusinessList[i].Id">@Model.BusinessList[i].Name</a></li>
                 }
             </ul>
@@ -71,6 +71,14 @@
         <div id="drdLine" class="dropdown pull-left" style="margin: 5px">
             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" disabled>
                 Select line
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu"></ul>
+        </div>
+        @Html.HiddenFor(m => m.EmployeeId)
+        <div id="drdEmployee" class="dropdown pull-left" style="margin: 5px">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" disabled>
+                Select employee
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu"></ul>

@@ -297,8 +297,8 @@ namespace DigitalSignageAdapter.Controllers
             var businessLineList = AdapterDb.Database.GetBusinessLineList(User);
 
             /* BEGIN ADJUST TIMES */
-            //DateTime clientCurrentTime = TimeZoneHelper.ClientCurrentTime(ViewBag.TimeZoneOffset);
-            DateTime clientCurrentTime = (new DateTime(2017, 3, 7)).AddHours(16);
+            DateTime clientCurrentTime = TimeZoneHelper.ClientCurrentTime(ViewBag.TimeZoneOffset);
+            //DateTime clientCurrentTime = (new DateTime(2017, 3, 7)).AddHours(16);
             DateTime clientToday = clientCurrentTime.Date;
 
             //var utcTimeFrom = TimeZoneHelper.ClientToUtc(clientToday, ViewBag.TimeZoneOffset);
@@ -309,7 +309,7 @@ namespace DigitalSignageAdapter.Controllers
             aggregatedModel.ClientTimeFrom = clientToday;
             aggregatedModel.ClientTimeTo = clientCurrentTime;
 
-            var employeeList = AdapterDb.Database.GetEmployeeDetails(User, clientToday, clientCurrentTime);
+            var employeeList = AdapterDb.Database.GetEmployeeDetails(User, null, clientToday, clientCurrentTime);
             var employeeStats = AdapterDb.Database.GetEmployeeStats(User, clientToday.Year);
             //var employeeData = Mapper.Map<List<AdapterDb.Employee>, List<EmployeeTimes>>(employeeList).ToList();
             var employeeData = (from e in employeeList
@@ -431,7 +431,7 @@ namespace DigitalSignageAdapter.Controllers
             model.ClientTimeFrom = clientToday;
             model.ClientTimeTo = clientCurrentTime;
 
-            var employeeList = AdapterDb.Database.GetEmployeeDetails(User, clientToday, clientCurrentTime);
+            var employeeList = AdapterDb.Database.GetEmployeeDetails(User, null, clientToday, clientCurrentTime);
             var employeeData = Mapper.Map<List<AdapterDb.Employee>, List<EmployeeTimes>>(employeeList).ToList();
             employeeData = employeeData.OrderBy(ed => ed.AverageServiceTime).ToList();
             model.EmployeeData = employeeData;
@@ -473,7 +473,7 @@ namespace DigitalSignageAdapter.Controllers
             var multiBiz = AdapterDb.Database.HasMultipleBusiness(User.Identity.Name);
             var biz = AdapterDb.Database.GetBusiness(businessId);
 
-            var employeeList = AdapterDb.Database.GetEmployeeDetails(User, clientToday, clientCurrentTime);
+            var employeeList = AdapterDb.Database.GetEmployeeDetails(User, businessId, clientToday, clientCurrentTime);
             var employeeData = Mapper.Map<List<AdapterDb.Employee>, List<EmployeeTimes>>(employeeList).ToList();
             employeeData = employeeData.OrderBy(ed => ed.AverageServiceTime).ToList();
 

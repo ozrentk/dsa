@@ -17,9 +17,9 @@ namespace ExternalData
 
         private static string _baseDataUrl = "https://secure.digitalsignage.com/LineAnalyticsOpen";
 
-        internal static List<DataItem> FetchItems(int businessId, int lineId, int days)
+        internal static List<DataItem> FetchItems(int businessCode, int lineCode, int days)
         {
-            log.DebugFormat("Fetching external data items for ({0}, {1}, {2} days)", businessId, lineId, days);
+            log.DebugFormat("Fetching external data items for ({0}, {1}, {2} days)", businessCode, lineCode, days);
 
             List<DataItem> dataItems = new List<DataItem>();
 
@@ -31,8 +31,8 @@ namespace ExternalData
 
             //line_id=1552&business_id=423662&days=10
             List<string> tokens = new List<string>();
-            tokens.Add(String.Format("line_id={0}", lineId));
-            tokens.Add(String.Format("business_id={0}", businessId));
+            tokens.Add(String.Format("line_id={0}", lineCode));
+            tokens.Add(String.Format("business_id={0}", businessCode));
             tokens.Add(String.Format("days={0}", days));
             string getQuery = "?" + String.Join("&", tokens);
             log.DebugFormat("Sending HTTP GET request to {0}{1}", _baseDataUrl, getQuery);

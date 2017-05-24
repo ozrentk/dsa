@@ -720,6 +720,7 @@ namespace AdapterDb
                                     (!employeeId.HasValue || employeeId.HasValue && employeeId.Value == i.CalledById) &&
                                     i.Entered >= timeFrom &&
                                     i.Entered <= timeTo
+                                orderby i.QueueId
                                 select i).ToList();
 
                 return allItems;
@@ -735,8 +736,8 @@ namespace AdapterDb
                                     businessIds.Contains(i.BusinessId) &&
                                     i.Entered >= timeFrom &&
                                     i.Entered <= timeTo
+                                orderby i.QueueId
                                 select i).ToList();
-
 
                 return allItems;
             }

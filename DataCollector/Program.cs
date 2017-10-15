@@ -10,7 +10,7 @@ namespace DataCollector
 {
     class Program
     {
-        private static readonly ILog log = LogManager.GetLogger(typeof(Program));
+        private static readonly ILog log = LogManager.GetLogger("TraceLogger");
 
         private static bool _cfgCollectData = false;
         private static bool _cfgRunCleanup = false;

@@ -10,7 +10,7 @@ namespace ExternalData
 {
     public class DataItemReader
     {
-        private static readonly ILog log = LogManager.GetLogger(typeof(DataItemReader));
+        private static readonly ILog log = LogManager.GetLogger("TraceLogger");
 
         /// <summary>
         /// Take JSON reader as input and output collection of items

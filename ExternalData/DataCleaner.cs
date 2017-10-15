@@ -12,7 +12,7 @@ namespace ExternalData
 {
     public class DataCleaner
     {
-        private static readonly ILog log = LogManager.GetLogger(typeof(DataCleaner));
+        private static readonly ILog log = LogManager.GetLogger("TraceLogger");
 
         public static void DoCleanup()
         {
@@ -24,6 +24,7 @@ namespace ExternalData
 
                 var dbCfgItems = Database.GetConfigItems();
                 var cleanupTreshold = int.Parse(dbCfgItems.First(i => i.Name.Equals("CleanupTreshold")).Value);
+                log.DebugFormat("Cleanup treshold in hours: {0}", cleanupTreshold);
                 var lastValidTime = currentTime.AddHours(-cleanupTreshold);
 
                 log.DebugFormat("removing items older than {0}", lastValidTime.ToString());

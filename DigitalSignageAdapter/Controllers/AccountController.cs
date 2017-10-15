@@ -17,7 +17,7 @@ namespace DigitalSignageAdapter.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        private static readonly ILog log = LogManager.GetLogger(typeof(AccountController));
+        private static readonly ILog log = LogManager.GetLogger("TraceLogger");
 
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;

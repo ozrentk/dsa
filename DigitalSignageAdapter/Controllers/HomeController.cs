@@ -312,8 +312,11 @@ namespace DigitalSignageAdapter.Controllers
             var employeeList = AdapterDb.Database.GetEmployeeDetails(User, null, clientToday, clientCurrentTime);
             var employeeStats = AdapterDb.Database.GetEmployeeStats(User, clientToday.Year);
             //var employeeData = Mapper.Map<List<AdapterDb.Employee>, List<EmployeeTimes>>(employeeList).ToList();
-            var employeeData = (from e in employeeList
-                                //join es in employeeStats on e.Id equals es.Id
+            List<EmployeeTimes> employeeData = new List<EmployeeTimes>();
+            try
+            {
+                employeeData = (from e in employeeList
+                                    //join es in employeeStats on e.Id equals es.Id
                                 let avgValue = (int?)e.CalledDataItem.Average(i => i.ServiceTimeSec) ?? 0
                                 let monthlyValue = (int)employeeStats.Where(es => es.EmployeeId == e.Id && es.EnteredMonth == clientToday.Month).Average(es => es.ServiceTimeSec)
                                 //let monthlyValue = (monthlyStats != null) ? monthlyStats.ServiceTimeSec : 0
@@ -326,8 +329,12 @@ namespace DigitalSignageAdapter.Controllers
                                     MonthlyServiceTime = new TimeSpan(0, 0, monthlyValue),
                                     YearlyServiceTime = new TimeSpan(0, 0, yearlyValue)
                                 }).OrderBy(e => e.AverageServiceTime)
-                                  .ToList();
-            //employeeData = employeeData.OrderBy(ed => ed.AverageServiceTime).ToList();
+                                .ToList();
+            }
+            catch (Exception ex)
+            {
+                // Jebi se, neće ići, jebe te average, a? Mrš.
+            }
 
             var model = new AdminDashboard
             {
@@ -762,8 +769,8 @@ namespace DigitalSignageAdapter.Controllers
                                       LineName = lineDict[g.Key.lineId],
                                       MinDate = g.Min(_ => _.Entered),
                                       MaxDate = g.Max(_ => _.Entered),
-                                      AverageWaitTime = (int)g.Average(_ => _.WaitTimeSec),
-                                      AverageServiceTime = (int)g.Average(_ => _.ServiceTimeSec),
+                                      AverageWaitTime = (int)(g.Count() > 0 ? g.Average(_ => _.WaitTimeSec) : 0),
+                                      AverageServiceTime = (int)(g.Count() > 0 ? g.Average(_ => _.ServiceTimeSec) : 0),
                                       CustomersWaitingCount = g.Count(_ => _.Entered.HasValue && !_.Called.HasValue),
                                       CustomersBeingServicedCount = g.Count(_ => _.Called.HasValue && !_.Serviced.HasValue),
                                       CustomersServicedCount = g.Count(_ => _.Serviced.HasValue),

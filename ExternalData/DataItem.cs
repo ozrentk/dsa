@@ -9,6 +9,8 @@ namespace ExternalData
     {
         public int? BusinessId { get; set; }
         public int? LineId { get; set; }
+        //public int? BusinessCode { get; set; }
+        //public int? LineCode { get; set; }
         public int? CalledById { get; set; }
         public int? QueueId { get; set; }
 
@@ -43,6 +45,19 @@ namespace ExternalData
         }
 
         public bool IsCached { get; set; }
+
+        public override string ToString()
+        {
+            return String.Format("|{0,4}|{1,6}|{2,20:yyyy-MM-dd HH:mm:ss}|{3,20:yyyy-MM-dd HH:mm:ss}|{4,-20}|{5,20:yyyy-MM-dd HH:mm:ss}|{6,-20}|{7,10}|",
+                LineId,
+                BusinessId,
+                Entered,
+                Called, 
+                CalledByName,
+                Serviced,
+                ServicedByName,
+                QueueId);
+        }
     }
 
 }

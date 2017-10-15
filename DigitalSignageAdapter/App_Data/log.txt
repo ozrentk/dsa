@@ -25258,3 +25258,83 @@ DEBUG 2017-05-24 00:04:06,212  1700ms AutomapperConfig       ureDataItemMapping 
 DEBUG 2017-05-24 00:04:06,465  1953ms MvcApplication         Application_Start  - application started ok
 INFO  2017-05-24 00:05:00,047 55535ms ernalDataCollectionJob Execute            - Execute task: data collection...
 INFO  2017-05-24 00:05:00,059 55547ms ernalDataCollectionJob Execute            - Data collection not enabled
+DEBUG 2017-05-25 01:11:41,742    74ms MvcApplication         Application_Start  - log4net configured
+DEBUG 2017-05-25 01:11:43,066  1399ms QuartzConfig           eDataCollectionJob - configuring data collection job using CRON expression 0 * * * * ?...
+DEBUG 2017-05-25 01:11:43,103  1436ms AutomapperConfig       ureDataItemMapping - configuring automapper
+DEBUG 2017-05-25 01:11:43,329  1662ms MvcApplication         Application_Start  - application started ok
+DEBUG 2017-05-25 01:12:07,864   272ms MvcApplication         Application_Start  - log4net configured
+DEBUG 2017-05-25 01:12:10,213  2621ms QuartzConfig           eDataCollectionJob - configuring data collection job using CRON expression 0 * * * * ?...
+DEBUG 2017-05-25 01:12:10,250  2657ms AutomapperConfig       ureDataItemMapping - configuring automapper
+DEBUG 2017-05-25 01:12:10,491  2899ms MvcApplication         Application_Start  - application started ok
+INFO  2017-05-25 01:13:00,021 52429ms ernalDataCollectionJob Execute            - Execute task: data collection...
+INFO  2017-05-25 01:13:00,042 52450ms ernalDataCollectionJob Execute            - Data collection not enabled
+DEBUG 2017-06-02 18:11:58,152    93ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-06-02 18:11:59,615  1556ms TraceLogger            eDataCollectionJob - configuring data collection job using CRON expression 0 * * * * ?...
+DEBUG 2017-06-02 18:11:59,650  1591ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-06-02 18:11:59,884  1825ms TraceLogger            Application_Start  - application started ok
+INFO  2017-06-02 18:12:00,039  1980ms TraceLogger            Execute            - Execute task: data collection...
+INFO  2017-06-02 18:12:00,043  1984ms TraceLogger            Execute            - Data collection not enabled
+INFO  2017-06-02 18:13:00,000 61941ms TraceLogger            Execute            - Execute task: data collection...
+INFO  2017-06-02 18:13:00,000 61941ms TraceLogger            Execute            - Data collection not enabled
+DEBUG 2017-08-20 21:51:58,835   105ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-08-20 21:52:00,182  1452ms TraceLogger            eDataCollectionJob - configuring data collection job using CRON expression 0 * * * * ?...
+DEBUG 2017-08-20 21:52:00,221  1491ms TraceLogger            ureDataItemMapping - configuring automapper
+INFO  2017-08-20 21:52:00,242  1512ms TraceLogger            Execute            - Execute task: data collection...
+INFO  2017-08-20 21:52:00,247  1517ms TraceLogger            Execute            - Data collection not enabled
+DEBUG 2017-08-20 21:52:00,485  1755ms TraceLogger            Application_Start  - application started ok
+INFO  2017-08-20 21:53:00,000 61270ms TraceLogger            Execute            - Execute task: data collection...
+INFO  2017-08-20 21:53:00,001 61271ms TraceLogger            Execute            - Data collection not enabled
+DEBUG 2017-08-20 21:54:41,553    78ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-08-20 21:54:50,020  8544ms TraceLogger            eDataCollectionJob - configuring data collection job using CRON expression 0 * * * * ?...
+DEBUG 2017-08-20 21:54:50,056  8580ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-08-20 21:54:50,306  8831ms TraceLogger            Application_Start  - application started ok
+INFO  2017-08-20 21:55:00,013 18538ms TraceLogger            Execute            - Execute task: data collection...
+INFO  2017-08-20 21:55:00,025 18550ms TraceLogger            Execute            - Data collection not enabled
+INFO  2017-08-20 21:56:00,004 78529ms TraceLogger            Execute            - Execute task: data collection...
+INFO  2017-08-20 21:56:00,005 78530ms TraceLogger            Execute            - Data collection not enabled
+INFO  2017-08-20 21:57:00,001 138525ms TraceLogger            Execute            - Execute task: data collection...
+INFO  2017-08-20 21:57:00,001 138525ms TraceLogger            Execute            - Data collection not enabled
+DEBUG 2017-08-20 21:57:49,601   212ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-08-20 21:57:55,206  5817ms TraceLogger            eDataCollectionJob - configuring data collection job using CRON expression 0 * * * * ?...
+DEBUG 2017-08-20 21:57:55,257  5867ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-08-20 21:57:55,541  6151ms TraceLogger            Application_Start  - application started ok
+INFO  2017-08-20 21:58:00,014 10624ms TraceLogger            Execute            - Execute task: data collection...
+INFO  2017-08-20 21:58:00,017 10627ms TraceLogger            Execute            - Data collection not enabled
+INFO  2017-08-20 21:59:36,641 107251ms TraceLogger            Execute            - Execute task: data collection...
+INFO  2017-08-20 21:59:36,641 107251ms TraceLogger            Execute            - Data collection not enabled
+INFO  2017-08-20 22:00:00,000 130611ms TraceLogger            Execute            - Execute task: data collection...
+INFO  2017-08-20 22:00:00,000 130611ms TraceLogger            Execute            - Data collection not enabled
+INFO  2017-08-20 22:01:00,000 190610ms TraceLogger            Execute            - Execute task: data collection...
+INFO  2017-08-20 22:01:00,001 190611ms TraceLogger            Execute            - Data collection not enabled
+INFO  2017-08-20 22:02:00,000 250610ms TraceLogger            Execute            - Execute task: data collection...
+INFO  2017-08-20 22:02:00,001 250611ms TraceLogger            Execute            - Data collection not enabled
+DEBUG 2017-08-20 22:52:14,325    77ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-08-20 22:52:21,087  6838ms TraceLogger            eDataCollectionJob - configuring data collection job using CRON expression 0 * * * * ?...
+DEBUG 2017-08-20 22:52:21,122  6873ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-08-20 22:52:21,353  7104ms TraceLogger            Application_Start  - application started ok
+INFO  2017-08-20 22:53:00,034 45785ms TraceLogger            Execute            - Execute task: data collection...
+INFO  2017-08-20 22:53:00,049 45800ms TraceLogger            Execute            - Data collection not enabled
+DEBUG 2017-08-20 23:08:27,972    69ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-08-20 23:08:58,477   191ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-08-20 23:09:56,080   176ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-08-20 23:11:11,312    79ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-08-20 23:12:25,953    73ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-08-20 23:13:26,070   195ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-08-20 23:16:42,500    73ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-08-20 23:16:43,347   919ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-08-20 23:16:43,629  1201ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-08-20 23:17:42,181    75ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-08-20 23:17:42,997   892ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-08-20 23:17:43,283  1178ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-08-20 23:32:26,304   204ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-08-20 23:32:26,374   274ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-08-20 23:32:26,752   652ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-08-20 23:47:38,138   109ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-08-20 23:47:39,034  1005ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-08-20 23:47:39,369  1340ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-08-21 00:22:59,667    79ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-08-21 00:23:00,552   964ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-08-21 00:23:00,844  1256ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-08-21 00:25:47,044   105ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-08-21 00:25:47,908   969ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-08-21 00:25:48,224  1285ms TraceLogger            Application_Start  - application started ok

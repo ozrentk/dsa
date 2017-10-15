@@ -11,7 +11,7 @@ namespace DigitalSignageAdapter.ScheduledJobs
 {
     public class ExternalDataCollectionJob : IJob
     {
-        private static readonly ILog log = LogManager.GetLogger(typeof(ExternalDataCollectionJob));
+        private static readonly ILog log = LogManager.GetLogger("TraceLogger");
 
         private bool _cfgCollectData = false;
         private bool _cfgRunCleanup = false;

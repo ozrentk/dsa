@@ -8,7 +8,7 @@ namespace DigitalSignageAdapter
 {
     public static class AutomapperConfig
     {
-        private static readonly ILog log = LogManager.GetLogger(typeof(AutomapperConfig));
+        private static readonly ILog log = LogManager.GetLogger("TraceLogger");
 
         public static void Configure()
         {

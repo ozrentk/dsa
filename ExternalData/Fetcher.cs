@@ -13,7 +13,7 @@ namespace ExternalData
 {
     public class Fetcher
     {
-        private static readonly ILog log = LogManager.GetLogger(typeof(Fetcher));
+        private static readonly ILog log = LogManager.GetLogger("TraceLogger");
 
         private static string _baseDataUrl = "https://secure.digitalsignage.com/LineAnalyticsOpen";
 

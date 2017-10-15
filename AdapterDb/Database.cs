@@ -12,7 +12,7 @@ namespace AdapterDb
 {
     public class Database
     {
-        private static readonly ILog log = LogManager.GetLogger(typeof(Database));
+        private static readonly ILog log = LogManager.GetLogger("TraceLogger");
 
         public Database()
         {
@@ -32,7 +32,6 @@ namespace AdapterDb
 
         public static List<ConfigItem> GetConfigItems()
         {
-
             using (var db = new AdapterDbEntities())
             {
                 var items = from i in db.ConfigItem
@@ -75,8 +74,8 @@ namespace AdapterDb
                     SqlParameter lastValidTimeParam = new SqlParameter("@lastValidTime", lastValidTime);
 
                     log.DebugFormat("Deleting old invalid items from database...");
-                    var delItems = db.Database.SqlQuery<int>("EXEC CleanupOldInvalidItems @lastValidTime", lastValidTimeParam).ToList();
-                    log.DebugFormat("{0} old invalid items deleted!", delItems.Count());
+                    var resultset = db.Database.SqlQuery<int>("EXEC CleanupOldInvalidItems @lastValidTime", lastValidTimeParam).ToList();
+                    log.DebugFormat("{0} old invalid items deleted!", resultset.First());
                 }
                 return true;
             }
@@ -86,6 +85,7 @@ namespace AdapterDb
                 return false;
             }
         }
+
         public static User GetUser(int id)
         {
             using (var db = new AdapterDbEntities())
@@ -767,8 +767,8 @@ namespace AdapterDb
                                      select new
                                      {
                                          LineId = g.Key,
-                                         AverageWaitTime = (int)(g.Average(_ => _.WaitTimeSec) ?? 0),
-                                         AverageServiceTime = (int)(g.Average(_ => _.ServiceTimeSec) ?? 0),
+                                         AverageWaitTime = (int?)(g.Count() > 0 ? g.Average(_ => _.WaitTimeSec) : 0) ?? 0,
+                                         AverageServiceTime = (int?)(g.Count() > 0 ? g.Average(_ => _.ServiceTimeSec): 0) ?? 0,
                                          CustomersWaitingCount = g.Count(_ => _.Entered.HasValue && !_.Called.HasValue),
                                          CustomersBeingServicedCount = g.Count(_ => _.Called.HasValue && !_.Serviced.HasValue),
                                          CustomersServicedCount = g.Count(_ => _.Serviced.HasValue),
@@ -831,8 +831,8 @@ namespace AdapterDb
                                          select new
                                          {
                                              BusinessId = g.Key,
-                                             AverageWaitTime = (int?)(g.Average(_ => _.WaitTimeSec) ?? 0),
-                                             AverageServiceTime = (int?)(g.Average(_ => _.ServiceTimeSec) ?? 0),
+                                             AverageWaitTime = (int?)(g.Count() > 0 ? g.Average(_ => _.WaitTimeSec): 0) ?? 0,
+                                             AverageServiceTime = (int?)(g.Count() > 0 ? g.Average(_ => _.ServiceTimeSec): 0) ?? 0,
                                              CustomersWaitingCount = g.Count(_ => _.Entered.HasValue && !_.Called.HasValue),
                                              CustomersBeingServicedCount = g.Count(_ => _.Called.HasValue && !_.Serviced.HasValue),
                                              CustomersServicedCount = g.Count(_ => _.Serviced.HasValue),
@@ -846,8 +846,8 @@ namespace AdapterDb
                                              {
                                                  BusinessId = b.Id,
                                                  BusinessName = b.Name,
-                                                 AverageWaitTime = (d != null) ? (d.AverageWaitTime ?? 0) : 0,
-                                                 AverageServiceTime = (d != null) ? (d.AverageServiceTime ?? 0) : 0,
+                                                 AverageWaitTime = (d != null) ? (d.AverageWaitTime) : 0,
+                                                 AverageServiceTime = (d != null) ? (d.AverageServiceTime) : 0,
                                                  CustomersWaitingCount = (d != null) ? d.CustomersWaitingCount : 0,
                                                  CustomersBeingServicedCount = (d != null) ? d.CustomersBeingServicedCount : 0,
                                                  CustomersServicedCount = (d != null) ? d.CustomersServicedCount : 0,
@@ -860,8 +860,8 @@ namespace AdapterDb
                                              select new AdapterDb.AggregatedData
                                              {
                                                  LineName = g.Key,
-                                                 AverageWaitTime = (int)(g.Average(_ => _.item.WaitTimeSec) ?? 0),
-                                                 AverageServiceTime = (int)(g.Average(_ => _.item.ServiceTimeSec) ?? 0),
+                                                 AverageWaitTime = (int?)(g.Count() > 0 ? g.Average(_ => _.item.WaitTimeSec) : 0) ?? 0,
+                                                 AverageServiceTime = (int?)(g.Count() > 0 ? g.Average(_ => _.item.ServiceTimeSec) : 0) ?? 0,
                                                  CustomersWaitingCount = g.Count(_ => _.item.Entered.HasValue && !_.item.Called.HasValue),
                                                  CustomersBeingServicedCount = g.Count(_ => _.item.Called.HasValue && !_.item.Serviced.HasValue),
                                                  CustomersServicedCount = g.Count(_ => _.item.Serviced.HasValue),
@@ -873,8 +873,8 @@ namespace AdapterDb
                 {
                     aggregateTotal = new AdapterDb.AggregatedData
                     {
-                        AverageWaitTime = (int)(allItems.Average(_ => _.WaitTimeSec) ?? 0),
-                        AverageServiceTime = (int)(allItems.Average(_ => _.ServiceTimeSec) ?? 0),
+                        AverageWaitTime = (int?)(allItems.Count() > 0 ? allItems.Average(_ => _.WaitTimeSec) : 0) ?? 0,
+                        AverageServiceTime = (int?)(allItems.Count() > 0 ? allItems.Average(_ => _.ServiceTimeSec) : 0) ?? 0,
                         CustomersWaitingCount = allItems.Count(_ => _.Entered.HasValue && !_.Called.HasValue),
                         CustomersBeingServicedCount = allItems.Count(_ => _.Called.HasValue && !_.Serviced.HasValue),
                         CustomersServicedCount = allItems.Count(_ => _.Serviced.HasValue),

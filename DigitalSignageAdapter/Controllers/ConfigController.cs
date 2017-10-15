@@ -13,7 +13,7 @@ namespace DigitalSignageAdapter.Controllers
     [Authorize(Roles = "Admin")]
     public class ConfigController : Controller
     {
-        private static readonly ILog log = LogManager.GetLogger(typeof(ConfigController));
+        private static readonly ILog log = LogManager.GetLogger("TraceLogger");
 
         [TimeZoneActionFilter]
         public ActionResult Index()

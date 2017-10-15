@@ -22,7 +22,7 @@ namespace DigitalSignageAdapter.Controllers
 {
     public class ExcelController : Controller
     {
-        private static readonly ILog log = LogManager.GetLogger(typeof(ExcelController));
+        private static readonly ILog log = LogManager.GetLogger("TraceLogger");
 
         const string _spreadsheetmlNamespace = "http://schemas.openxmlformats.org/spreadsheetml/2006/main";
         private string _reportTemplate = "ReportTemplate.xlsx";
@@ -170,8 +170,12 @@ namespace DigitalSignageAdapter.Controllers
                     {
                         aggregateTotal = new Models.Excel.DataItem
                         {
-                            WaitTime = new TimeSpan(0, 0, (int)(dbItems.Average(_ => _.WaitTimeSec) ?? 0)),
-                            ServiceTime = new TimeSpan(0, 0, (int)(dbItems.Average(_ => _.ServiceTimeSec) ?? 0)),
+                            WaitTime = dbItems.Count > 0 ? 
+                                new TimeSpan(0, 0, (int)(dbItems.Average(_ => _.WaitTimeSec) ?? 0)) :
+                                new TimeSpan(0, 0, 0),
+                            ServiceTime = dbItems.Count > 0 ? 
+                                new TimeSpan(0, 0, (int)(dbItems.Average(_ => _.ServiceTimeSec) ?? 0)) :
+                                new TimeSpan(0, 0, 0),
                             Name = String.Format("Total: {0} customers", dbItems.Count())
                         };
                     }

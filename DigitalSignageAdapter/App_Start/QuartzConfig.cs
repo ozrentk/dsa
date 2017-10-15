@@ -13,7 +13,7 @@ namespace DigitalSignageAdapter
 {
     public class QuartzConfig
     {
-        private static readonly ILog log = LogManager.GetLogger(typeof(QuartzConfig));
+        private static readonly ILog log = LogManager.GetLogger("TraceLogger");
 
         public static void Configure()
         {

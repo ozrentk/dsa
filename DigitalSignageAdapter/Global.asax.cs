@@ -2,8 +2,10 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO.Pipes;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Web;
 using System.Web.Helpers;
@@ -35,6 +37,27 @@ namespace DigitalSignageAdapter
             AntiForgeryConfig.SuppressIdentityHeuristicChecks = true;
 
             log.Debug("application started ok");
+
+            Assembly asm = Assembly.GetExecutingAssembly();
+
+            var controllers = asm.GetTypes().Where(t => typeof(Controller).IsAssignableFrom(t)).ToList();
+            foreach (var c in controllers)
+            {
+                var controllerName = c.Name;
+                //Debug.WriteLine($"Controller {controllerName}");
+                var actions = c.GetMethods(BindingFlags.Instance | BindingFlags.DeclaredOnly | BindingFlags.Public)
+                               //.Where(m => m.IsPublic && !m.IsDefined(typeof(NonActionAttribute)))
+                               .Where(m => !m.GetCustomAttributes(typeof(System.Runtime.CompilerServices.CompilerGeneratedAttribute), true).Any())
+                               .Select(m => m.Name)
+                               .Where(a => !a.StartsWith("get_", StringComparison.InvariantCulture) &&
+                                           !a.StartsWith("set_", StringComparison.InvariantCulture))
+                               .Distinct();
+                foreach (var actionName in actions)
+                {
+                    //Debug.WriteLine($"\tAction {actionName}");
+                    Debug.WriteLine($"('{controllerName}','{actionName}','{actionName}'),");
+                }
+            }
         }
 
         protected void Application_Error(object sender, EventArgs e)

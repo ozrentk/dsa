@@ -97,21 +97,24 @@ namespace DigitalSignageAdapter
                    .ForMember(s => s.WaitTimeSec, opt => opt.MapFrom(d => d.WaitTime.TotalSeconds))
                    .ForMember(s => s.ServiceTimeSec, opt => opt.MapFrom(d => d.ServiceTime.TotalSeconds));
 
-                cfg.CreateMap<AdapterDb.Employee, Models.Home.EmployeeTimes>()
-                   .ForMember(d => d.EmployeeId, opt => opt.MapFrom(s => s.Id))
-                   .ForMember(d => d.EmployeeName, opt => opt.MapFrom(s => s.Name))
+                cfg.CreateMap<AdapterDb.EmployeeTimes, Models.Home.EmployeeTimes>()
+                   .ForMember(d => d.EmployeeId, opt => opt.MapFrom(s => s.EmployeeId))
+                   .ForMember(d => d.EmployeeName, opt => opt.MapFrom(s => s.EmployeeName))
                    .ForMember(d => d.AverageServiceTime, opt => opt.MapFrom(s =>
-                        (s.CalledDataItem != null && s.CalledDataItem.Count > 0) ?
-                            new TimeSpan(0, 0, (int)s.CalledDataItem.Average(i => i.ServiceTimeSec ?? 0)) :
-                            new TimeSpan(0, 0, 0)))
+                        new TimeSpan(0, 0, s.DailyServiceTimeSec)))
                    .ForMember(d => d.MonthlyServiceTime, opt => opt.MapFrom(s =>
-                        (s.EmployeeStats != null && s.EmployeeStats.Count > 0) ?
-                            new TimeSpan(0, 0, (int)s.EmployeeStats.Average(i => i.ServiceTimeSec)) :
-                            new TimeSpan(0, 0, 0)))
+                        new TimeSpan(0, 0, s.MonthlyServiceTimeSec)))
                    .ForMember(d => d.YearlyServiceTime, opt => opt.MapFrom(s =>
-                        (s.EmployeeStats != null && s.EmployeeStats.Count > 0) ?
-                            new TimeSpan(0, 0, (int)s.EmployeeStats.Average(i => i.ServiceTimeSec)) :
-                            new TimeSpan(0, 0, 0)));
+                        new TimeSpan(0, 0, s.YearlyServiceTimeSec)));
+
+                   //.ForMember(d => d.MonthlyServiceTime, opt => opt.MapFrom(s =>
+                   //     (s.EmployeeStats != null && s.EmployeeStats.Count > 0) ?
+                   //         new TimeSpan(0, 0, (int)s.EmployeeStats.Average(i => i.ServiceTimeSec)) :
+                   //         new TimeSpan(0, 0, 0)))
+                   //.ForMember(d => d.YearlyServiceTime, opt => opt.MapFrom(s =>
+                   //     (s.EmployeeStats != null && s.EmployeeStats.Count > 0) ?
+                   //         new TimeSpan(0, 0, (int)s.EmployeeStats.Average(i => i.ServiceTimeSec)) :
+                   //         new TimeSpan(0, 0, 0)));
             });
 
         }

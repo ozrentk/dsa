@@ -25338,3 +25338,247 @@ DEBUG 2017-08-21 00:23:00,844  1256ms TraceLogger            Application_Start  
 DEBUG 2017-08-21 00:25:47,044   105ms TraceLogger            Application_Start  - log4net configured
 DEBUG 2017-08-21 00:25:47,908   969ms TraceLogger            ureDataItemMapping - configuring automapper
 DEBUG 2017-08-21 00:25:48,224  1285ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-15 12:15:11,374   159ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-15 12:15:12,549  1334ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-15 12:15:12,845  1629ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-15 12:16:34,529    68ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-15 12:16:35,378   917ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-15 12:16:35,682  1221ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-15 12:20:34,377    75ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-15 12:20:35,211   909ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-15 12:20:35,508  1206ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-15 12:24:06,364    82ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-15 12:24:07,284  1002ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-15 12:24:07,605  1323ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-15 12:24:40,162    78ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-15 12:24:40,971   886ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-15 12:24:41,241  1156ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-15 12:26:37,337    71ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-15 12:26:38,141   874ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-15 12:26:38,434  1168ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-15 12:31:28,580    69ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-15 12:31:29,380   869ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-15 12:31:29,644  1133ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-15 12:38:27,642    74ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-15 12:38:28,467   899ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-15 12:38:28,737  1169ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-15 12:39:05,531    72ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-15 12:39:06,382   923ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-15 12:39:06,676  1217ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-15 12:39:41,711    71ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-15 12:39:42,553   912ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-15 12:39:42,864  1224ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-15 12:42:02,083   211ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-15 12:42:02,150   279ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-15 12:42:02,482   611ms TraceLogger            Application_Start  - application started ok
+ERROR 2017-10-15 12:46:13,457 251585ms TraceLogger            OnException        - Caught EF exception
+System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception: The wait operation timed out
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at AdapterDb.Database.GetAggregatedDataForMultipleBusinesses(IPrincipal user, Int32[] businessIds, DateTime timeFrom, DateTime timeTo) in D:\OneDrive\Posao\DigitalSignage\AdapterDb\Database.cs:line 829
+   at DigitalSignageAdapter.Controllers.HomeController.GetAggregatedModel(DateTime timeFrom, DateTime timeTo, List`1 businessList) in D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\Controllers\HomeController.cs:line 219
+   at DigitalSignageAdapter.Controllers.HomeController.AdminDashboard() in D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\Controllers\HomeController.cs:line 308
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+ERROR 2017-10-15 12:46:48,689 286818ms TraceLogger            OnException        - Caught EF exception
+System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception: The wait operation timed out
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at AdapterDb.Database.GetEmployeeDetails(IPrincipal user, Nullable`1 businessId, DateTime timeFrom, DateTime timeTo) in D:\OneDrive\Posao\DigitalSignage\AdapterDb\Database.cs:line 642
+   at DigitalSignageAdapter.Controllers.HomeController.SingleBusiness(Int32 businessId) in D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\Controllers\HomeController.cs:line 483
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+DEBUG 2017-10-15 12:48:33,849   221ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-15 12:48:33,925   297ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-15 12:48:34,246   618ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-15 12:49:51,562   230ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-15 12:49:51,631   299ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-15 12:49:51,955   623ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-15 12:51:30,682   218ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-15 12:51:30,750   286ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-15 12:51:31,078   614ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-15 17:06:24,857   125ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-15 17:06:26,047  1316ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-15 17:06:26,415  1684ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-15 17:08:01,026    75ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-15 17:08:01,980  1029ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-15 17:08:02,268  1316ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-15 17:19:32,002    83ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-15 17:19:32,902   983ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-15 17:19:33,181  1262ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-15 17:21:18,554    78ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-15 17:21:19,470   994ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-15 17:21:19,796  1320ms TraceLogger            Application_Start  - application started ok
+ERROR 2017-10-15 17:35:29,181 850704ms TraceLogger            OnException        - Caught EF exception
+System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception: The wait operation timed out
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at AdapterDb.Database.GetEmployeeDetails(IPrincipal user, Nullable`1 businessId, DateTime timeFrom, DateTime timeTo) in D:\OneDrive\Posao\DigitalSignage\AdapterDb\Database.cs:line 659
+   at DigitalSignageAdapter.Controllers.HomeController.AdminDashboard() in D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\Controllers\HomeController.cs:line 312
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+DEBUG 2017-10-15 18:11:43,286   108ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-15 18:11:44,393  1215ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-15 18:11:44,710  1532ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-15 22:35:31,299   298ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-15 22:35:31,409   408ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-15 22:35:31,782   781ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-15 23:29:53,799   105ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-15 23:29:54,676   982ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-15 23:29:54,988  1294ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-15 23:36:28,114    76ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-15 23:36:29,022   984ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-15 23:36:29,561  1524ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-15 23:51:20,471   236ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-15 23:51:21,741  1505ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-15 23:51:22,032  1796ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-15 23:51:55,938   218ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-15 23:51:56,010   291ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-15 23:51:56,355   635ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-16 00:02:42,318    91ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-16 00:02:43,320  1094ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-16 00:02:43,634  1407ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-17 23:52:56,021   108ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-17 23:52:57,153  1240ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-17 23:52:57,480  1567ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-18 06:51:54,823    99ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-18 06:51:55,760  1035ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-18 06:51:56,041  1317ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-18 06:52:47,101    87ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-18 06:52:47,967   953ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-18 06:52:48,244  1229ms TraceLogger            Application_Start  - application started ok

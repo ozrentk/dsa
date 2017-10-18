@@ -629,19 +629,16 @@ namespace AdapterDb
             }
         }
 
-        public static List<Employee> GetEmployeeDetails(IPrincipal user, int? businessId, DateTime timeFrom, DateTime timeTo)
+        public static List<Employee> GetCalledEmployees(IPrincipal user, int? businessId, DateTime timeFrom, DateTime timeTo)
         {
-            List<Employee> itemList;
-
             using (var db = new AdapterDbEntities())
             {
                 db.Configuration.ProxyCreationEnabled = false;
 
+                var businessIds = new List<int>();
                 if (businessId.HasValue && user.IsInRole("Admin"))
                 {
-                    itemList = (from i in db.Employee.Include("CalledDataItem").Include("EmployeeStats")
-                                where i.BusinessId == businessId.Value
-                                select i).ToList();
+                    businessIds.Add(businessId.Value);
                 }
                 else if (businessId.HasValue && !user.IsInRole("Admin"))
                 {
@@ -650,56 +647,64 @@ namespace AdapterDb
                     if (!allowedBizIds.Contains(businessId.Value))
                         return new List<Employee>();
 
-                    itemList = (from i in db.Employee.Include("CalledDataItem").Include("EmployeeStats")
-                                where i.BusinessId == businessId.Value
-                                select i).ToList();
+                    businessIds.Add(businessId.Value);
                 }
                 else if (!businessId.HasValue && /*user == null || */user.IsInRole("Admin"))
                 {
-                    itemList = (from i in db.Employee.Include("CalledDataItem")
-                                select i).ToList();
+                    var allIds = db.Business.Select(b => b.Id).ToList();
+                    businessIds.AddRange(allIds);
                 }
                 else //if (!businessId.HasValue && !user.IsInRole("Admin"))
                 {
                     var dbUser = db.User.Include("BusinessMember").Where(u => u.UserName == user.Identity.Name).First();
                     var allowedBizIds = dbUser.BusinessMember.Select(bm => bm.BusinessId);
-                    itemList = (from i in db.Employee.Include("CalledDataItem").Include("EmployeeStats") //.Select(e => e.Id).ToList();
-                                where allowedBizIds.Contains(i.BusinessId)
-                                select i).ToList();
+                    businessIds.AddRange(allowedBizIds);
                 }
+
+                // PARAMETERS
+                var timeFromParam = new SqlParameter("@timeFrom", timeFrom);
+                var timeToParam = new SqlParameter("@timeTo", timeTo);
+
+                DataTable dtBusinesses = new DataTable();
+                dtBusinesses.Columns.Add("Value", typeof(int));
+                foreach (var id in businessIds)
+                {
+                    dtBusinesses.Rows.Add(id);
+                }
+                var bizIdentsParam = new SqlParameter("@businessIds", SqlDbType.Structured);
+                bizIdentsParam.Value = dtBusinesses;
+                bizIdentsParam.TypeName = "dbo.Integers";
+
+                var employees = db.Database.SqlQuery<Employee>(
+                    $"EXEC GetCalledEmployees @timeFrom, @timeTo, @businessIds",
+                    timeFromParam, timeToParam, bizIdentsParam).ToList();
+
+                return employees;
             }
-
-            itemList.ForEach(i =>
-            {
-                i.CalledDataItem = i.CalledDataItem.Where(di => di.Entered >= timeFrom && di.Entered <= timeTo).ToList();
-            });
-
-            var filteredItems = itemList.Where(i => i.CalledDataItem.Count > 0).ToList();
-            return filteredItems;
         }
 
-        public static List<EmployeeStats> GetEmployeeStats(IPrincipal user, int year/*, int month*/)
+        public static List<EmployeeTimes> GetEmployeeTimes(int[] employeeIds, DateTime timeFrom, DateTime timeTo)
         {
-            List<EmployeeStats> itemList;
+            List<EmployeeTimes> itemList;
             using (var db = new AdapterDbEntities())
             {
-                db.Configuration.ProxyCreationEnabled = false;
+                // PARAMETERS
+                var timeFromParam = new SqlParameter("@timeFrom", timeFrom);
+                var timeToParam = new SqlParameter("@timeTo", timeTo);
 
-                if (user == null || user.IsInRole("Admin"))
+                DataTable dtEmployees = new DataTable();
+                dtEmployees.Columns.Add("Value", typeof(int));
+                foreach (var id in employeeIds)
                 {
-                    itemList = (from es in db.EmployeeStats
-                                where es.EnteredYear == year
-                                select es).ToList();
+                    dtEmployees.Rows.Add(id);
                 }
-                else
-                {
-                    var dbUser = db.User.Include("BusinessMember").Where(u => u.UserName == user.Identity.Name).First();
-                    var allowedBizIds = dbUser.BusinessMember.Select(bm => bm.BusinessId);
-                    itemList = (from es in db.EmployeeStats //.Select(e => e.Id).ToList();
-                                where allowedBizIds.Contains(es.Employee.BusinessId) && es.EnteredYear == year
-                                select es).ToList();
+                var empIdentsParam = new SqlParameter("@employeeIds", SqlDbType.Structured);
+                empIdentsParam.Value = dtEmployees;
+                empIdentsParam.TypeName = "dbo.Integers";
 
-                }
+                itemList = db.Database.SqlQuery<EmployeeTimes>(
+                    $"EXEC GetEmployeeTimes @timeFrom, @timeTo, @employeeIds",
+                    timeFromParam, timeToParam, empIdentsParam).ToList();
             }
 
             return itemList;
@@ -749,66 +754,8 @@ namespace AdapterDb
 
         public static List<AggregatedData> GetAggregatedDataForSingleBusiness(IPrincipal user, int businessId, DateTime timeFrom, DateTime timeTo)
         {
-            using (var db = new AdapterDbEntities())
-            {
-                var lineList = GetLineList(user, businessId);
-                var lineIds = lineList.Select(l => l.Id).ToArray();
-
-                var allItems = from i in db.DataItem
-                               where
-                                   i.BusinessId == businessId &&
-                                   lineIds.Contains(i.LineId) &&
-                                   i.Entered >= timeFrom &&
-                                   i.Entered <= timeTo
-                               select i;
-
-                var groupsPerLine = (from i in allItems
-                                     group i by i.LineId into g
-                                     select new
-                                     {
-                                         LineId = g.Key,
-                                         AverageWaitTime = (int?)(g.Count() > 0 ? g.Average(_ => _.WaitTimeSec) : 0) ?? 0,
-                                         AverageServiceTime = (int?)(g.Count() > 0 ? g.Average(_ => _.ServiceTimeSec): 0) ?? 0,
-                                         CustomersWaitingCount = g.Count(_ => _.Entered.HasValue && !_.Called.HasValue),
-                                         CustomersBeingServicedCount = g.Count(_ => _.Called.HasValue && !_.Serviced.HasValue),
-                                         CustomersServicedCount = g.Count(_ => _.Serviced.HasValue),
-                                         CustomersCount = g.Count()
-                                     }).ToList();
-
-                var aggregatesPerLine = (from l in lineList
-                                         join d in groupsPerLine on l.Id equals d.LineId into ds
-                                         from d in ds.DefaultIfEmpty()
-                                         select new AdapterDb.AggregatedData
-                                         {
-                                             LineId = l.Id,
-                                             LineName = l.Name,
-                                             AverageWaitTime = (d != null) ? d.AverageWaitTime : 0,
-                                             AverageServiceTime = (d != null) ? d.AverageServiceTime : 0,
-                                             CustomersWaitingCount = (d != null) ? d.CustomersWaitingCount : 0,
-                                             CustomersBeingServicedCount = (d != null) ? d.CustomersBeingServicedCount : 0,
-                                             CustomersServicedCount = (d != null) ? d.CustomersServicedCount : 0,
-                                             CustomersCount = (d != null) ? d.CustomersCount : 0
-                                         }).ToList();
-
-                AdapterDb.AggregatedData aggregateTotal = new AdapterDb.AggregatedData();
-                if (allItems.Count() > 0)
-                {
-                    aggregateTotal = new AdapterDb.AggregatedData
-                    {
-                        AverageWaitTime = (int)(allItems.Average(_ => _.WaitTimeSec) ?? 0),
-                        AverageServiceTime = (int)(allItems.Average(_ => _.ServiceTimeSec) ?? 0),
-                        CustomersWaitingCount = allItems.Count(_ => _.Entered.HasValue && !_.Called.HasValue),
-                        CustomersBeingServicedCount = allItems.Count(_ => _.Called.HasValue && !_.Serviced.HasValue),
-                        CustomersServicedCount = allItems.Count(_ => _.Serviced.HasValue),
-                        CustomersCount = allItems.Count()
-                    };
-                }
-
-                var list = aggregatesPerLine.ToList();
-                list.Add(aggregateTotal);
-
-                return list;
-            }
+            var res = GetAggregatedDataForMultipleBusinesses(user, new int[] { businessId }, timeFrom, timeTo);
+            return res;
         }
 
         public static List<AggregatedData> GetAggregatedDataForMultipleBusinesses(IPrincipal user, int[] businessIds, DateTime timeFrom, DateTime timeTo)
@@ -816,78 +763,51 @@ namespace AdapterDb
             using (var db = new AdapterDbEntities())
             {
                 var allBusinessList = GetBusinessList(user);
-                var businessList = allBusinessList.Where(b => businessIds.Contains(b.Id));
+                var businessList = allBusinessList.Where(b => businessIds.Contains(b.Id)).ToList();
                 var lineList = GetLineList(user);
 
-                var allItems = from i in db.DataItem
-                               where
-                                   businessIds.Contains(i.BusinessId) &&
-                                   i.Entered >= timeFrom &&
-                                   i.Entered <= timeTo
-                               select i;
+                var list = new List<AggregatedData>();
 
-                var groupsPerBusiness = (from i in allItems
-                                         group i by i.BusinessId into g
-                                         select new
-                                         {
-                                             BusinessId = g.Key,
-                                             AverageWaitTime = (int?)(g.Count() > 0 ? g.Average(_ => _.WaitTimeSec): 0) ?? 0,
-                                             AverageServiceTime = (int?)(g.Count() > 0 ? g.Average(_ => _.ServiceTimeSec): 0) ?? 0,
-                                             CustomersWaitingCount = g.Count(_ => _.Entered.HasValue && !_.Called.HasValue),
-                                             CustomersBeingServicedCount = g.Count(_ => _.Called.HasValue && !_.Serviced.HasValue),
-                                             CustomersServicedCount = g.Count(_ => _.Serviced.HasValue),
-                                             CustomersCount = g.Count()
-                                         }).ToList();
+                var lnItems = GetAggregatedData(db, "GetDataAggregatedByLine", timeFrom, timeTo, businessList, lineList);
+                list.AddRange(lnItems);
 
-                var aggregatesPerBusiness = (from b in businessList
-                                             join d in groupsPerBusiness on b.Id equals d.BusinessId into ds
-                                             from d in ds.DefaultIfEmpty()
-                                             select new AdapterDb.AggregatedData
-                                             {
-                                                 BusinessId = b.Id,
-                                                 BusinessName = b.Name,
-                                                 AverageWaitTime = (d != null) ? (d.AverageWaitTime) : 0,
-                                                 AverageServiceTime = (d != null) ? (d.AverageServiceTime) : 0,
-                                                 CustomersWaitingCount = (d != null) ? d.CustomersWaitingCount : 0,
-                                                 CustomersBeingServicedCount = (d != null) ? d.CustomersBeingServicedCount : 0,
-                                                 CustomersServicedCount = (d != null) ? d.CustomersServicedCount : 0,
-                                                 CustomersCount = (d != null) ? d.CustomersCount : 0
-                                             }).ToList();
+                var bizItems = GetAggregatedData(db, "GetDataAggregatedByBusiness", timeFrom, timeTo, businessList, lineList);
+                list.AddRange(bizItems);
 
-                var aggregatesPerLineName = (from l in lineList
-                                             join i in allItems on l.Id equals i.LineId
-                                             group new { line = l, item = i } by l.Name into g
-                                             select new AdapterDb.AggregatedData
-                                             {
-                                                 LineName = g.Key,
-                                                 AverageWaitTime = (int?)(g.Count() > 0 ? g.Average(_ => _.item.WaitTimeSec) : 0) ?? 0,
-                                                 AverageServiceTime = (int?)(g.Count() > 0 ? g.Average(_ => _.item.ServiceTimeSec) : 0) ?? 0,
-                                                 CustomersWaitingCount = g.Count(_ => _.item.Entered.HasValue && !_.item.Called.HasValue),
-                                                 CustomersBeingServicedCount = g.Count(_ => _.item.Called.HasValue && !_.item.Serviced.HasValue),
-                                                 CustomersServicedCount = g.Count(_ => _.item.Serviced.HasValue),
-                                                 CustomersCount = g.Count()
-                                             }).ToList();
-
-                AdapterDb.AggregatedData aggregateTotal = new AdapterDb.AggregatedData();
-                if (allItems.Count() > 0)
-                {
-                    aggregateTotal = new AdapterDb.AggregatedData
-                    {
-                        AverageWaitTime = (int?)(allItems.Count() > 0 ? allItems.Average(_ => _.WaitTimeSec) : 0) ?? 0,
-                        AverageServiceTime = (int?)(allItems.Count() > 0 ? allItems.Average(_ => _.ServiceTimeSec) : 0) ?? 0,
-                        CustomersWaitingCount = allItems.Count(_ => _.Entered.HasValue && !_.Called.HasValue),
-                        CustomersBeingServicedCount = allItems.Count(_ => _.Called.HasValue && !_.Serviced.HasValue),
-                        CustomersServicedCount = allItems.Count(_ => _.Serviced.HasValue),
-                        CustomersCount = allItems.Count()
-                    };
-                }
-
-                var list = aggregatesPerBusiness;
-                list.AddRange(aggregatesPerLineName);
-                list.Add(aggregateTotal);
+                var summaryItem = GetAggregatedData(db, "GetAggregatedData", timeFrom, timeTo, businessList, lineList).Single();
+                list.Add(summaryItem);
 
                 return list;
             }
+        }
+
+        private static List<AggregatedData> GetAggregatedData(AdapterDbEntities db, string aggregationProcedureName, DateTime timeFrom, DateTime timeTo, List<Business> businessList, List<Line> lineList)
+        {
+            var timeFromParam = new SqlParameter("@timeFrom", timeFrom);
+            var timeToParam = new SqlParameter("@timeTo", timeTo);
+            DataTable dtBusinesses = new DataTable();
+            dtBusinesses.Columns.Add("Value", typeof(int));
+            foreach (var business in businessList)
+            {
+                dtBusinesses.Rows.Add(business.Id);
+            }
+            var bizIdentsParam = new SqlParameter("@businessIds", SqlDbType.Structured);
+            bizIdentsParam.Value = dtBusinesses;
+            bizIdentsParam.TypeName = "dbo.Integers";
+
+            DataTable dtLines = new DataTable();
+            dtLines.Columns.Add("Value", typeof(int));
+            foreach (var line in lineList)
+            {
+                dtLines.Rows.Add(line.Id);
+            }
+            var lnIdentsParam = new SqlParameter("@lineIds", SqlDbType.Structured);
+            lnIdentsParam.Value = dtLines;
+            lnIdentsParam.TypeName = "dbo.Integers";
+
+            return db.Database.SqlQuery<AggregatedData>(
+                    $"EXEC {aggregationProcedureName} @timeFrom, @timeTo, @businessIds, @lineIds",
+                   timeFromParam, timeToParam, bizIdentsParam, lnIdentsParam).ToList();
         }
 
         public static AggregatedData GetAggregatedData(DateTime timeFrom, DateTime timeTo, int businessId, List<int> lineIds, int? employeeId)
@@ -910,11 +830,21 @@ namespace AdapterDb
                 var lnIdentsParam = new SqlParameter("@lineIdentifiers", SqlDbType.Structured);
                 lnIdentsParam.Value = dt;
                 lnIdentsParam.TypeName = "dbo.Integers";
-                var empIdParam = new SqlParameter("@employeeId", employeeId == null ? (object)DBNull.Value : employeeId);
 
-                var items = db.Database.SqlQuery<AggregatedData>(
-                    "EXEC GetAggregatedData @timeFrom, @timeTo, @businessId, @lineIdentifiers, @employeeId",
-                   timeFromParam, timeToParam, bizIdParam, lnIdentsParam, empIdParam).ToList();
+                List<AggregatedData> items;
+                if (employeeId != null)
+                {
+                    var empIdParam = new SqlParameter("@employeeId", employeeId == null ? (object)DBNull.Value : employeeId);
+                    items = db.Database.SqlQuery<AggregatedData>(
+                        "EXEC GetAggregatedEmployeeData @timeFrom, @timeTo, @businessId, @lineIdentifiers, @employeeId",
+                       timeFromParam, timeToParam, bizIdParam, lnIdentsParam, empIdParam).ToList();
+                }
+                else
+                {
+                    items = db.Database.SqlQuery<AggregatedData>(
+                        "EXEC GetAggregatedData @timeFrom, @timeTo, @businessId, @lineIdentifiers",
+                       timeFromParam, timeToParam, bizIdParam, lnIdentsParam).ToList();
+                }
 
                 return items.Single();
             }

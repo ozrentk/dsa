@@ -105,6 +105,7 @@
     <Compile Include="EmployeeStats.cs">
       <DependentUpon>Db.tt</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeTimes.cs" />
     <Compile Include="Line.cs">
       <DependentUpon>Db.tt</DependentUpon>
     </Compile>

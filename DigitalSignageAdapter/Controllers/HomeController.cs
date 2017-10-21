@@ -97,6 +97,7 @@ namespace DigitalSignageAdapter.Controllers
 
         [TimeZoneActionFilter]
         [Authorize(Roles = "Admin")]
+        [RestrictedAccess]
         public ActionResult AdminDashboard()
         {
             var roleList = AdapterDb.Database.GetAll<AdapterDb.Roles, Role>(
@@ -297,6 +298,7 @@ namespace DigitalSignageAdapter.Controllers
         }
 
         [TimeZoneActionFilter]
+        [RestrictedAccess]
         public ActionResult Compare()
         {
             /* BEGIN ADJUST TIMES */

@@ -95,6 +95,43 @@ namespace AdapterDb
             }
         }
 
+        public static bool IsUserActivityAllowed(string name, string controller, string action, string method)
+        {
+            using (var db = new AdapterDbEntities())
+            {
+                var userNameParam = new SqlParameter("@userName", name);
+                var controllerParam = new SqlParameter("@controller", controller);
+                var actionParam = new SqlParameter("@action", action);
+
+                int cnt;
+                if (!string.IsNullOrEmpty(method))
+                {
+                    var methodParam = new SqlParameter("@method", method);
+
+                    var res = db.Database.SqlQuery<int>(
+                        "SELECT TOP 1 1 FROM SEC.[AllowedActivities] WHERE UserName = @userName AND Controller = @controller AND [Action] = @action AND Method = @method",
+                        userNameParam,
+                        controllerParam,
+                        actionParam,
+                        methodParam);
+
+                    cnt = res.Count();
+                }
+                else
+                {
+                    var res = db.Database.SqlQuery<int>(
+                        "SELECT TOP 1 1 FROM SEC.[AllowedActivities] WHERE UserName = @userName AND Controller = @controller AND [Action] = @action",
+                        userNameParam,
+                        controllerParam,
+                        actionParam);
+
+                    cnt = res.Count();
+                }
+
+                return cnt > 0;
+            }
+        }
+
         public static List<User> GetUsers()
         {
             using (var db = new AdapterDbEntities())

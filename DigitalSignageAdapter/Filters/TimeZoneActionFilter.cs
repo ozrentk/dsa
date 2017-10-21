@@ -8,20 +8,6 @@ namespace DigitalSignageAdapter.Filters
 {
     public class TimeZoneActionFilter : ActionFilterAttribute
     {
-        //public override void OnActionExecuting(ActionExecutingContext filterContext)
-        //{
-        //    Object tzOffsetObj = filterContext.HttpContext.Session["timeZoneOffset"];
-        //    if(tzOffsetObj == null)
-        //        return;
-
-        //    string tzOffsetStr = tzOffsetObj.ToString();
-        //    int tzOffset;
-        //    if (int.TryParse(tzOffsetStr, out tzOffset))
-        //    {
-        //        filterContext.Controller.ViewBag.TimeZoneOffset = tzOffset;
-        //    }
-        //}
-
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             Object tzOffsetObj = filterContext.HttpContext.Session["timeZoneOffset"];

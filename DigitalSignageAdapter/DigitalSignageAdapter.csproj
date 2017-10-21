@@ -219,7 +219,10 @@
     <Compile Include="Controllers\ExcelController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\TimeZoneController.cs" />
+    <Compile Include="Extensions\IPrincipalExtensions.cs" />
+    <Compile Include="Filters\RestrictedAccessAttribute.cs" />
     <Compile Include="Filters\EFExceptionHandlerAttribute.cs" />
     <Compile Include="Filters\TimeZoneActionFilter.cs" />
     <Compile Include="Global.asax.cs">
@@ -378,6 +381,7 @@
     <Content Include="Views\Home\Diagnostics.cshtml" />
     <Content Include="Views\Home\_EmployeeStats.cshtml" />
     <Content Include="Views\Excel\Employees.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\typings\knockout\knockout.d.ts" />

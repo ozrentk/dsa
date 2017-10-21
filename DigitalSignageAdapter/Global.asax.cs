@@ -38,26 +38,28 @@ namespace DigitalSignageAdapter
 
             log.Debug("application started ok");
 
+            /*
             Assembly asm = Assembly.GetExecutingAssembly();
-
             var controllers = asm.GetTypes().Where(t => typeof(Controller).IsAssignableFrom(t)).ToList();
             foreach (var c in controllers)
             {
                 var controllerName = c.Name;
-                //Debug.WriteLine($"Controller {controllerName}");
+
                 var actions = c.GetMethods(BindingFlags.Instance | BindingFlags.DeclaredOnly | BindingFlags.Public)
-                               //.Where(m => m.IsPublic && !m.IsDefined(typeof(NonActionAttribute)))
-                               .Where(m => !m.GetCustomAttributes(typeof(System.Runtime.CompilerServices.CompilerGeneratedAttribute), true).Any())
-                               .Select(m => m.Name)
-                               .Where(a => !a.StartsWith("get_", StringComparison.InvariantCulture) &&
-                                           !a.StartsWith("set_", StringComparison.InvariantCulture))
-                               .Distinct();
-                foreach (var actionName in actions)
+                               .Where(m => !m.GetCustomAttributes(typeof(System.Runtime.CompilerServices.CompilerGeneratedAttribute), true).Any());
+                foreach (var action in actions.ToList())
                 {
-                    //Debug.WriteLine($"\tAction {actionName}");
-                    Debug.WriteLine($"('{controllerName}','{actionName}','{actionName}'),");
+                    if (action.Name.StartsWith("get_", StringComparison.InvariantCulture) ||
+                       action.Name.StartsWith("set_", StringComparison.InvariantCulture))
+                        continue;
+
+                    if(!action.IsDefined(typeof(HttpPostAttribute)))
+                        Debug.WriteLine($"('{controllerName}','{action.Name}','GET'),");
+                    else
+                        Debug.WriteLine($"('{controllerName}','{action.Name}','POST'),");
                 }
             }
+            */
         }
 
         protected void Application_Error(object sender, EventArgs e)

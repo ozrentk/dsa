@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using DigitalSignageAdapter.Extensions
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -27,9 +29,17 @@
                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
                         @if (HttpContext.Current.User.IsInRole("Admin"))
                         {
+                            if(HttpContext.Current.User.IsAllowedGet("Home", "Compare")) {
                             <li>@Html.ActionLink("Compare", "Compare", "Home")</li>
+                            }
+                            if (HttpContext.Current.User.IsAllowedGet("Excel", "Index"))
+                            {
                             <li>@Html.ActionLink("Excel", "Index", "Excel")</li>
+                            }
+                            if (HttpContext.Current.User.IsAllowedGet("Config", "Index"))
+                            {
                             <li>@Html.ActionLink("Configuration", "Index", "Config")</li>
+                            }
                         }
                         @if (HttpContext.Current.User.IsInRole("User"))
                         {

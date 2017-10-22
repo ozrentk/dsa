@@ -10,17 +10,17 @@ namespace DigitalSignageAdapter.Extensions
     {
         public static bool IsAllowed(this IPrincipal user, string controller, string action, string method)
         {
-            return AdapterDb.Database.IsUserActivityAllowed(user.Identity.Name, controller, action, method);
+            return ActivityRestrictions.Instance.IsAllowed(user.Identity.Name, controller, action, method);
         }
 
         public static bool IsAllowedGet(this IPrincipal user, string controller, string action)
         {
-            return AdapterDb.Database.IsUserActivityAllowed(user.Identity.Name, controller, action, "GET");
+            return ActivityRestrictions.Instance.IsAllowed(user.Identity.Name, controller, action, "GET");
         }
 
         public static bool IsAllowedPost(this IPrincipal user, string controller, string action)
         {
-            return AdapterDb.Database.IsUserActivityAllowed(user.Identity.Name, controller, action, "POST");
+            return ActivityRestrictions.Instance.IsAllowed(user.Identity.Name, controller, action, "POST");
         }
     }
 }

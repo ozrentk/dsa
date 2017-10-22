@@ -1,0 +1,37 @@
+﻿@model DigitalSignageAdapter.Models.Config.RolesOverview
+
+@{
+    ViewBag.Title = "Roles and permissions";
+}
+
+@Html.Partial("_SubNavBar")
+
+<h2>Roles and permissions</h2>
+
+@using (Html.BeginForm("RolesOverview", "Config", FormMethod.Post, new { @class = "role-form" }))
+{
+    <fieldset>
+        <table class="roles-overview">
+            @for (int i = 0; i < Model.Roles.Count; i++)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(Model.Roles[i].Name + " »", "RoleEditor", new { roleId = Model.Roles[i].Id }, new { @class = "btn btn-default" })
+                    </td>
+                    <td>
+                        @if (Model.Roles[i].Permissions != null)
+                        {
+                            for (int j = 0; j < Model.Roles[i].Permissions.Count; j++)
+                            {
+                                @Html.ActionLink(Model.Roles[i].Permissions[j].Description, "RoleEditor", new { roleId = Model.Roles[i].Id }, new { @class = "btn btn-default" })
+                            }
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+        @Html.ActionLink("New role", "RoleEditor", null, new { @class = "btn btn-primary" })
+    </fieldset>
+}
+
+

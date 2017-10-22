@@ -10,6 +10,7 @@ namespace DigitalSignageAdapter
         {
             filters.Add(new HandleErrorAttribute());
             filters.Add(new EFExceptionHandlerAttribute());
+            filters.Add(new RestrictedAccessAttribute());
         }
     }
 }

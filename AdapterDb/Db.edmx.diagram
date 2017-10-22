@@ -32,6 +32,10 @@
         <AssociationConnector Association="AdapterDbModel.FK_DataItem_Line" />
         <EntityTypeShape EntityType="AdapterDbModel.EmployeeStats" Width="1.5" PointX="7.5" PointY="6" />
         <AssociationConnector Association="AdapterDbModel.FK_EmployeeStats_Employee" />
+        <EntityTypeShape EntityType="AdapterDbModel.Activity" Width="1.5" PointX="7.625" PointY="0.875" />
+        <EntityTypeShape EntityType="AdapterDbModel.Permission" Width="1.5" PointX="5.375" PointY="1.125" />
+        <AssociationConnector Association="AdapterDbModel.FK_Activity_Permission" />
+        <AssociationConnector Association="AdapterDbModel.RolePermission" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

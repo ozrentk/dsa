@@ -26,6 +26,13 @@ namespace DigitalSignageAdapter
                 cfg.CreateMap<AdapterDb.User, Models.Home.User>()
                    .ForMember(d => d.Name, opt => opt.MapFrom(s => s.UserName));
 
+                cfg.CreateMap<AdapterDb.Permission, Models.Config.Permission>()
+                   .ReverseMap();
+
+                cfg.CreateMap<AdapterDb.Roles, Models.Config.Role>()
+                   .ForMember(d => d.Permissions, opt => opt.MapFrom(s => s.Permission))
+                   .ReverseMap();
+
                 cfg.CreateMap<AdapterDb.Roles, Models.Home.Role>();
 
                 cfg.CreateMap<AdapterDb.Business, Models.Home.Business>()
@@ -72,7 +79,7 @@ namespace DigitalSignageAdapter
                     .ReverseMap();
 
                 cfg.CreateMap<AdapterDb.DataItem, Models.Excel.DataItem>()
-                    // BEGIN: special handling for null's, for total row in excel
+                   // BEGIN: special handling for null's, for total row in excel
                    .ForMember(s => s.BusinessId, opt => opt.MapFrom(d => d.BusinessId != default(int) ? (int?)d.Business.Code : null))
                    .ForMember(s => s.LineId, opt => opt.MapFrom(d => d.LineId != default(int) ? (int?)d.Line.Code : null))
                    .ForMember(s => s.ServiceId, opt => opt.MapFrom(d => d.ServiceId != default(int) ? (int?)d.ServiceId : null))
@@ -107,14 +114,14 @@ namespace DigitalSignageAdapter
                    .ForMember(d => d.YearlyServiceTime, opt => opt.MapFrom(s =>
                         new TimeSpan(0, 0, s.YearlyServiceTimeSec)));
 
-                   //.ForMember(d => d.MonthlyServiceTime, opt => opt.MapFrom(s =>
-                   //     (s.EmployeeStats != null && s.EmployeeStats.Count > 0) ?
-                   //         new TimeSpan(0, 0, (int)s.EmployeeStats.Average(i => i.ServiceTimeSec)) :
-                   //         new TimeSpan(0, 0, 0)))
-                   //.ForMember(d => d.YearlyServiceTime, opt => opt.MapFrom(s =>
-                   //     (s.EmployeeStats != null && s.EmployeeStats.Count > 0) ?
-                   //         new TimeSpan(0, 0, (int)s.EmployeeStats.Average(i => i.ServiceTimeSec)) :
-                   //         new TimeSpan(0, 0, 0)));
+                //.ForMember(d => d.MonthlyServiceTime, opt => opt.MapFrom(s =>
+                //     (s.EmployeeStats != null && s.EmployeeStats.Count > 0) ?
+                //         new TimeSpan(0, 0, (int)s.EmployeeStats.Average(i => i.ServiceTimeSec)) :
+                //         new TimeSpan(0, 0, 0)))
+                //.ForMember(d => d.YearlyServiceTime, opt => opt.MapFrom(s =>
+                //     (s.EmployeeStats != null && s.EmployeeStats.Count > 0) ?
+                //         new TimeSpan(0, 0, (int)s.EmployeeStats.Average(i => i.ServiceTimeSec)) :
+                //         new TimeSpan(0, 0, 0)));
             });
 
         }

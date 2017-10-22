@@ -207,6 +207,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\ActivityRestrictionConfig.cs" />
     <Compile Include="App_Start\AutomapperConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -222,6 +223,7 @@
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\TimeZoneController.cs" />
     <Compile Include="Extensions\IPrincipalExtensions.cs" />
+    <Compile Include="Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="Filters\RestrictedAccessAttribute.cs" />
     <Compile Include="Filters\EFExceptionHandlerAttribute.cs" />
     <Compile Include="Filters\TimeZoneActionFilter.cs" />
@@ -236,7 +238,12 @@
     <Compile Include="Models\Config\Business.cs" />
     <Compile Include="Models\Config\Line.cs" />
     <Compile Include="Models\Config\Overview.cs" />
+    <Compile Include="Models\Config\Permission.cs" />
+    <Compile Include="Models\Config\Role.cs" />
+    <Compile Include="Models\Config\RoleEditor.cs" />
+    <Compile Include="Models\Config\RolesOverview.cs" />
     <Compile Include="Models\Config\SignupTicket.cs" />
+    <Compile Include="Models\Config\User.cs" />
     <Compile Include="Models\Excel\DataFilters.cs" />
     <Compile Include="Models\Home\AssignBusiness.cs" />
     <Compile Include="Models\Home\AdminDashboard.cs" />
@@ -298,6 +305,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Config.js" />
     <Content Include="Scripts\Compare.js" />
+    <Content Include="Scripts\ConfigRoleEditor.js" />
     <Content Include="Scripts\Excel.js" />
     <Content Include="Scripts\homeConfig.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -382,6 +390,8 @@
     <Content Include="Views\Home\_EmployeeStats.cshtml" />
     <Content Include="Views\Excel\Employees.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Config\RolesOverview.cshtml" />
+    <Content Include="Views\Config\RoleEditor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\typings\knockout\knockout.d.ts" />

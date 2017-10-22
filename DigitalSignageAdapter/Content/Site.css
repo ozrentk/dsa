@@ -82,3 +82,33 @@ textarea {
 .lead {
     margin-bottom: 0px !important;
 }
+
+/* TABLES */
+table.roles tr td:nth-child(1) {
+    width: 200px; 
+    vertical-align: top;
+}
+
+table.roles tr td {
+    padding: 5px 0px;
+}
+
+table.roles {
+    margin: 5px 0px;
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+}
+
+table.roles-overview tr td:nth-child(1) {
+    width: 200px; 
+    vertical-align: top;
+}
+
+table.roles-overview tr td {
+    padding: 5px 0px;
+}
+
+table.roles-overview {
+    margin: 5px 0px;
+    border-bottom: 1px solid #DDD;
+}

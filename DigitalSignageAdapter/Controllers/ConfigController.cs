@@ -2,6 +2,7 @@
 using AutoMapper;
 //using DigitalSignageAdapter.Cache;
 using DigitalSignageAdapter.Filters;
+using DigitalSignageAdapter.Models.Config;
 using log4net;
 using System;
 using System.Collections.Generic;
@@ -255,7 +256,7 @@ namespace DigitalSignageAdapter.Controllers
         public ActionResult AddBusinessToSignupTicket(int ticketId)
         {
             var model = new Models.Config.AddBusinessToSignupTicket();
-            
+
             var dbTicket = Database.GetSignupTicket(ticketId);
             model.Ticket = Mapper.Map<Models.Config.SignupTicket>(dbTicket);
 
@@ -293,5 +294,94 @@ namespace DigitalSignageAdapter.Controllers
             return View(model);
         }
 
+        public ActionResult RolesOverview()
+        {
+            var model = new RolesOverview();
+            model.Roles = AdapterDb.Database.GetAll<AdapterDb.Roles, Role>(
+                (dbRoles) => Mapper.Map<IEnumerable<AdapterDb.Roles>, IEnumerable<Role>>(dbRoles));
+
+            return View(model);
+        }
+
+        public ActionResult RoleEditor(int? roleId)
+        {
+            var model = new RoleEditor();
+
+            var allPermissions = AdapterDb.Database.GetAll<AdapterDb.Permission, Models.Config.Permission>(
+                (dbPermissions) =>
+                {
+                    var mappedPermissions = Mapper.Map<IEnumerable<AdapterDb.Permission>, IEnumerable<Models.Config.Permission>>(dbPermissions);
+                    foreach (var p in mappedPermissions)
+                        p.IsSelected = false;
+                    return mappedPermissions;
+                });
+
+            if (roleId.HasValue)
+            {
+                model.Role = AdapterDb.Database.Find<AdapterDb.Roles, Role>(
+                    roleId.Value,
+                    (dbRole) =>
+                    {
+                        var mappedRole = Mapper.Map<AdapterDb.Roles, Role>(dbRole);
+                        foreach (var p in mappedRole.Permissions)
+                            p.IsSelected = true;
+                        return mappedRole;
+                    });
+                var selectedPermissionIds = model.Role.Permissions.Select(p => p.Id).ToArray();
+                model.Role.Permissions.AddRange(allPermissions.Where(p => !selectedPermissionIds.Contains(p.Id)));
+            }
+            else
+            {
+                model.Role = new Role { Permissions = new List<Models.Config.Permission>() };
+                model.Role.Permissions.AddRange(allPermissions);
+            }
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult RoleEditor(DigitalSignageAdapter.Models.Config.RoleEditor model)
+        {
+            ModelState.Clear();
+
+            if (ModelState.IsValid)
+            {
+                if (model.Role.IsDelete)
+                {
+                    bool isDeleted = Database.DeleteRole(model.Role.Id.Value);
+                    if (!isDeleted)
+                    {
+                        model.IsFailed = true;
+                        return View(model);
+                    }
+
+                    return RedirectToAction("RolesOverview");
+                }
+                else
+                {
+                    var selectedPermissionIds = model.Role.Permissions.Where(p => p.IsSelected).Select(p => p.Id).ToList();
+                    var mappedRole = Mapper.Map<Models.Config.Role, AdapterDb.Roles>(model.Role);
+                    bool isSaved;
+                    if (model.Role.Id.HasValue)
+                    {
+                        isSaved = Database.ModifyRole(mappedRole, selectedPermissionIds);
+                    }
+                    else
+                    {
+                        isSaved = Database.CreateRole(mappedRole.Name, selectedPermissionIds);
+                    }
+
+                    if (!isSaved)
+                    {
+                        model.IsFailed = true;
+                        return View(model);
+                    }
+
+                    return RedirectToAction("RolesOverview");
+                }
+            }
+
+            return View(model);
+        }
     }
 }

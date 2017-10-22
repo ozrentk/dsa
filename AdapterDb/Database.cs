@@ -95,43 +95,6 @@ namespace AdapterDb
             }
         }
 
-        public static bool IsUserActivityAllowed(string name, string controller, string action, string method)
-        {
-            using (var db = new AdapterDbEntities())
-            {
-                var userNameParam = new SqlParameter("@userName", name);
-                var controllerParam = new SqlParameter("@controller", controller);
-                var actionParam = new SqlParameter("@action", action);
-
-                int cnt;
-                if (!string.IsNullOrEmpty(method))
-                {
-                    var methodParam = new SqlParameter("@method", method);
-
-                    var res = db.Database.SqlQuery<int>(
-                        "SELECT TOP 1 1 FROM SEC.[AllowedActivities] WHERE UserName = @userName AND Controller = @controller AND [Action] = @action AND Method = @method",
-                        userNameParam,
-                        controllerParam,
-                        actionParam,
-                        methodParam);
-
-                    cnt = res.Count();
-                }
-                else
-                {
-                    var res = db.Database.SqlQuery<int>(
-                        "SELECT TOP 1 1 FROM SEC.[AllowedActivities] WHERE UserName = @userName AND Controller = @controller AND [Action] = @action",
-                        userNameParam,
-                        controllerParam,
-                        actionParam);
-
-                    cnt = res.Count();
-                }
-
-                return cnt > 0;
-            }
-        }
-
         public static List<User> GetUsers()
         {
             using (var db = new AdapterDbEntities())
@@ -167,6 +130,24 @@ namespace AdapterDb
             {
                 log.Error("RemoveUser error", ex);
                 return false;
+            }
+        }
+
+        public static List<ActivityRestriction> GetActivityRestrictions()
+        {
+            using (var db = new AdapterDbEntities())
+            {
+                var restrictions = db.Database.SqlQuery<ActivityRestriction>("SELECT [UserName],[Controller],[Action],[Method] FROM SEC.[AllowedActivities]");
+                return restrictions.ToList();
+            }
+        }
+
+        public static int GetActivityRestrictionsHash()
+        {
+            using (var db = new AdapterDbEntities())
+            {
+                var hash = db.Database.SqlQuery<int>("SELECT CHECKSUM_AGG(BINARY_CHECKSUM(*)) FROM[SEC].[AllowedActivities] WITH(NOLOCK);");
+                return hash.Single();
             }
         }
 
@@ -888,6 +869,81 @@ namespace AdapterDb
         }
 
         #endregion Aggregated data items
+
+        public static bool CreateRole(string roleName, List<int> selectedPermissionIds)
+        {
+            try
+            {
+                using (var db = new AdapterDbEntities())
+                {
+                    Roles dbRole = new Roles { Name = roleName };
+                    var selectedPermissions = db.Permission.Where(p => selectedPermissionIds.Contains(p.Id)).ToList();
+                    foreach (var sp in selectedPermissions)
+                    {
+                        dbRole.Permission.Add(sp);
+                    }
+                    db.Roles.Add(dbRole);
+                    db.SaveChanges();
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error("CreateRole error", ex);
+                return false;
+            }
+        }
+
+        public static bool ModifyRole(AdapterDb.Roles role, List<int> selectedPermissionIds)
+        {
+            try
+            {
+                using (var db = new AdapterDbEntities())
+                {
+                    var dbRole = db.Roles.Find(role.Id);
+                    dbRole.Name = role.Name;
+                    dbRole.Permission.Clear();
+
+                    var selectedPermissions = db.Permission.Where(p => selectedPermissionIds.Contains(p.Id)).ToList();
+                    foreach (var sp in selectedPermissions)
+                    {
+                        dbRole.Permission.Add(sp);
+                    }
+
+                    db.SaveChanges();
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error("ModifyRole error", ex);
+                return false;
+            }
+        }
+
+        public static bool DeleteRole(int roleId)
+        {
+            try
+            {
+                using (var db = new AdapterDbEntities())
+                {
+                    var role = db.Roles.Find(roleId);
+                    role.Permission.Clear();
+                    db.Roles.Remove(role);
+
+                    db.SaveChanges();
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error("DeleteRole error", ex);
+                return false;
+            }
+        }
 
         #region Old code
 

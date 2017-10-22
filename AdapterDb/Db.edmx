@@ -125,6 +125,31 @@
           <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Controller" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Action" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Method" Type="nvarchar" MaxLength="16" />
+          <Property Name="PermissionId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RolePermission">
+          <Key>
+            <PropertyRef Name="PermissionId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="PermissionId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Roles">
           <Key>
             <PropertyRef Name="Id" />
@@ -159,6 +184,18 @@
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="RoleId" Type="int" Nullable="false" />
         </EntityType>
+        <Association Name="FK_Activity_Permission">
+          <End Role="Permission" Type="Self.Permission" Multiplicity="1" />
+          <End Role="Activity" Type="Self.Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="PermissionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_AspNetUserRoles_User">
           <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="UserRoles" Type="Self.UserRoles" Multiplicity="*" />
@@ -341,6 +378,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_RolePermission_Permission">
+          <End Role="Permission" Type="Self.Permission" Multiplicity="1" />
+          <End Role="RolePermission" Type="Self.RolePermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RolePermission">
+              <PropertyRef Name="PermissionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolePermission_Roles">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="RolePermission" Type="Self.RolePermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RolePermission">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="AdapterDbModelStoreContainer">
           <EntitySet Name="Batch" EntityType="Self.Batch" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Business" EntityType="Self.Business" Schema="dbo" store:Type="Tables" />
@@ -353,9 +414,16 @@
           <EntitySet Name="Line" EntityType="Self.Line" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserSignupTicket" EntityType="Self.UserSignupTicket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Activity" EntityType="Self.Activity" Schema="SEC" store:Type="Tables" />
+          <EntitySet Name="Permission" EntityType="Self.Permission" Schema="SEC" store:Type="Tables" />
+          <EntitySet Name="RolePermission" EntityType="Self.RolePermission" Schema="SEC" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="SEC" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="SEC" store:Type="Tables" />
           <EntitySet Name="UserRoles" EntityType="Self.UserRoles" Schema="SEC" store:Type="Tables" />
+          <AssociationSet Name="FK_Activity_Permission" Association="Self.FK_Activity_Permission">
+            <End Role="Permission" EntitySet="Permission" />
+            <End Role="Activity" EntitySet="Activity" />
+          </AssociationSet>
           <AssociationSet Name="FK_AspNetUserRoles_User" Association="Self.FK_AspNetUserRoles_User">
             <End Role="User" EntitySet="User" />
             <End Role="UserRoles" EntitySet="UserRoles" />
@@ -415,6 +483,14 @@
           <AssociationSet Name="FK_Line_Business" Association="Self.FK_Line_Business">
             <End Role="Business" EntitySet="Business" />
             <End Role="Line" EntitySet="Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolePermission_Permission" Association="Self.FK_RolePermission_Permission">
+            <End Role="Permission" EntitySet="Permission" />
+            <End Role="RolePermission" EntitySet="RolePermission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolePermission_Roles" Association="Self.FK_RolePermission_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="RolePermission" EntitySet="RolePermission" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -490,6 +566,16 @@
           <AssociationSet Name="FK_EmployeeStats_Employee" Association="AdapterDbModel.FK_EmployeeStats_Employee">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="EmployeeStats" EntitySet="EmployeeStats" />
+          </AssociationSet>
+          <EntitySet Name="Activity" EntityType="AdapterDbModel.Activity" />
+          <EntitySet Name="Permission" EntityType="AdapterDbModel.Permission" />
+          <AssociationSet Name="FK_Activity_Permission" Association="AdapterDbModel.FK_Activity_Permission">
+            <End Role="Permission" EntitySet="Permission" />
+            <End Role="Activity" EntitySet="Activity" />
+          </AssociationSet>
+          <AssociationSet Name="RolePermission" Association="AdapterDbModel.RolePermission">
+            <End Role="Permission" EntitySet="Permission" />
+            <End Role="Roles" EntitySet="Roles" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="Log">
@@ -580,6 +666,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="User" Relationship="AdapterDbModel.UserRoles" FromRole="Roles" ToRole="User" />
+          <NavigationProperty Name="Permission" Relationship="AdapterDbModel.RolePermission" FromRole="Roles" ToRole="Permission" />
         </EntityType>
         <Association Name="UserRoles">
           <End Type="AdapterDbModel.User" Role="User" Multiplicity="*" />
@@ -826,6 +913,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Controller" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Action" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Method" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="PermissionId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Permission" Relationship="AdapterDbModel.FK_Activity_Permission" FromRole="Activity" ToRole="Permission" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Activity" Relationship="AdapterDbModel.FK_Activity_Permission" FromRole="Permission" ToRole="Activity" />
+          <NavigationProperty Name="Roles" Relationship="AdapterDbModel.RolePermission" FromRole="Permission" ToRole="Roles" />
+        </EntityType>
+        <Association Name="FK_Activity_Permission">
+          <End Type="AdapterDbModel.Permission" Role="Permission" Multiplicity="1" />
+          <End Type="AdapterDbModel.Activity" Role="Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="PermissionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RolePermission">
+          <End Type="AdapterDbModel.Permission" Role="Permission" Multiplicity="*" />
+          <End Type="AdapterDbModel.Roles" Role="Roles" Multiplicity="*" />
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -999,6 +1122,33 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Activity">
+            <EntityTypeMapping TypeName="AdapterDbModel.Activity">
+              <MappingFragment StoreEntitySet="Activity">
+                <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+                <ScalarProperty Name="Method" ColumnName="Method" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Controller" ColumnName="Controller" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Permission">
+            <EntityTypeMapping TypeName="AdapterDbModel.Permission">
+              <MappingFragment StoreEntitySet="Permission">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="RolePermission" TypeName="AdapterDbModel.RolePermission" StoreEntitySet="RolePermission">
+            <EndProperty Name="Roles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="Permission">
+              <ScalarProperty Name="Id" ColumnName="PermissionId" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -23,7 +23,6 @@ namespace DigitalSignageAdapter.Filters
             string currentController = rd.GetRequiredString("controller");
             string currentAction = rd.GetRequiredString("action");
             var method = httpContext.Request.HttpMethod;
-
             return httpContext.User.IsAllowed(currentController, currentAction, method);
         }
     }

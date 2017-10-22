@@ -31,6 +31,7 @@ namespace DigitalSignageAdapter
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             //QuartzConfig.Configure();
             AutomapperConfig.Configure();
+            ActivityRestrictionConfig.Configure();
 
             ModelBinders.Binders.Add(typeof(DateTime), new DigitalSignageAdapter.CustomModelBinders.DateTimeCultureModelBinder());
 

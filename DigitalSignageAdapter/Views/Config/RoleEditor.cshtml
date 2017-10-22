@@ -1,0 +1,42 @@
+﻿@model DigitalSignageAdapter.Models.Config.RoleEditor
+
+@section Scripts{
+    <script type="text/javascript" src="~/Scripts/ConfigRoleEditor.js"></script>
+}
+
+@{
+    ViewBag.Title = "Role editor";
+}
+
+@Html.Partial("_SubNavBar")
+
+@using (Html.BeginForm("RoleEditor", "Config", FormMethod.Post, new { @class = "role-form" }))
+{
+    @Html.HiddenFor(m => m.Role.Id)
+    @Html.HiddenFor(m => m.Role.IsDelete)
+    <div class="form-group">
+        <label>Role name</label>
+        @Html.TextBoxFor(m => m.Role.Name, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Permissions</label>
+        <fieldset>
+            <table class="roles" id="roles-table">
+                @for (int i = 0; i < Model.Role.Permissions.Count; i++)
+                {
+                    var isSelected = Model.Role.Permissions[i].IsSelected;
+                    <tr>
+                        <td>
+                            @Html.HiddenFor(m => m.Role.Permissions[i].Id)
+                            @Html.HiddenFor(m => m.Role.Permissions[i].IsSelected)
+                            <button type="button" class="permission @( isSelected ? "btn btn-primary" : "btn btn-default" )">Permission: @Model.Role.Permissions[i].Description</button>
+                        </td>
+                    </tr>
+                }
+            </table>
+            <button type="button" class="delete btn btn-danger">[Delete role]</button>
+            <button type="submit" class="btn btn-danger">[Save role]</button>
+        </fieldset>
+    </div>
+}

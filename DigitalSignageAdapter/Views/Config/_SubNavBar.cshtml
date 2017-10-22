@@ -1,8 +1,11 @@
-﻿<div class="navbar-collapse collapse">
+﻿@using DigitalSignageAdapter.Extensions
+
+<div class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
-        <li>@Html.ActionLink("Overview", "Index", "Config")</li>
-        <li>@Html.ActionLink("Options", "Options", "Config")</li>
-        <li>@Html.ActionLink("Businesses", "Businesses", "Config")</li>
-        <li>@Html.ActionLink("Signup tickets", "SignupTicketList", "Config")</li>
+        @Html.RestrictedActionLink("Overview", "Index", "Config", "li")
+        @Html.RestrictedActionLink("Options", "Options", "Config", "li")
+        @Html.RestrictedActionLink("Businesses", "Businesses", "Config", "li")
+        @Html.RestrictedActionLink("Signup tickets", "SignupTicketList", "Config", "li")
+        @Html.RestrictedActionLink("Roles/permissions", "RolesOverview", "Config", "li")
     </ul>
 </div>

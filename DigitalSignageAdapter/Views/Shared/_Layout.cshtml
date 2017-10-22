@@ -27,27 +27,10 @@
                 {
                     <ul class="nav navbar-nav">
                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        @if (HttpContext.Current.User.IsInRole("Admin"))
-                        {
-                            if(HttpContext.Current.User.IsAllowedGet("Home", "Compare")) {
-                            <li>@Html.ActionLink("Compare", "Compare", "Home")</li>
-                            }
-                            if (HttpContext.Current.User.IsAllowedGet("Excel", "Index"))
-                            {
-                            <li>@Html.ActionLink("Excel", "Index", "Excel")</li>
-                            }
-                            if (HttpContext.Current.User.IsAllowedGet("Config", "Index"))
-                            {
-                            <li>@Html.ActionLink("Configuration", "Index", "Config")</li>
-                            }
-                        }
-                        @if (HttpContext.Current.User.IsInRole("User"))
-                        {
-                            <li>@Html.ActionLink("Compare", "Compare", "Home")</li>
-                            <li>@Html.ActionLink("Business list", "MultipleBusinesses", "Home")</li>
-                            <li>@Html.ActionLink("Excel", "Index", "Excel")</li>
-                        }
-                        @*<li>@Html.ActionLink("About", "About", "Home")</li>*@
+                        @Html.RestrictedActionLink("Business list", "MultipleBusinesses", "Home", "li")
+                        @Html.RestrictedActionLink("Compare", "Compare", "Home", "li")
+                        @Html.RestrictedActionLink("Excel", "Index", "Excel", "li")
+                        @Html.RestrictedActionLink("Configuration", "Index", "Config", "li")
                     </ul>
                 }
                 @Html.Partial("_LoginPartial")

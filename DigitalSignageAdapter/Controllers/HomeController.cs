@@ -97,7 +97,6 @@ namespace DigitalSignageAdapter.Controllers
 
         [TimeZoneActionFilter]
         [Authorize(Roles = "Admin")]
-        [RestrictedAccess]
         public ActionResult AdminDashboard()
         {
             var roleList = AdapterDb.Database.GetAll<AdapterDb.Roles, Role>(
@@ -192,9 +191,9 @@ namespace DigitalSignageAdapter.Controllers
                 userId,
                 (dbUser) =>
                 {
-                    var user2 = Mapper.Map<AdapterDb.User, User>(dbUser);
-                    user2.BusinessList = GetBusinessActivity(businessList, dbUser.BusinessMember.Select(bm => bm.BusinessId).ToArray());
-                    return user2;
+                    var mappedUser = Mapper.Map<AdapterDb.User, User>(dbUser);
+                    mappedUser.BusinessList = GetBusinessActivity(businessList, dbUser.BusinessMember.Select(bm => bm.BusinessId).ToArray());
+                    return mappedUser;
                 });
 
             var assignBusiness = new AssignBusiness
@@ -298,7 +297,6 @@ namespace DigitalSignageAdapter.Controllers
         }
 
         [TimeZoneActionFilter]
-        [RestrictedAccess]
         public ActionResult Compare()
         {
             /* BEGIN ADJUST TIMES */

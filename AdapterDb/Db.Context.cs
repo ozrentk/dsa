@@ -38,5 +38,7 @@ namespace AdapterDb
         public virtual DbSet<EmployeeLine> EmployeeLine { get; set; }
         public virtual DbSet<DataItem> DataItem { get; set; }
         public virtual DbSet<EmployeeStats> EmployeeStats { get; set; }
+        public virtual DbSet<Activity> Activity { get; set; }
+        public virtual DbSet<Permission> Permission { get; set; }
     }
 }

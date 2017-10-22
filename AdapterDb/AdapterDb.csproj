@@ -61,6 +61,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activity.cs">
+      <DependentUpon>Db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ActivityRestriction.cs" />
     <Compile Include="AggregatedData.cs" />
     <Compile Include="Batch.cs">
       <DependentUpon>Db.tt</DependentUpon>
@@ -110,6 +114,9 @@
       <DependentUpon>Db.tt</DependentUpon>
     </Compile>
     <Compile Include="Log.cs">
+      <DependentUpon>Db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Permission.cs">
       <DependentUpon>Db.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

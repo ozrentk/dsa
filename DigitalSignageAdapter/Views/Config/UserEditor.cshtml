@@ -1,0 +1,55 @@
+﻿@model DigitalSignageAdapter.Models.Config.UserEditor
+
+@section Scripts{
+    <script type="text/javascript" src="~/Scripts/ConfigUserEditor.js"></script>
+}
+
+@{
+    ViewBag.Title = "User editor";
+}
+
+@Html.Partial("_SubNavBar")
+
+<h2>@ViewBag.Title</h2>
+<hr />
+@using (Html.BeginForm("UserEditor", "Config", FormMethod.Post, new { @class = "user-form" }))
+{
+    @Html.HiddenFor(m => m.User.Id)
+    <div class="form-group">
+        <label>Email</label>
+        @Html.TextBoxFor(m => m.User.Email, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Roles</label>
+        <fieldset>
+            <table class="user" id="user-table">
+                @for (int i = 0; i < Model.User.Roles.Count; i++)
+                {
+                    var isSelected = Model.User.Roles[i].IsSelected;
+                    <tr>
+                        <td>
+                            @Html.HiddenFor(m => m.User.Roles[i].Name)
+                            @Html.HiddenFor(m => m.User.Roles[i].IsSelected)
+                            <button type="button" class="role @( isSelected ? "btn btn-primary" : "btn btn-default" )">Role: @Model.User.Roles[i].Name</button>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </fieldset>
+    </div>
+    <div class="form-group form-inline">
+        <label>User is active?</label>
+        @Html.CheckBoxFor(m => m.User.IsActive, new { @class = "form-control" })
+    </div>
+    <p />
+    <div class="well well-sm">
+        <button type="submit" id="btnSaveConfig" class="btn btn-primary">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            Save user
+        </button>
+        <a class="btn btn-primary" href="@Url.Action("UsersOverview")">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            Cancel
+        </a>
+    </div>
+}

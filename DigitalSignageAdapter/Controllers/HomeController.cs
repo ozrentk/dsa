@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-
+using DigitalSignageAdapter.Extensions;
 using DigitalSignageAdapter.Filters;
 using DigitalSignageAdapter.Models.Home;
 using DigitalSignageAdapter.Models.Shared;
@@ -25,20 +25,20 @@ namespace DigitalSignageAdapter.Controllers
             }
 
             var businessIds = AdapterDb.Database.GetBusinessIds(User.Identity.Name);
-            if (User.IsInRole("Admin"))
+            if (User.IsAllowedGet("Home", "AdminDashboard"))
             {
                 // Administrators view - everything (incl users and stuff)
                 return RedirectToAction("AdminDashboard");
             }
-            else if (businessIds.Count > 1)
+            else if (businessIds.Count > 1 && User.IsAllowedGet("Home", "MultipleBusinesses"))
             {
                 // Multiple businesses
                 return RedirectToAction("MultipleBusinesses");
             }
-            else if (businessIds.Count == 1)
+            else if (businessIds.Count == 1 && User.IsAllowedGet("Home", "SingleBusiness"))
             {
                 // Single businesses
-                return RedirectToAction("SingleBusiness", new { businessId = businessIds.First() });
+                return RedirectToAction("SingleBusiness", new { businessId = businessIds.Single() });
             }
 
             return View();
@@ -96,7 +96,7 @@ namespace DigitalSignageAdapter.Controllers
         #endregion Non-actions
 
         [TimeZoneActionFilter]
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         public ActionResult AdminDashboard()
         {
             var roleList = AdapterDb.Database.GetAll<AdapterDb.Roles, Role>(
@@ -110,7 +110,7 @@ namespace DigitalSignageAdapter.Controllers
                 {
                     var users = new List<User>();
 
-                    foreach (var dbUser in dbUsers)
+                    foreach (var dbUser in dbUsers.Where(u => u.IsActive))
                     {
                         var user = Mapper.Map<AdapterDb.User, User>(dbUser);
 
@@ -152,7 +152,7 @@ namespace DigitalSignageAdapter.Controllers
             return View(model);
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         public ActionResult RemoveUser(int userId)
         {
             var user = AdapterDb.Database.GetUser(userId);
@@ -160,7 +160,7 @@ namespace DigitalSignageAdapter.Controllers
             return View(user);
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         [HttpPost]
         public ActionResult RemoveUser(RemoveUser model)
         {
@@ -181,7 +181,7 @@ namespace DigitalSignageAdapter.Controllers
             return View(model);
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         public ActionResult AssignBusiness(int userId)
         {
             var businessList = AdapterDb.Database.GetAll<AdapterDb.Business, Business>(
@@ -204,7 +204,7 @@ namespace DigitalSignageAdapter.Controllers
             return View(assignBusiness);
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         [HttpPost]
         public ActionResult AssignBusiness(AssignBusiness model)
         {
@@ -508,7 +508,7 @@ namespace DigitalSignageAdapter.Controllers
         }
 
         [TimeZoneActionFilter]
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         public ActionResult GetDiagnostics()
         {
             var model =
@@ -524,7 +524,7 @@ namespace DigitalSignageAdapter.Controllers
 
         [HttpPost]
         [TimeZoneActionFilter]
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         public ActionResult GetDiagnostics(Diagnostics diag)
         {
             var businessLineList = AdapterDb.Database.GetBusinessLineList(User);

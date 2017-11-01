@@ -7,10 +7,9 @@
 @Html.Partial("_SubNavBar")
 
 <h2>Options</h2>
-
+<hr />
 @using (Html.BeginForm("Options", "Config", FormMethod.Post, new { @class = "user-form" }))
 {
-    <p style="height: 30px">&nbsp;</p>
     <div class="form-group">
         @Html.LabelFor(m => m.DataCollectionCronSchedule)
         @Html.TextBoxFor(m => m.DataCollectionCronSchedule, new { @class = "form-control" })
@@ -21,10 +20,13 @@
         @Html.TextBoxFor(m => m.CleanupTreshold, new { @class = "form-control", type = "number", min = "1", max = "30" })
         <small>counted from now backwards, plus utc diff!!!</small>
     </div>
-    <p style="height: 30px" />
-    <fieldset name="fieldset3">
-        <input type="submit" id="btnSaveConfig" value="Save" class="btn btn-primary">
-    </fieldset>
+    <p />
+    <div class="well well-sm">
+        <button type="submit" id="btnSaveConfig" class="btn btn-primary">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            Save
+        </button>
+    </div>
     if (Model.IsFailed)
     {
         <p style="height: 30px">&nbsp;</p>

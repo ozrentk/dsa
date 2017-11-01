@@ -14,13 +14,12 @@
 }
 
 <h2>@(isNew ? "Add new Line for business" : "Line for business") <b>@Model.BusinessName</b></h2>
-
+<hr />
 @using (Html.BeginForm("Line", "Config", FormMethod.Post, new { @class = "user-form" }))
 {
     @Html.HiddenFor(m => m.Id)
     @Html.HiddenFor(m => m.BusinessId)
     @Html.HiddenFor(m => m.IsDelete)
-    <p style="height: 30px">&nbsp;</p>
     <div class="form-group">
         @Html.LabelFor(m => m.Code)
         @Html.TextBoxFor(m => m.Code, new { @class = "form-control" })
@@ -29,13 +28,31 @@
         @Html.LabelFor(m => m.Name)
         @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
     </div>
-    <p style="height: 30px">&nbsp;</p>
+    <p />
+    <div class="well well-sm">
+        <button type="submit" id="btnSaveConfig" class="btn btn-primary">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            Save
+        </button>
+        @if (!isNew)
+        {
+            <a href="#" id="lnkLineIsDelete" class="btn btn-danger">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                Delete
+            </a>
+        }
+        <a class="btn btn-primary" href="@Url.Action("Businesses")">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            Cancel
+        </a>
+    </div>
+    @*<p style="height: 30px">&nbsp;</p>
     <input type="submit" id="btnSaveConfig" value="Save" class="btn btn-primary">
     if (!isNew)
     {
         <a href="#" id="lnkLineIsDelete" class="btn btn-danger">Delete</a>
     }
-    @Html.ActionLink("« Cancel", "Businesses", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("« Cancel", "Businesses", null, new { @class = "btn btn-primary" })*@
     if (Model.IsFailed)
     {
         <p style="height: 30px">&nbsp;</p>

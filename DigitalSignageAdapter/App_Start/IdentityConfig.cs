@@ -12,6 +12,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using DigitalSignageAdapter.Models;
 using System.Net.Mail;
+using System.Configuration;
 
 namespace DigitalSignageAdapter
 {
@@ -26,10 +27,14 @@ namespace DigitalSignageAdapter
 
         private void sendMail(IdentityMessage message)
         {
-            var mailMessage = new MailMessage("ozren.t.k@hotmail.com", message.Destination);
-            mailMessage.From = new MailAddress("ozren.t.k@hotmail.com", "Don't reply");
+            var fromAddress = ConfigurationManager.AppSettings["email:fromAddress"];
+            var fromName = ConfigurationManager.AppSettings["email:fromName"];
+
+            var mailMessage = new MailMessage(fromAddress, message.Destination);
+            mailMessage.From = new MailAddress(fromAddress, fromName);
             mailMessage.Subject = message.Subject;
             mailMessage.Body = message.Body;
+            mailMessage.IsBodyHtml = true;
 
             var client = new SmtpClient();
             client.EnableSsl = true;
@@ -145,6 +150,18 @@ namespace DigitalSignageAdapter
         public static ApplicationSignInManager Create(IdentityFactoryOptions<ApplicationSignInManager> options, IOwinContext context)
         {
             return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
+        }
+
+        public override Task<SignInStatus> PasswordSignInAsync(string userName, string password, bool isPersistent, bool shouldLockout)
+        {
+            var user = UserManager.FindByEmailAsync(userName).Result;
+
+            if (!user.IsActive)
+            {
+                return Task.FromResult<SignInStatus>(SignInStatus.LockedOut);
+            }
+
+            return base.PasswordSignInAsync(userName, password, isPersistent, shouldLockout);
         }
     }
 }

@@ -6,12 +6,11 @@
 
 @Html.Partial("_SubNavBar")
 
-<h2>List of Businesses</h2>
-
+<h2>List of Businesses and Lines</h2>
+<hr />
 @using (Html.BeginForm("Businesses", "Config", FormMethod.Post, new { @class = "user-form" }))
 {
     <fieldset>
-        <legend></legend>
         <table>
             @for (int i = 0; i < Model.Count; i++)
             {
@@ -26,20 +25,21 @@
                         {
                             for (int j = 0; j < Model[i].Lines.Count; j++)
                             {
-                                @Html.ActionLink(Model[i].Lines[j].Name, "Line", new { businessId = Model[i].Id, lineId = Model[i].Lines[j].Id }, new { @class = "btn btn-default" })
+                                @Html.ActionLink(Model[i].Lines[j].Name + " »", "Line", new { businessId = Model[i].Id, lineId = Model[i].Lines[j].Id }, new { @class = "btn btn-default" })
                             }
                         }
                         @Html.ActionLink("+", "Line", new { businessId = Model[i].Id }, new { @class = "btn btn-primary" })
                     </td>
                 </tr>
             }
-            <tr>
-                <td>
-                    @Html.ActionLink("New business", "Business", null, new { @class="btn btn-primary" })
-                </td>
-                <td>&nbsp;</td>
-            </tr>
         </table>
     </fieldset>
+    <p />
+    <div class="well well-sm">
+        <a class="btn btn-primary" href="@Url.Action("Business")">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            New Business
+        </a>
+    </div>
 }
 

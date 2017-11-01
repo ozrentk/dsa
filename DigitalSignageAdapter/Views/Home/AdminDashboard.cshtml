@@ -16,33 +16,19 @@
     <thead>
         <tr>
             <th class="col-md-2">&nbsp;</th>
-            <th class="col-md-2">Role</th>
-            <th class="col-md-6">Business list</th>
-            <th class="col-md-2">&nbsp;</th>
+            <th class="col-md-8">Business list</th>
         </tr>
     </thead>
     <tbody>
         @for (int i = 0; i < Model.UserList.Count; i++)
         {
             <tr>
-                <td class="col-md-2">@Model.UserList[i].Name</td>
                 <td class="col-md-2">
-                    @for (int j = 0; j < Model.UserList[i].Roles.Count; j++)
-                    {
-                        @Html.CheckBoxFor(m => Model.UserList[i].Roles[j].IsActive, new { @disabled = "disabled" })
-                        <text>&nbsp;</text>
-                        if (@Model.UserList[i].Roles[j].Name.Equals("Admin"))
-                        {
-                            <span class="text-danger">@Model.UserList[i].Roles[j].Name</span>
-                        }
-                        else
-                        {
-                            @Model.UserList[i].Roles[j].Name
-                        }
-                        <br />
-                    }
+                    <a class="btn btn-default" href="@Url.Action("UserEditor", "Config", new { userId = Model.UserList[i].Id })">
+                        @(Model.UserList[i].Name + " »")
+                    </a>
                 </td>
-                <td class="col-md-6">
+                <td class="col-md-10">
                     @for (int j = 0; j < Model.UserList[i].BusinessList.Count; j++)
                     {
                         if (Model.UserList[i].BusinessList[j].IsActive)
@@ -52,9 +38,6 @@
                         }
                     }
                     @Html.ActionLink("+", "AssignBusiness", new { userId = Model.UserList[i].Id }, new { @class = "btn btn-primary" })
-                </td>
-                <td class="col-md-2">
-                    @Html.ActionLink("Delete", "RemoveUser", new { userId = Model.UserList[i].Id }, new { @class = "btn btn-primary" })
                 </td>
             </tr>
         }

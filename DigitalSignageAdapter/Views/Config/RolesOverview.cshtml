@@ -6,8 +6,8 @@
 
 @Html.Partial("_SubNavBar")
 
-<h2>Roles and permissions</h2>
-
+<h2>List of Roles and Permissions</h2>
+<hr />
 @using (Html.BeginForm("RolesOverview", "Config", FormMethod.Post, new { @class = "role-form" }))
 {
     <fieldset>
@@ -30,8 +30,14 @@
                 </tr>
             }
         </table>
-        @Html.ActionLink("New role", "RoleEditor", null, new { @class = "btn btn-primary" })
     </fieldset>
+    <p />
+    <div class="well well-sm">
+        <a class="btn btn-primary" href="@Url.Action("RoleEditor")">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            New Role
+        </a>
+    </div>
 }
 
 

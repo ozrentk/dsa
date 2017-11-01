@@ -4,17 +4,37 @@ using AutoMapper;
 using DigitalSignageAdapter.Filters;
 using DigitalSignageAdapter.Models.Config;
 using log4net;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
 
 namespace DigitalSignageAdapter.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize]
     public class ConfigController : Controller
     {
         private static readonly ILog log = LogManager.GetLogger("TraceLogger");
+
+        private ApplicationUserManager _userManager;
+
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
 
         [TimeZoneActionFilter]
         public ActionResult Index()
@@ -382,6 +402,184 @@ namespace DigitalSignageAdapter.Controllers
             }
 
             return View(model);
+        }
+
+        public ActionResult UsersOverview()
+        {
+            var model = new UsersOverview();
+            model.Users = AdapterDb.Database.GetAll<AdapterDb.User, Models.Config.User>(
+                (dbUsers) => Mapper.Map<IEnumerable<AdapterDb.User>, IEnumerable<Models.Config.User>>(dbUsers));
+
+            return View(model);
+        }
+
+        public ActionResult UserEditor(int? userId)
+        {
+            var model = new UserEditor();
+
+            var allRoles = AdapterDb.Database.GetAll<AdapterDb.Roles, Models.Config.Role>(
+                (dbRoles) =>
+                {
+                    var mappedRoles = Mapper.Map<IEnumerable<AdapterDb.Roles>, IEnumerable<Models.Config.Role>>(dbRoles);
+                    foreach (var r in mappedRoles)
+                        r.IsSelected = false;
+                    return mappedRoles;
+                });
+
+            if (userId.HasValue)
+            {
+                model.User = AdapterDb.Database.Find<AdapterDb.User, Models.Config.User>(
+                    userId.Value,
+                    (dbUser) =>
+                    {
+                        var mappedUser = Mapper.Map<AdapterDb.User, Models.Config.User>(dbUser);
+                        foreach (var p in mappedUser.Roles)
+                            p.IsSelected = true;
+                        return mappedUser;
+                    });
+                var selectedRoleNames = model.User.Roles.Select(p => p.Name).ToArray();
+                model.User.Roles.AddRange(allRoles.Where(p => !selectedRoleNames.Contains(p.Name)));
+            }
+            else
+            {
+                model.User = new Models.Config.User { Roles = new List<Models.Config.Role>() };
+                model.User.Roles.AddRange(allRoles);
+            }
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async System.Threading.Tasks.Task<ActionResult> UserEditor(Models.Config.UserEditor model)
+        {
+            ModelState.Clear();
+
+            if (ModelState.IsValid)
+            {
+                var mappedUser = Mapper.Map<Models.Config.User, Models.ApplicationUser>(model.User);
+                var selectedRoleNames = model.User.Roles.Where(p => p.IsSelected).Select(p => p.Name).ToArray();
+
+                if (model.User.Id.HasValue)
+                {
+                    await ModifyUserAttributes(mappedUser, selectedRoleNames);
+                }
+                else
+                {
+                    await CreateNewUser(mappedUser, selectedRoleNames);
+                }
+
+                return RedirectToAction("UsersOverview");
+            }
+
+            return View(model);
+        }
+
+        [NonAction]
+        private async System.Threading.Tasks.Task<bool> CreateNewUser(Models.ApplicationUser mappedUser, string[] selectedRoleNames)
+        {
+            var pwd = Models.ApplicationUser.GeneratePassword((Microsoft.AspNet.Identity.PasswordValidator)UserManager.PasswordValidator);
+            var resCreate = await UserManager.CreateAsync(mappedUser, pwd);
+            if (!resCreate.Succeeded)
+                return false;
+
+            var resRoleAdd = await UserManager.AddToRolesAsync(mappedUser.Id, selectedRoleNames);
+            if (!resRoleAdd.Succeeded)
+                return false;
+
+            var code = await UserManager.GenerateEmailConfirmationTokenAsync(mappedUser.Id);
+
+            var confirmationModel =
+                new EmailConfirmation
+                {
+                    ConfirmationUrl = Url.Action(
+                        "ConfirmEmail",
+                        "Account",
+                        new
+                        {
+                            userId = mappedUser.Id,
+                            code = code
+                        },
+                        protocol: Request.Url.Scheme),
+                    Email = mappedUser.Email,
+                    Password = pwd
+                };
+
+            string body = RenderViewToString(
+                ControllerContext,
+                "EmailConfirmation",
+                confirmationModel,
+                true);
+
+            await UserManager.SendEmailAsync(
+                mappedUser.Id,
+                "Confirm your account",
+                body);
+
+            return true;
+        }
+
+        [NonAction]
+        private async System.Threading.Tasks.Task<bool> ModifyUserAttributes(Models.ApplicationUser mappedUser, string[] newRoleNames)
+        {
+            var oldRoleNames = UserManager.GetRoles(mappedUser.Id).ToArray();
+            var toRemove = oldRoleNames.Except(newRoleNames).ToArray();
+            var toAdd = newRoleNames.Except(oldRoleNames).ToArray();
+
+            if (toRemove.Length > 0)
+            {
+                var resRemoved = await UserManager.RemoveFromRolesAsync(mappedUser.Id, toRemove);
+                if (!resRemoved.Succeeded)
+                    return false;
+            }
+
+            if (toAdd.Length > 0)
+            {
+                var resAdded = await UserManager.AddToRolesAsync(mappedUser.Id, toAdd);
+                if (!resAdded.Succeeded)
+                    return false;
+            }
+
+            // HACK: lockout goes around the ASP.NET Identity
+            var resActivity = Database.UpdateUserActivity(mappedUser.Id, mappedUser.IsActive);
+            if(!resActivity)
+                return false;
+
+            return true;
+        }
+
+        [NonAction]
+        static string RenderViewToString(ControllerContext context,
+                            string viewPath,
+                            object model = null,
+                            bool partial = false)
+        {
+            // first find the ViewEngine for this view
+            ViewEngineResult viewEngineResult = null;
+            if (partial)
+                viewEngineResult = ViewEngines.Engines.FindPartialView(context, viewPath);
+            else
+                viewEngineResult = ViewEngines.Engines.FindView(context, viewPath, null);
+
+            if (viewEngineResult == null)
+                throw new FileNotFoundException("View cannot be found.");
+
+            // get the view and attach the model to view data
+            var view = viewEngineResult.View;
+            context.Controller.ViewData.Model = model;
+
+            string result = null;
+
+            using (var sw = new StringWriter())
+            {
+                var ctx = new ViewContext(context, view,
+                                            context.Controller.ViewData,
+                                            context.Controller.TempData,
+                                            sw);
+                view.Render(ctx, sw);
+                result = sw.ToString();
+            }
+
+            return result;
         }
     }
 }

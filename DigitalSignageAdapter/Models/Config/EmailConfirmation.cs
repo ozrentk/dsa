@@ -5,11 +5,10 @@ using System.Web;
 
 namespace DigitalSignageAdapter.Models.Config
 {
-    public class User
+    public class EmailConfirmation
     {
-        public int? Id { get; set; }
+        public string ConfirmationUrl { get; set; }
         public string Email { get; set; }
-        public List<Role> Roles { get; set; }
-        public bool IsActive { get; set; }
+        public string Password { get; set; }
     }
 }

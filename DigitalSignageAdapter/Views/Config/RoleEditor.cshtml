@@ -6,10 +6,17 @@
 
 @{
     ViewBag.Title = "Role editor";
+    bool isNew = false;
+    if (!Model.Role.Id.HasValue)
+    {
+        isNew = true;
+    }
 }
 
 @Html.Partial("_SubNavBar")
 
+<h2>@ViewBag.Title</h2>
+<hr />
 @using (Html.BeginForm("RoleEditor", "Config", FormMethod.Post, new { @class = "role-form" }))
 {
     @Html.HiddenFor(m => m.Role.Id)
@@ -18,7 +25,6 @@
         <label>Role name</label>
         @Html.TextBoxFor(m => m.Role.Name, new { @class = "form-control" })
     </div>
-
     <div class="form-group">
         <label>Permissions</label>
         <fieldset>
@@ -35,8 +41,26 @@
                     </tr>
                 }
             </table>
-            <button type="button" class="delete btn btn-danger">[Delete role]</button>
-            <button type="submit" class="btn btn-danger">[Save role]</button>
+            @*<button type="button" class="delete btn btn-danger">[Delete role]</button>
+            <button type="submit" class="btn btn-danger">[Save role]</button>*@
         </fieldset>
+    </div>
+    <p />
+    <div class="well well-sm">
+        <button type="submit" id="btnSaveConfig" class="btn btn-primary">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            Save role
+        </button>
+        @if (!isNew)
+        {
+            <button type="button" id="btnSaveConfig" class="delete btn btn-danger">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                Delete role
+            </button>
+        }
+        <a class="btn btn-primary" href="@Url.Action("RolesOverview")">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            Cancel
+        </a>
     </div>
 }

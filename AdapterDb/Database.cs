@@ -50,8 +50,11 @@ namespace AdapterDb
                     // Update configuration items
                     foreach (var dbItem in db.ConfigItem)
                     {
-                        var match = configItems.First(i => i.Name.Equals(dbItem.Name));
-                        dbItem.Value = match.Value.Trim();
+                        var match = configItems.FirstOrDefault(i => i.Name.Equals(dbItem.Name));
+                        if (match != null)
+                        {
+                            dbItem.Value = match.Value.Trim();
+                        }
                     }
 
                     db.SaveChanges();
@@ -142,11 +145,11 @@ namespace AdapterDb
             }
         }
 
-        public static int GetActivityRestrictionsHash()
+        public static string GetActivityRestrictionsHash()
         {
             using (var db = new AdapterDbEntities())
             {
-                var hash = db.Database.SqlQuery<int>("SELECT CHECKSUM_AGG(BINARY_CHECKSUM(*)) FROM[SEC].[AllowedActivities] WITH(NOLOCK);");
+                var hash = db.Database.SqlQuery<string>("EXEC SEC.GetAllowedActivitiesChecksum");
                 return hash.Single();
             }
         }
@@ -832,21 +835,27 @@ namespace AdapterDb
         {
             using (var db = new AdapterDbEntities())
             {
-                DataTable dt = new DataTable();
-                dt.Columns.Add("Value", typeof(int));
+                var timeFromParam = new SqlParameter("@timeFrom", timeFrom);
+                var timeToParam = new SqlParameter("@timeTo", timeTo);
+
+                DataTable dtBiz = new DataTable();
+                dtBiz.Columns.Add("Value", typeof(int));
+                dtBiz.Rows.Add(businessId);
+                var bizIdentsParam = new SqlParameter("@businessIdentifiers", SqlDbType.Structured);
+                bizIdentsParam.Value = dtBiz;
+                bizIdentsParam.TypeName = "dbo.Integers";
+
+                DataTable dtLine = new DataTable();
+                dtLine.Columns.Add("Value", typeof(int));
                 if (lineIds != null)
                 {
                     foreach (var id in lineIds)
                     {
-                        dt.Rows.Add(id);
+                        dtLine.Rows.Add(id);
                     }
                 }
-
-                var timeFromParam = new SqlParameter("@timeFrom", timeFrom);
-                var timeToParam = new SqlParameter("@timeTo", timeTo);
-                var bizIdParam = new SqlParameter("@businessId", businessId);
                 var lnIdentsParam = new SqlParameter("@lineIdentifiers", SqlDbType.Structured);
-                lnIdentsParam.Value = dt;
+                lnIdentsParam.Value = dtLine;
                 lnIdentsParam.TypeName = "dbo.Integers";
 
                 List<AggregatedData> items;
@@ -854,14 +863,14 @@ namespace AdapterDb
                 {
                     var empIdParam = new SqlParameter("@employeeId", employeeId == null ? (object)DBNull.Value : employeeId);
                     items = db.Database.SqlQuery<AggregatedData>(
-                        "EXEC GetAggregatedEmployeeData @timeFrom, @timeTo, @businessId, @lineIdentifiers, @employeeId",
-                       timeFromParam, timeToParam, bizIdParam, lnIdentsParam, empIdParam).ToList();
+                        "EXEC GetAggregatedEmployeeData @timeFrom, @timeTo, @businessIdentifiers, @lineIdentifiers, @employeeId",
+                       timeFromParam, timeToParam, bizIdentsParam, lnIdentsParam, empIdParam).ToList();
                 }
                 else
                 {
                     items = db.Database.SqlQuery<AggregatedData>(
-                        "EXEC GetAggregatedData @timeFrom, @timeTo, @businessId, @lineIdentifiers",
-                       timeFromParam, timeToParam, bizIdParam, lnIdentsParam).ToList();
+                        "EXEC GetAggregatedData @timeFrom, @timeTo, @businessIdentifiers, @lineIdentifiers",
+                       timeFromParam, timeToParam, bizIdentsParam, lnIdentsParam).ToList();
                 }
 
                 return items.Single();
@@ -869,6 +878,86 @@ namespace AdapterDb
         }
 
         #endregion Aggregated data items
+
+        //public static bool CreateUser(string userName, List<int?> selectedRoleIds)
+        //{
+        //    try
+        //    {
+        //        using (var db = new AdapterDbEntities())
+        //        {
+        //            User dbUser = new User { UserName = userName };
+        //            var selectedRoles = db.Roles.Where(p => selectedRoleIds.Contains(p.Id)).ToList();
+        //            foreach (var sr in selectedRoles)
+        //            {
+        //                dbUser.Roles.Add(sr);
+        //            }
+        //            db.User.Add(dbUser);
+        //            db.SaveChanges();
+
+        //            return true;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        log.Error("CreateUser error", ex);
+        //        return false;
+        //    }
+        //}
+
+        //public static bool ModifyUser(User user, List<int?> selectedRoleIds)
+        //{
+        //    try
+        //    {
+        //        using (var db = new AdapterDbEntities())
+        //        {
+        //            var dbUser = db.User.Find(user.Id);
+        //            dbUser.UserName = user.UserName;
+        //            dbUser.Roles.Clear();
+
+        //            var selectedRoles = db.Roles.Where(p => selectedRoleIds.Contains(p.Id)).ToList();
+        //            foreach (var sr in selectedRoles)
+        //            {
+        //                dbUser.Roles.Add(sr);
+        //            }
+
+        //            db.SaveChanges();
+
+        //            return true;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        log.Error("ModifyUser error", ex);
+        //        return false;
+        //    }
+        //}
+
+        public static bool UpdateUserActivity(int userId, bool isActive)
+        {
+            try
+            {
+                using (var db = new AdapterDbEntities())
+                {
+                    var dbUser = db.User.Find(userId);
+
+                    if (dbUser.IsActive && !isActive ||
+                        !dbUser.IsActive && isActive)
+                    {
+                        dbUser.IsActive = isActive;
+                        db.SaveChanges();
+                    }
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error("UpdateUserActivity error", ex);
+                return false;
+            }
+        }
+
+
 
         public static bool CreateRole(string roleName, List<int> selectedPermissionIds)
         {
@@ -943,6 +1032,11 @@ namespace AdapterDb
                 log.Error("DeleteRole error", ex);
                 return false;
             }
+        }
+
+        public static bool DeleteUser(int value)
+        {
+            throw new NotImplementedException();
         }
 
         #region Old code

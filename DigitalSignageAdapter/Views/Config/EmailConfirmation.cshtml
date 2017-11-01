@@ -1,0 +1,16 @@
+﻿@model DigitalSignageAdapter.Models.Config.EmailConfirmation
+
+Hello,<p />
+
+You have been registered as a user of <a href="http://sharpmediallc.com">sharpmediallc.com</a>.<p />
+
+E-mail: @Model.Email<br />
+Initial password: @Model.Password<br />
+<p />
+You can log in using your user e-mail and password, but first we have to ask you to confirm your account by clicking <a href="@Model.ConfirmationUrl">here</a>.
+<p /><p />
+<i>Please change your initial password as soon as possible.</i>
+<p />
+Best regards,
+<p />
+Sharpmediallc.com

@@ -55,12 +55,12 @@ namespace DigitalSignageAdapter
             }
         }
 
-        private int? lastHash = null;
+        private string lastHash = null;
 
         public void EnsureRestrictions()
         {
             var currentHash = Database.GetActivityRestrictionsHash();
-            if (!lastHash.HasValue || lastHash != currentHash)
+            if (string.IsNullOrEmpty(lastHash) || !lastHash.Equals(currentHash))
             {
                 lock (itemAccessSyncLock)
                 {

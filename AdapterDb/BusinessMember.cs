@@ -18,7 +18,7 @@ namespace AdapterDb
         public int BusinessId { get; set; }
         public int UserId { get; set; }
     
-        public virtual User User { get; set; }
         public virtual Business Business { get; set; }
+        public virtual User User { get; set; }
     }
 }

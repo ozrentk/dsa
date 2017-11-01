@@ -174,7 +174,7 @@
           <Property Name="LockoutEndDateUtc" Type="datetime" />
           <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
           <Property Name="AccessFailedCount" Type="int" Nullable="false" />
-          <Property Name="LastTicketNumber" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="UserRoles">
           <Key>
@@ -502,17 +502,8 @@
           <EntitySet Name="Batch" EntityType="AdapterDbModel.Batch" />
           <EntitySet Name="ConfigItem" EntityType="AdapterDbModel.ConfigItem" />
           <EntitySet Name="UserSignupTicket" EntityType="AdapterDbModel.UserSignupTicket" />
-          <EntitySet Name="User" EntityType="AdapterDbModel.User" />
           <EntitySet Name="BusinessMember" EntityType="AdapterDbModel.BusinessMember" />
-          <AssociationSet Name="FK_BusinessMember_User" Association="AdapterDbModel.FK_BusinessMember_User">
-            <End Role="User" EntitySet="User" />
-            <End Role="BusinessMember" EntitySet="BusinessMember" />
-          </AssociationSet>
           <EntitySet Name="Roles" EntityType="AdapterDbModel.Roles" />
-          <AssociationSet Name="UserRoles" Association="AdapterDbModel.UserRoles">
-            <End Role="User" EntitySet="User" />
-            <End Role="Roles" EntitySet="Roles" />
-          </AssociationSet>
           <EntitySet Name="Business" EntityType="AdapterDbModel.Business" />
           <EntitySet Name="Line" EntityType="AdapterDbModel.Line" />
           <AssociationSet Name="FK_Business_UserSignupTicket" Association="AdapterDbModel.FK_Business_UserSignupTicket">
@@ -577,6 +568,15 @@
             <End Role="Permission" EntitySet="Permission" />
             <End Role="Roles" EntitySet="Roles" />
           </AssociationSet>
+          <EntitySet Name="User" EntityType="AdapterDbModel.User" />
+          <AssociationSet Name="FK_BusinessMember_User" Association="AdapterDbModel.FK_BusinessMember_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="BusinessMember" EntitySet="BusinessMember" />
+          </AssociationSet>
+          <AssociationSet Name="UserRoles" Association="AdapterDbModel.UserRoles">
+            <End Role="User" EntitySet="User" />
+            <End Role="Roles" EntitySet="Roles" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="Log">
           <Key>
@@ -616,27 +616,6 @@
           <Property Name="Guid" Type="Guid" Nullable="false" />
           <NavigationProperty Name="Business" Relationship="AdapterDbModel.FK_Business_UserSignupTicket" FromRole="UserSignupTicket" ToRole="Business" />
         </EntityType>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Created" Type="DateTime" Precision="3" />
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
-          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
-          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
-          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
-          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
-          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
-          <Property Name="LastTicketNumber" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="BusinessMember" Relationship="AdapterDbModel.FK_BusinessMember_User" FromRole="User" ToRole="BusinessMember" />
-          <NavigationProperty Name="Roles" Relationship="AdapterDbModel.UserRoles" FromRole="User" ToRole="Roles" />
-        </EntityType>
         <EntityType Name="BusinessMember">
           <Key>
             <PropertyRef Name="Id" />
@@ -644,34 +623,18 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="BusinessId" Type="Int32" Nullable="false" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="AdapterDbModel.FK_BusinessMember_User" FromRole="BusinessMember" ToRole="User" />
           <NavigationProperty Name="Business" Relationship="AdapterDbModel.FK_BusinessMember_Business" FromRole="BusinessMember" ToRole="Business" />
+          <NavigationProperty Name="User" Relationship="AdapterDbModel.FK_BusinessMember_User" FromRole="BusinessMember" ToRole="User" />
         </EntityType>
-        <Association Name="FK_BusinessMember_User">
-          <End Type="AdapterDbModel.User" Role="User" Multiplicity="1" />
-          <End Type="AdapterDbModel.BusinessMember" Role="BusinessMember" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="BusinessMember">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Roles">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="User" Relationship="AdapterDbModel.UserRoles" FromRole="Roles" ToRole="User" />
           <NavigationProperty Name="Permission" Relationship="AdapterDbModel.RolePermission" FromRole="Roles" ToRole="Permission" />
+          <NavigationProperty Name="User" Relationship="AdapterDbModel.UserRoles" FromRole="Roles" ToRole="User" />
         </EntityType>
-        <Association Name="UserRoles">
-          <End Type="AdapterDbModel.User" Role="User" Multiplicity="*" />
-          <End Type="AdapterDbModel.Roles" Role="Roles" Multiplicity="*" />
-        </Association>
         <EntityType Name="Business">
           <Key>
             <PropertyRef Name="Id" />
@@ -949,6 +912,43 @@
           <End Type="AdapterDbModel.Permission" Role="Permission" Multiplicity="*" />
           <End Type="AdapterDbModel.Roles" Role="Roles" Multiplicity="*" />
         </Association>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="BusinessMember" Relationship="AdapterDbModel.FK_BusinessMember_User" FromRole="User" ToRole="BusinessMember" />
+          <NavigationProperty Name="Roles" Relationship="AdapterDbModel.UserRoles" FromRole="User" ToRole="Roles" />
+        </EntityType>
+        <Association Name="FK_BusinessMember_User">
+          <End Type="AdapterDbModel.User" Role="User" Multiplicity="1" />
+          <End Type="AdapterDbModel.BusinessMember" Role="BusinessMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BusinessMember">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserRoles">
+          <End Type="AdapterDbModel.User" Role="User" Multiplicity="*" />
+          <End Type="AdapterDbModel.Roles" Role="Roles" Multiplicity="*" />
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -995,26 +995,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="AdapterDbModel.User">
-              <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="LastTicketNumber" ColumnName="LastTicketNumber" />
-                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
-                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
-                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
-                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
-                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
-                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
-                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Created" ColumnName="Created" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="BusinessMember">
             <EntityTypeMapping TypeName="AdapterDbModel.BusinessMember">
               <MappingFragment StoreEntitySet="BusinessMember">
@@ -1032,14 +1012,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="UserRoles" TypeName="AdapterDbModel.UserRoles" StoreEntitySet="UserRoles">
-            <EndProperty Name="Roles">
-              <ScalarProperty Name="Id" ColumnName="RoleId" />
-            </EndProperty>
-            <EndProperty Name="User">
-              <ScalarProperty Name="Id" ColumnName="UserId" />
-            </EndProperty>
-          </AssociationSetMapping>
           <EntitySetMapping Name="Business">
             <EntityTypeMapping TypeName="AdapterDbModel.Business">
               <MappingFragment StoreEntitySet="Business">
@@ -1149,7 +1121,35 @@
               <ScalarProperty Name="Id" ColumnName="PermissionId" />
             </EndProperty>
           </AssociationSetMapping>
-        </EntityContainerMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="AdapterDbModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="UserRoles" TypeName="AdapterDbModel.UserRoles" StoreEntitySet="UserRoles">
+            <EndProperty Name="Roles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="User">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

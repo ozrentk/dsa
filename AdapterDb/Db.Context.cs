@@ -29,7 +29,6 @@ namespace AdapterDb
         public virtual DbSet<Batch> Batch { get; set; }
         public virtual DbSet<ConfigItem> ConfigItem { get; set; }
         public virtual DbSet<UserSignupTicket> UserSignupTicket { get; set; }
-        public virtual DbSet<User> User { get; set; }
         public virtual DbSet<BusinessMember> BusinessMember { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<Business> Business { get; set; }
@@ -40,5 +39,6 @@ namespace AdapterDb
         public virtual DbSet<EmployeeStats> EmployeeStats { get; set; }
         public virtual DbSet<Activity> Activity { get; set; }
         public virtual DbSet<Permission> Permission { get; set; }
+        public virtual DbSet<User> User { get; set; }
     }
 }

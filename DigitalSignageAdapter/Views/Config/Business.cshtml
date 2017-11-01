@@ -10,11 +10,10 @@
 }
 
 <h2>@title</h2>
-
+<hr />
 @using (Html.BeginForm("Business", "Config", FormMethod.Post, new { @class = "user-form" }))
 {
     @Html.HiddenFor(m => m.Id)
-    <p style="height: 30px">&nbsp;</p>
     <div class="form-group">
         @Html.LabelFor(m => m.Code)
         @Html.TextBoxFor(m => m.Code, new { @class = "form-control" })
@@ -23,9 +22,17 @@
         @Html.LabelFor(m => m.Name)
         @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
     </div>
-    <p style="height: 30px">&nbsp;</p>
-    <input type="submit" id="btnSaveConfig" value="Save" class="btn btn-primary">
-    @Html.ActionLink("« Cancel", "Businesses", null, new { @class = "btn btn-primary" })
+    <p />
+    <div class="well well-sm">
+        <button type="submit" id="btnSaveConfig" class="btn btn-primary">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            Save
+        </button>
+        <a class="btn btn-primary" href="@Url.Action("Businesses")">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            Cancel
+        </a>
+    </div>
     if (Model.IsFailed)
     {
         <p style="height: 30px">&nbsp;</p>

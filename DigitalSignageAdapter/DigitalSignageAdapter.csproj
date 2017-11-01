@@ -240,10 +240,13 @@
     <Compile Include="Models\Config\Overview.cs" />
     <Compile Include="Models\Config\Permission.cs" />
     <Compile Include="Models\Config\Role.cs" />
+    <Compile Include="Models\Config\UserEditor.cs" />
     <Compile Include="Models\Config\RoleEditor.cs" />
+    <Compile Include="Models\Config\UsersOverview.cs" />
     <Compile Include="Models\Config\RolesOverview.cs" />
     <Compile Include="Models\Config\SignupTicket.cs" />
     <Compile Include="Models\Config\User.cs" />
+    <Compile Include="Models\Config\EmailConfirmation.cs" />
     <Compile Include="Models\Excel\DataFilters.cs" />
     <Compile Include="Models\Home\AssignBusiness.cs" />
     <Compile Include="Models\Home\AdminDashboard.cs" />
@@ -305,6 +308,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Config.js" />
     <Content Include="Scripts\Compare.js" />
+    <Content Include="Scripts\ConfigUserEditor.js" />
     <Content Include="Scripts\ConfigRoleEditor.js" />
     <Content Include="Scripts\Excel.js" />
     <Content Include="Scripts\homeConfig.js" />
@@ -392,6 +396,9 @@
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Config\RolesOverview.cshtml" />
     <Content Include="Views\Config\RoleEditor.cshtml" />
+    <Content Include="Views\Config\UsersOverview.cshtml" />
+    <Content Include="Views\Config\UserEditor.cshtml" />
+    <Content Include="Views\Config\EmailConfirmation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\typings\knockout\knockout.d.ts" />
@@ -418,6 +425,7 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

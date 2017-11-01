@@ -11,5 +11,6 @@ namespace DigitalSignageAdapter.Models.Config
         public string Name { get; set; }
         public List<Permission> Permissions { get; set; }
         public bool IsDelete { get; set; }
+        public bool IsSelected { get; set; }
     }
 }

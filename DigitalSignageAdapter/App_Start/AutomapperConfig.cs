@@ -33,6 +33,14 @@ namespace DigitalSignageAdapter
                    .ForMember(d => d.Permissions, opt => opt.MapFrom(s => s.Permission))
                    .ReverseMap();
 
+                cfg.CreateMap<AdapterDb.User, Models.Config.User>()
+                   .ForMember(d => d.Roles, opt => opt.MapFrom(s => s.Roles))
+                   .ReverseMap();
+
+                cfg.CreateMap<Models.Config.User, Models.ApplicationUser>()
+                   .ForMember(d => d.UserName, opt => opt.MapFrom(s => s.Email))
+                   .ForMember(d => d.Roles, opt => opt.Ignore());
+
                 cfg.CreateMap<AdapterDb.Roles, Models.Home.Role>();
 
                 cfg.CreateMap<AdapterDb.Business, Models.Home.Business>()

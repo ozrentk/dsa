@@ -7,10 +7,9 @@
 @Html.Partial("_SubNavBar")
 
 <h2>Overview</h2>
-
+<hr />
 @using (Html.BeginForm("Index", "Config", FormMethod.Post, new { @class = "user-form" }))
 {
-    <p style="height: 30px">&nbsp;</p>
     <div class="form-group">
         @Html.LabelFor(m => m.UserCount)
         @Html.TextBoxFor(m => m.UserCount, new { @class = "form-control", @readonly = "readonly" })

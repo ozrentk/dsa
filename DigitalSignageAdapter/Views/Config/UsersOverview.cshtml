@@ -1,0 +1,47 @@
+﻿@model DigitalSignageAdapter.Models.Config.UsersOverview
+
+@{
+    ViewBag.Title = "Users and roles";
+}
+
+@Html.Partial("_SubNavBar")
+
+<h2>Users and assigned Roles</h2>
+<hr />
+@using (Html.BeginForm("UsersOverview", "Config", FormMethod.Post, new { @class = "user-form" }))
+{
+    <fieldset>
+        <table class="user-overview">
+            @for (int i = 0; i < Model.Users.Count; i++)
+            {
+                <tr>
+                    <td>
+                        <a class="@(Model.Users[i].IsActive ? "btn btn-default" : "btn btn-default")" href="@Url.Action("UserEditor", new { userId = Model.Users[i].Id })">
+                            @if (!Model.Users[i].IsActive)
+                            {
+                                <span class="label label-default">Inactive</span>
+                            }
+                            @(Model.Users[i].Email + " »")
+                        </a>
+                    </td>
+                    <td>
+                        @if (Model.Users[i].Roles != null)
+                        {
+                            for (int j = 0; j < Model.Users[i].Roles.Count; j++)
+                            {
+                                @Html.ActionLink(Model.Users[i].Roles[j].Name, "UserEditor", new { userId = Model.Users[i].Id }, new { @class = Model.Users[i].IsActive ? "btn btn-default" : "btn btn-default" })
+                            }
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+    </fieldset>
+    <p />
+    <div class="well well-sm">
+        <a class="btn btn-primary" href="@Url.Action("UserEditor")">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            New User
+        </a>
+    </div>
+}

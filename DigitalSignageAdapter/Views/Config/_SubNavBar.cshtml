@@ -4,8 +4,9 @@
     <ul class="nav navbar-nav">
         @Html.RestrictedActionLink("Overview", "Index", "Config", "li")
         @Html.RestrictedActionLink("Options", "Options", "Config", "li")
-        @Html.RestrictedActionLink("Businesses", "Businesses", "Config", "li")
-        @Html.RestrictedActionLink("Signup tickets", "SignupTicketList", "Config", "li")
-        @Html.RestrictedActionLink("Roles/permissions", "RolesOverview", "Config", "li")
+        @Html.RestrictedActionLink("Businesses/Lines", "Businesses", "Config", "li")
+        @*@Html.RestrictedActionLink("Signup tickets", "SignupTicketList", "Config", "li")*@
+        @Html.RestrictedActionLink("Users", "UsersOverview", "Config", "li")
+        @Html.RestrictedActionLink("Roles/Permissions", "RolesOverview", "Config", "li")
     </ul>
 </div>

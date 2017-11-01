@@ -190,3 +190,349 @@ DEBUG 2017-10-23 00:21:07,342    68ms TraceLogger            Application_Start  
 DEBUG 2017-10-23 00:21:08,242   968ms TraceLogger            ureDataItemMapping - configuring automapper
 DEBUG 2017-10-23 00:21:08,545  1271ms TraceLogger            tivityRestrictions - configuring activity restrictions
 DEBUG 2017-10-23 00:21:08,766  1492ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-24 20:21:13,715    74ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-24 20:21:14,635   993ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-24 20:21:14,909  1268ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-24 20:21:15,195  1554ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-24 20:21:44,420   197ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-24 20:21:44,469   246ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-24 20:21:44,828   605ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-24 20:21:45,724  1501ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-24 20:23:47,483   166ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-24 20:23:48,381  1064ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-24 20:23:48,673  1356ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-24 20:23:48,921  1604ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-24 20:27:16,188    75ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-24 20:27:17,170  1057ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-24 20:27:17,461  1348ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-24 20:27:17,840  1727ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-24 20:32:36,155   165ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-24 20:32:36,982   992ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-24 20:32:37,264  1274ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-24 20:32:37,452  1461ms TraceLogger            Application_Start  - application started ok
+ERROR 2017-10-24 20:39:13,726 397735ms TraceLogger            ModifyUser         - ModifyUser error
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at AdapterDb.Database.ModifyUser(User user, List`1 selectedRoleIds) in D:\OneDrive\Posao\DigitalSignage\AdapterDb\Database.cs:line 914
+DEBUG 2017-10-24 20:40:32,507   215ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-24 20:40:32,569   277ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-24 20:40:32,914   622ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-24 20:40:34,046  1754ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-24 20:43:24,119   194ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-24 20:43:24,173   247ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-24 20:43:24,477   551ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-24 20:43:25,540  1614ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-24 20:45:25,960    74ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-24 20:45:26,961  1075ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-24 20:45:36,785 10899ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-24 20:45:36,957 11071ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-24 20:46:03,503   183ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-24 20:46:04,397  1077ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-24 20:46:06,845  3525ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-24 20:46:07,020  3700ms TraceLogger            Application_Start  - application started ok
+ERROR 2017-10-24 20:47:13,943 70623ms TraceLogger            ModifyUser         - ModifyUser error
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at AdapterDb.Database.ModifyUser(User user, List`1 selectedRoleIds) in D:\OneDrive\Posao\DigitalSignage\AdapterDb\Database.cs:line 914
+ERROR 2017-10-24 20:47:39,935 96615ms TraceLogger            CreateUser         - CreateUser error
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at AdapterDb.Database.CreateUser(String userName, List`1 selectedRoleIds) in D:\OneDrive\Posao\DigitalSignage\AdapterDb\Database.cs:line 886
+DEBUG 2017-10-24 20:48:42,212   211ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-24 20:48:42,266   265ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-24 20:48:50,445  8443ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-24 20:48:51,286  9284ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-24 20:50:40,014   178ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-24 20:50:40,865  1029ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-24 20:50:41,194  1358ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-24 20:50:41,394  1558ms TraceLogger            Application_Start  - application started ok
+ERROR 2017-10-24 20:51:06,490 26654ms TraceLogger            CreateUser         - CreateUser error
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at AdapterDb.Database.CreateUser(String userName, List`1 selectedRoleIds) in D:\OneDrive\Posao\DigitalSignage\AdapterDb\Database.cs:line 886
+DEBUG 2017-10-29 12:13:56,376    78ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-29 12:13:57,600  1302ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-29 12:13:58,026  1728ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-29 12:13:58,566  2268ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-29 12:15:14,714   111ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-29 12:15:15,645  1042ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-29 12:15:16,020  1417ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-29 12:15:16,275  1672ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-29 12:17:46,265    75ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-29 12:17:47,099   908ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-29 12:17:47,373  1183ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-29 12:17:47,564  1374ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-29 12:41:59,698    74ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-29 12:42:00,569   945ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-29 12:42:00,888  1264ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-29 12:42:01,063  1440ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-29 12:44:05,111    69ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-29 12:44:06,141  1099ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-29 12:44:06,441  1399ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-29 12:44:06,616  1574ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-29 12:46:33,811    79ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-29 12:46:34,790  1058ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-29 12:46:35,084  1352ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-29 12:46:35,267  1534ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-29 12:48:10,451   119ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-29 12:48:11,620  1287ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-29 12:48:12,023  1691ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-29 12:48:12,258  1925ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-29 12:52:02,923   118ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-29 12:52:03,850  1045ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-29 12:52:04,175  1370ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-29 12:52:04,376  1571ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-30 21:28:03,454    76ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-30 21:28:04,564  1187ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-30 21:28:04,886  1508ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-30 21:28:05,197  1819ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-30 21:29:47,932   242ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-30 21:29:48,011   321ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-30 21:29:48,442   752ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-30 21:29:50,717  3028ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-30 21:30:04,605   214ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-30 21:30:04,690   299ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-30 21:30:05,139   748ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-30 21:30:07,056  2665ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-30 21:35:23,695    76ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-30 21:35:24,575   956ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-30 21:35:24,892  1273ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-30 21:35:25,075  1456ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-30 21:36:01,197    83ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-30 21:36:02,098   984ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-30 21:36:02,417  1303ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-30 21:36:02,586  1472ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-30 21:38:48,418   114ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-30 21:38:49,336  1032ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-30 21:38:49,687  1382ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-30 21:38:49,922  1618ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-30 21:41:41,100   130ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-30 21:41:41,947   978ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-30 21:41:42,256  1287ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-30 21:41:42,434  1465ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-30 21:46:12,646   107ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-30 21:46:13,561  1022ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-30 21:46:13,898  1359ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-30 21:46:14,092  1553ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-30 21:47:52,058   131ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-30 21:47:53,040  1112ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-30 21:47:53,393  1465ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-30 21:47:53,579  1651ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-31 18:52:51,248    99ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-31 18:52:52,419  1270ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-31 18:52:52,744  1595ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-31 18:52:53,147  1998ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-31 18:59:29,153    79ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-31 18:59:30,093  1019ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-31 18:59:30,405  1331ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-31 18:59:30,662  1588ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-31 19:09:54,366   123ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-31 19:09:55,290  1047ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-31 19:09:55,636  1393ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-31 19:09:55,876  1633ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-31 19:12:57,183   110ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-31 19:12:58,161  1088ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-31 19:12:58,473  1400ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-31 19:12:58,654  1581ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-31 19:14:49,656   266ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-31 19:14:49,731   341ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-31 19:14:50,170   780ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-31 19:14:59,643 10253ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-31 20:34:59,063    75ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-31 20:34:59,995  1007ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-31 20:35:00,283  1295ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-31 20:35:00,479  1491ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-31 20:39:38,342    98ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-31 20:39:39,195   951ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-31 20:39:39,488  1244ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-31 20:39:39,683  1438ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-31 20:48:49,305   161ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-31 20:48:50,368  1224ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-31 20:48:50,702  1558ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-31 20:48:50,948  1804ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-10-31 20:51:38,256   223ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-10-31 20:51:38,332   299ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-10-31 20:51:38,760   727ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-10-31 20:51:40,725  2692ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-11-01 08:49:10,099    87ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-11-01 08:49:11,019  1007ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-11-01 08:49:11,365  1352ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-11-01 08:49:11,631  1618ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-11-01 08:57:59,746   156ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-11-01 08:58:00,635  1045ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-11-01 08:58:00,952  1362ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-11-01 08:58:09,444  9853ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-11-01 09:05:26,655    71ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-11-01 09:05:27,568   984ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-11-01 09:05:27,856  1272ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-11-01 09:05:28,080  1496ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-11-01 09:12:27,505    79ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-11-01 09:12:28,471  1046ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-11-01 09:12:28,768  1343ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-11-01 09:12:28,990  1565ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-11-01 09:15:07,370    95ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-11-01 09:15:08,431  1155ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-11-01 09:15:08,757  1482ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-11-01 09:15:08,968  1693ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-11-01 17:13:38,734   116ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-11-01 17:13:39,769  1151ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-11-01 17:13:40,086  1468ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-11-01 17:13:40,455  1837ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-11-01 17:19:49,105    76ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-11-01 17:19:50,029  1000ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-11-01 17:19:50,359  1329ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-11-01 17:19:50,611  1581ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-11-01 17:56:50,476    79ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-11-01 17:56:51,545  1148ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-11-01 17:56:51,862  1464ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-11-01 17:56:52,055  1657ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-11-01 17:58:32,745    77ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-11-01 17:58:33,640   972ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-11-01 17:58:33,956  1288ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-11-01 17:58:34,143  1475ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-11-01 20:23:51,487   224ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-11-01 20:23:51,557   294ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-11-01 20:23:51,949   686ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-11-01 20:23:54,468  3206ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-11-01 20:55:01,941   202ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-11-01 20:55:01,986   247ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-11-01 20:55:02,344   605ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-11-01 20:55:04,207  2467ms TraceLogger            Application_Start  - application started ok
+ERROR 2017-11-01 21:03:40,516 518776ms TraceLogger            SaveConfigItems    - SaveConfigItems error
+System.InvalidOperationException: Sequence contains no matching element
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
+   at AdapterDb.Database.SaveConfigItems(List`1 configItems) in D:\OneDrive\Posao\DigitalSignage\AdapterDb\Database.cs:line 53
+ERROR 2017-11-01 21:04:52,368 590628ms TraceLogger            SaveConfigItems    - SaveConfigItems error
+System.InvalidOperationException: Sequence contains no matching element
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
+   at AdapterDb.Database.SaveConfigItems(List`1 configItems) in D:\OneDrive\Posao\DigitalSignage\AdapterDb\Database.cs:line 53
+DEBUG 2017-11-01 21:06:23,885    89ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-11-01 21:06:24,791   995ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-11-01 21:06:25,104  1307ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-11-01 21:06:25,282  1486ms TraceLogger            Application_Start  - application started ok
+ERROR 2017-11-01 21:15:39,596 555799ms TraceLogger            SaveBusiness       - SaveBusiness error
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at AdapterDb.Database.SaveBusiness(Business dbBusiness) in D:\OneDrive\Posao\DigitalSignage\AdapterDb\Database.cs:line 412
+DEBUG 2017-11-01 21:38:03,004   239ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-11-01 21:38:03,089   324ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-11-01 21:38:03,480   715ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-11-01 21:38:18,827 16061ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-11-01 21:46:48,602   224ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-11-01 21:46:48,680   302ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-11-01 21:46:49,132   754ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-11-01 21:46:51,219  2840ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-11-01 22:00:52,146   220ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-11-01 22:00:52,211   285ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-11-01 22:00:52,566   640ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-11-01 22:00:54,922  2997ms TraceLogger            Application_Start  - application started ok
+ERROR 2017-11-01 22:06:00,413 308488ms TraceLogger            DeleteBusiness     - DeleteBusiness error
+System.Data.Entity.Infrastructure.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.Entity.Core.UpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: The DELETE statement conflicted with the REFERENCE constraint "FK_BusinessMember_Business". The conflict occurred in database "DSA_20170712", table "dbo.BusinessMember", column 'BusinessId'.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<NonQuery>b__0(DbCommand t, DbCommandInterceptionContext`1 c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.NonQuery(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteNonQuery()
+   at System.Data.Entity.Core.Mapping.Update.Internal.DynamicUpdateCommand.Execute(Dictionary`2 identifierValues, List`1 generatedValues)
+   at System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   at System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.<Update>b__2(UpdateTranslator ut)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update[T](T noChangesResult, Func`2 updateFunction)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update()
+   at System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStore>b__35()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass2a.<SaveChangesInternal>b__27()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   at System.Data.Entity.Core.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at AdapterDb.Database.DeleteBusiness(Int32 businessId) in D:\OneDrive\Posao\DigitalSignage\AdapterDb\Database.cs:line 433
+ERROR 2017-11-01 22:06:02,195 310270ms TraceLogger            DeleteBusiness     - DeleteBusiness error
+System.Data.Entity.Infrastructure.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.Entity.Core.UpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: The DELETE statement conflicted with the REFERENCE constraint "FK_BusinessMember_Business". The conflict occurred in database "DSA_20170712", table "dbo.BusinessMember", column 'BusinessId'.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<NonQuery>b__0(DbCommand t, DbCommandInterceptionContext`1 c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.NonQuery(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteNonQuery()
+   at System.Data.Entity.Core.Mapping.Update.Internal.DynamicUpdateCommand.Execute(Dictionary`2 identifierValues, List`1 generatedValues)
+   at System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   at System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.<Update>b__2(UpdateTranslator ut)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update[T](T noChangesResult, Func`2 updateFunction)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update()
+   at System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStore>b__35()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   at System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass2a.<SaveChangesInternal>b__27()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   at System.Data.Entity.Core.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at AdapterDb.Database.DeleteBusiness(Int32 businessId) in D:\OneDrive\Posao\DigitalSignage\AdapterDb\Database.cs:line 433
+DEBUG 2017-11-01 22:26:58,301    72ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-11-01 22:26:59,139   910ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-11-01 22:26:59,439  1210ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-11-01 22:26:59,616  1387ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-11-01 22:34:27,038    77ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-11-01 22:34:28,039  1078ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-11-01 22:34:28,337  1376ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-11-01 22:34:28,519  1558ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-11-01 23:38:51,008   140ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-11-01 23:38:52,090  1222ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-11-01 23:38:52,406  1538ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-11-01 23:38:52,644  1776ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-11-01 23:58:24,794    88ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-11-01 23:58:25,716  1010ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-11-01 23:58:26,060  1354ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-11-01 23:58:26,308  1602ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-11-02 00:32:57,200    86ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-11-02 00:32:58,203  1089ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-11-02 00:32:58,523  1409ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-11-02 00:33:01,491  4376ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-11-02 00:41:35,922    91ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-11-02 00:41:37,137  1306ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-11-02 00:41:37,469  1638ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-11-02 00:41:37,648  1817ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-11-02 00:44:20,688    83ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-11-02 00:44:21,738  1133ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-11-02 00:44:22,074  1469ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-11-02 00:44:22,253  1648ms TraceLogger            Application_Start  - application started ok

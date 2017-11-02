@@ -340,7 +340,7 @@ namespace AdapterDb
 
                 if (user == null || user.IsInRole("Admin"))
                 {
-                    var items = db.Business.Include("Line").ToList();
+                    var items = db.Business.Include("Line").OrderBy(b => b.Name).ToList();
 
                     return items;
                 }
@@ -349,7 +349,7 @@ namespace AdapterDb
                     var dbUser = db.User.Include("BusinessMember").Where(u => u.UserName == user.Identity.Name).First();
                     var ids = dbUser.BusinessMember.Select(bm => bm.BusinessId);
 
-                    var items = db.Business.Include("Line").Where(b => ids.Contains(b.Id)).ToList();
+                    var items = db.Business.Include("Line").Where(b => ids.Contains(b.Id)).OrderBy(b => b.Name).ToList();
 
                     return items;
                 }

@@ -318,7 +318,11 @@ namespace DigitalSignageAdapter.Controllers
         {
             var model = new RolesOverview();
             model.Roles = AdapterDb.Database.GetAll<AdapterDb.Roles, Role>(
-                (dbRoles) => Mapper.Map<IEnumerable<AdapterDb.Roles>, IEnumerable<Role>>(dbRoles));
+                (dbRoles) => {
+                    var mappedRoles = Mapper.Map<IEnumerable<AdapterDb.Roles>, IEnumerable<Role>>(dbRoles).OrderBy(p => p.Name).ToList();
+                    mappedRoles.ForEach(r => r.Permissions = r.Permissions.OrderBy(p => p.Description).ToList());
+                    return mappedRoles;
+                });
 
             return View(model);
         }
@@ -333,7 +337,7 @@ namespace DigitalSignageAdapter.Controllers
                     var mappedPermissions = Mapper.Map<IEnumerable<AdapterDb.Permission>, IEnumerable<Models.Config.Permission>>(dbPermissions);
                     foreach (var p in mappedPermissions)
                         p.IsSelected = false;
-                    return mappedPermissions;
+                    return mappedPermissions.OrderBy(p => p.Description);
                 });
 
             if (roleId.HasValue)
@@ -408,7 +412,9 @@ namespace DigitalSignageAdapter.Controllers
         {
             var model = new UsersOverview();
             model.Users = AdapterDb.Database.GetAll<AdapterDb.User, Models.Config.User>(
-                (dbUsers) => Mapper.Map<IEnumerable<AdapterDb.User>, IEnumerable<Models.Config.User>>(dbUsers));
+                (dbUsers) => Mapper.Map<IEnumerable<AdapterDb.User>, IEnumerable<Models.Config.User>>(dbUsers))
+                                   .OrderBy(u => u.Email)
+                                   .ToList();
 
             return View(model);
         }
@@ -423,7 +429,7 @@ namespace DigitalSignageAdapter.Controllers
                     var mappedRoles = Mapper.Map<IEnumerable<AdapterDb.Roles>, IEnumerable<Models.Config.Role>>(dbRoles);
                     foreach (var r in mappedRoles)
                         r.IsSelected = false;
-                    return mappedRoles;
+                    return mappedRoles.OrderBy(r => r.Name);
                 });
 
             if (userId.HasValue)

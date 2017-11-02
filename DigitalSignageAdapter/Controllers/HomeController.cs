@@ -100,17 +100,17 @@ namespace DigitalSignageAdapter.Controllers
         public ActionResult AdminDashboard()
         {
             var roleList = AdapterDb.Database.GetAll<AdapterDb.Roles, Role>(
-                (dbRoles) => Mapper.Map<IEnumerable<AdapterDb.Roles>, IEnumerable<Role>>(dbRoles));
+                (dbRoles) => Mapper.Map<IEnumerable<AdapterDb.Roles>, IEnumerable<Role>>(dbRoles)).OrderBy(r => r.Name).ToList();
 
             var businessList = AdapterDb.Database.GetAll<AdapterDb.Business, Business>(
-                (dbBusinessList) => Mapper.Map<IEnumerable<AdapterDb.Business>, IEnumerable<Business>>(dbBusinessList));
+                (dbBusinessList) => Mapper.Map<IEnumerable<AdapterDb.Business>, IEnumerable<Business>>(dbBusinessList)).OrderBy(b => b.Name).ToList();
 
             var userList = AdapterDb.Database.GetAll<AdapterDb.User, User>(
                 (dbUsers) =>
                 {
                     var users = new List<User>();
 
-                    foreach (var dbUser in dbUsers.Where(u => u.IsActive))
+                    foreach (var dbUser in dbUsers.Where(u => u.IsActive).OrderBy(u => u.UserName))
                     {
                         var user = Mapper.Map<AdapterDb.User, User>(dbUser);
 

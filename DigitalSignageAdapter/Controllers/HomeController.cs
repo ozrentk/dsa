@@ -7,6 +7,7 @@ using DigitalSignageAdapter.Extensions;
 using DigitalSignageAdapter.Filters;
 using DigitalSignageAdapter.Models.Home;
 using DigitalSignageAdapter.Models.Shared;
+using System.Configuration;
 
 namespace DigitalSignageAdapter.Controllers
 {
@@ -125,8 +126,7 @@ namespace DigitalSignageAdapter.Controllers
             var businessLineList = AdapterDb.Database.GetBusinessLineList(User);
 
             /* BEGIN ADJUST TIMES */
-            //DateTime clientCurrentTime = TimeZoneHelper.ClientCurrentTime(ViewBag.TimeZoneOffset);
-            DateTime clientCurrentTime = (new DateTime(2017, 9, 13)).AddHours(16);
+            DateTime clientCurrentTime = TimeZoneHelper.ClientCurrentTime(ViewBag.TimeZoneOffset);
             DateTime clientToday = clientCurrentTime.Date;
 
             //var utcTimeFrom = TimeZoneHelper.ClientToUtc(clientToday, ViewBag.TimeZoneOffset);
@@ -233,8 +233,7 @@ namespace DigitalSignageAdapter.Controllers
             var businessList = AdapterDb.Database.GetBusinessLineList(User);
 
             /* BEGIN ADJUST TIMES */
-            //DateTime clientCurrentTime = TimeZoneHelper.ClientCurrentTime(ViewBag.TimeZoneOffset);
-            DateTime clientCurrentTime = (new DateTime(2017, 9, 13)).AddHours(16);
+            DateTime clientCurrentTime = TimeZoneHelper.ClientCurrentTime(ViewBag.TimeZoneOffset);
             DateTime clientToday = clientCurrentTime.Date;
 
             //var utcTimeFrom = TimeZoneHelper.ClientToUtc(clientToday, ViewBag.TimeZoneOffset);
@@ -259,8 +258,7 @@ namespace DigitalSignageAdapter.Controllers
             List<AdapterDb.Line> lineList = AdapterDb.Database.GetLineList(User, businessId);
 
             /* BEGIN ADJUST TIMES */
-            //DateTime clientCurrentTime = TimeZoneHelper.ClientCurrentTime(ViewBag.TimeZoneOffset);
-            DateTime clientCurrentTime = (new DateTime(2017, 9, 13)).AddHours(16);
+            DateTime clientCurrentTime = TimeZoneHelper.ClientCurrentTime(ViewBag.TimeZoneOffset);
             DateTime clientToday = clientCurrentTime.Date;
 
             //var utcTimeFrom = TimeZoneHelper.ClientToUtc(clientToday, ViewBag.TimeZoneOffset);
@@ -426,8 +424,6 @@ namespace DigitalSignageAdapter.Controllers
             /* AGGREGATED DATA */
             DateTime clientTimeFrom;
             DateTime clientTimeTo;
-            //DateTime utcTimeFrom;
-            //DateTime utcTimeTo;
             if (model.TimeEntryType == TimeEntryType.Days)
             {
                 clientTimeTo = TimeZoneHelper.ClientCurrentTime(ViewBag.TimeZoneOffset);
@@ -511,11 +507,12 @@ namespace DigitalSignageAdapter.Controllers
         [Authorize]
         public ActionResult GetDiagnostics()
         {
+            DateTime current = TimeZoneHelper.ClientCurrentTime(ViewBag.TimeZoneOffset);
             var model =
                 new Diagnostics
                 {
-                    From = DateTime.Now.Date.AddDays(-1),
-                    To = DateTime.Now.Date,
+                    From = current.AddDays(-1),
+                    To = current,
                     CacheOnly = true
                 };
 

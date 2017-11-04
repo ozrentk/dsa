@@ -140,67 +140,67 @@ namespace DigitalSignageAdapter.Controllers
 
         //
         // GET: /Account/Register
-        [AllowAnonymous]
-        public ActionResult Register()
-        {
-            return View();
-        }
+        //[AllowAnonymous]
+        //public ActionResult Register()
+        //{
+        //    return View();
+        //}
 
         //
         // POST: /Account/Register
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                Guid guidTicketNumber;
-                if (!Guid.TryParse(model.TicketNumber, out guidTicketNumber))
-                {
-                    AddErrors(new IdentityResult("This is not a valid ticket number" ));
-                    return View(model);
-                }
+        //[HttpPost]
+        //[AllowAnonymous]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> Register(RegisterViewModel model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        Guid guidTicketNumber;
+        //        if (!Guid.TryParse(model.TicketNumber, out guidTicketNumber))
+        //        {
+        //            AddErrors(new IdentityResult("This is not a valid ticket number" ));
+        //            return View(model);
+        //        }
 
-                if (!AdapterDb.Database.CheckSignupTicketNumber(guidTicketNumber))
-                {
-                    AddErrors(new IdentityResult("This ticket number does not exist"));
-                    return View(model);
-                }
+        //        if (!AdapterDb.Database.CheckSignupTicketNumber(guidTicketNumber))
+        //        {
+        //            AddErrors(new IdentityResult("This ticket number does not exist"));
+        //            return View(model);
+        //        }
 
-                var user = new ApplicationUser {
-                    UserName = model.Email,
-                    Email = model.Email
-                    //LastTicketNumber = model.TicketNumber
-                };
+        //        var user = new ApplicationUser {
+        //            UserName = model.Email,
+        //            Email = model.Email
+        //            //LastTicketNumber = model.TicketNumber
+        //        };
 
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    UserManager.AddToRole(user.Id, "User");
+        //        var result = await UserManager.CreateAsync(user, model.Password);
+        //        if (result.Succeeded)
+        //        {
+        //            UserManager.AddToRole(user.Id, "User");
 
-                    if (!AdapterDb.Database.AssignTicketBusinesses(user.Id, guidTicketNumber))
-                    {
-                        AddErrors(new IdentityResult("Cannot assign businesses from this ticket"));
-                        return View(model);
-                    }
+        //            if (!AdapterDb.Database.AssignTicketBusinesses(user.Id, guidTicketNumber))
+        //            {
+        //                AddErrors(new IdentityResult("Cannot assign businesses from this ticket"));
+        //                return View(model);
+        //            }
 
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+        //            await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
-                    // Account confirmation and password reset
-                    // See: http://go.microsoft.com/fwlink/?LinkID=320771
-                    string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+        //            // Account confirmation and password reset
+        //            // See: http://go.microsoft.com/fwlink/?LinkID=320771
+        //            string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+        //            var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+        //            await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
-                }
-                AddErrors(result);
-            }
+        //            return RedirectToAction("Index", "Home");
+        //        }
+        //        AddErrors(result);
+        //    }
 
-            // If we got this far, something failed, redisplay form
-            return View(model);
-        }
+        //    // If we got this far, something failed, redisplay form
+        //    return View(model);
+        //}
 
         //
         // GET: /Account/ConfirmEmail

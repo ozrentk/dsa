@@ -576,3 +576,23 @@ DEBUG 2017-11-03 23:13:21,825    86ms TraceLogger            Application_Start  
 DEBUG 2017-11-03 23:13:22,721   982ms TraceLogger            ureDataItemMapping - configuring automapper
 DEBUG 2017-11-03 23:13:23,035  1296ms TraceLogger            tivityRestrictions - configuring activity restrictions
 DEBUG 2017-11-03 23:13:23,221  1482ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-11-03 23:50:21,361    75ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-11-03 23:50:22,239   954ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-11-03 23:50:22,548  1263ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-11-03 23:50:22,740  1455ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-11-04 22:32:28,220    75ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-11-04 22:32:29,265  1120ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-11-04 22:32:29,569  1424ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-11-04 22:32:29,876  1731ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-11-04 23:00:48,489    94ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-11-04 23:00:49,482  1087ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-11-04 23:00:49,779  1384ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-11-04 23:00:50,032  1637ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-11-04 23:30:05,279    72ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-11-04 23:30:06,220  1013ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-11-04 23:30:06,566  1359ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-11-04 23:30:06,759  1552ms TraceLogger            Application_Start  - application started ok
+DEBUG 2017-11-04 23:32:52,336    86ms TraceLogger            Application_Start  - log4net configured
+DEBUG 2017-11-04 23:32:53,308  1057ms TraceLogger            ureDataItemMapping - configuring automapper
+DEBUG 2017-11-04 23:32:53,692  1441ms TraceLogger            tivityRestrictions - configuring activity restrictions
+DEBUG 2017-11-04 23:32:53,900  1649ms TraceLogger            Application_Start  - application started ok

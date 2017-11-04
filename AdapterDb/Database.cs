@@ -772,14 +772,23 @@ namespace AdapterDb
         #endregion Data Items
 
         #region Aggregated data items
-
-        public static List<AggregatedData> GetAggregatedDataForSingleBusiness(IPrincipal user, int businessId, DateTime timeFrom, DateTime timeTo)
+        [Flags]
+        public enum AggregationType
         {
-            var res = GetAggregatedDataForMultipleBusinesses(user, new int[] { businessId }, timeFrom, timeTo);
+            ByLine = 0x01,
+            ByLineName = 0x02,
+            ByBusiness = 0x04,
+            Total = 0x08
+        }
+
+
+        public static List<AggregatedData> GetAggregatedDataForSingleBusiness(IPrincipal user, int businessId, DateTime timeFrom, DateTime timeTo, AggregationType aggregationTypes)
+        {
+            var res = GetAggregatedDataForMultipleBusinesses(user, new int[] { businessId }, timeFrom, timeTo, aggregationTypes);
             return res;
         }
 
-        public static List<AggregatedData> GetAggregatedDataForMultipleBusinesses(IPrincipal user, int[] businessIds, DateTime timeFrom, DateTime timeTo)
+        public static List<AggregatedData> GetAggregatedDataForMultipleBusinesses(IPrincipal user, int[] businessIds, DateTime timeFrom, DateTime timeTo, AggregationType aggregationTypes)
         {
             using (var db = new AdapterDbEntities())
             {
@@ -789,14 +798,29 @@ namespace AdapterDb
 
                 var list = new List<AggregatedData>();
 
-                var lnItems = GetAggregatedData(db, "GetDataAggregatedByLine", timeFrom, timeTo, businessList, lineList);
-                list.AddRange(lnItems);
+                if ((aggregationTypes & AggregationType.ByLine) == AggregationType.ByLine)
+                {
+                    var lnItems = GetAggregatedData(db, "GetDataAggregatedByLine", timeFrom, timeTo, businessList, lineList);
+                    list.AddRange(lnItems);
+                }
 
-                var bizItems = GetAggregatedData(db, "GetDataAggregatedByBusiness", timeFrom, timeTo, businessList, lineList);
-                list.AddRange(bizItems);
+                if ((aggregationTypes & AggregationType.ByLineName) == AggregationType.ByLineName)
+                {
+                    var lnNameItems = GetAggregatedData(db, "GetDataAggregatedByLineName", timeFrom, timeTo, businessList, lineList);
+                    list.AddRange(lnNameItems);
+                }
 
-                var summaryItem = GetAggregatedData(db, "GetAggregatedData", timeFrom, timeTo, businessList, lineList).Single();
-                list.Add(summaryItem);
+                if ((aggregationTypes & AggregationType.ByBusiness) == AggregationType.ByBusiness)
+                {
+                    var bizItems = GetAggregatedData(db, "GetDataAggregatedByBusiness", timeFrom, timeTo, businessList, lineList);
+                    list.AddRange(bizItems);
+                }
+
+                if ((aggregationTypes & AggregationType.Total) == AggregationType.Total)
+                {
+                    var summaryItem = GetAggregatedData(db, "GetAggregatedData", timeFrom, timeTo, businessList, lineList).Single();
+                    list.Add(summaryItem);
+                }
 
                 return list;
             }

@@ -240,3 +240,4 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/DigitalSignageAdapter/App_Data/log4net.txt

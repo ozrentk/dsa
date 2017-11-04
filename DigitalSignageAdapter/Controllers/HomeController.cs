@@ -8,6 +8,7 @@ using DigitalSignageAdapter.Filters;
 using DigitalSignageAdapter.Models.Home;
 using DigitalSignageAdapter.Models.Shared;
 using System.Configuration;
+using static AdapterDb.Database;
 
 namespace DigitalSignageAdapter.Controllers
 {
@@ -56,7 +57,8 @@ namespace DigitalSignageAdapter.Controllers
                     user: User,
                     businessIds: businessIds,
                     timeFrom: timeFrom,
-                    timeTo: timeTo);
+                    timeTo: timeTo,
+                    aggregationTypes: AggregationType.ByLineName | AggregationType.ByBusiness | AggregationType.Total);
 
             var viewModel =
                 new MultipleBusinesses
@@ -270,7 +272,8 @@ namespace DigitalSignageAdapter.Controllers
                     user: User,
                     businessId: businessId,
                     timeFrom: clientToday,
-                    timeTo: clientCurrentTime);
+                    timeTo: clientCurrentTime,
+                    aggregationTypes: AggregationType.ByLine | AggregationType.ByBusiness | AggregationType.Total);
 
             var multiBiz = AdapterDb.Database.HasMultipleBusiness(User.Identity.Name);
             var biz = AdapterDb.Database.GetBusiness(businessId);

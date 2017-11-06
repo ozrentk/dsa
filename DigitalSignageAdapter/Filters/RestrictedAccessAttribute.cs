@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DigitalSignageAdapter.Extensions;
+using System.Reflection;
 
 namespace DigitalSignageAdapter.Filters
 {
@@ -23,6 +24,18 @@ namespace DigitalSignageAdapter.Filters
             string currentController = rd.GetRequiredString("controller");
             string currentAction = rd.GetRequiredString("action");
             var method = httpContext.Request.HttpMethod;
+
+            var controllerFullName = 
+                $"{nameof(DigitalSignageAdapter)}.Controllers.{currentController}Controller";
+            var controllerType = Assembly.GetExecutingAssembly().GetType(controllerFullName);
+            var actionExists = 
+                controllerType != null && 
+                controllerType.GetMethods().Where(m => m.Name.Equals(currentAction, StringComparison.InvariantCultureIgnoreCase)).Count() > 0;
+
+            // If action exists, we just let this request pass through, to reach the 404 page
+            if (!actionExists)
+                return true;
+
             return httpContext.User.IsAllowed(currentController, currentAction, method);
         }
     }

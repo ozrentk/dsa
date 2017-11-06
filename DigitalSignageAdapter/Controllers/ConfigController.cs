@@ -383,7 +383,23 @@ namespace DigitalSignageAdapter.Controllers
                 }
                 else
                 {
-                    var selectedPermissionIds = model.Role.Permissions.Where(p => p.IsSelected).Select(p => p.Id).ToList();
+                    List<int> selectedPermissionIds = new List<int>();
+
+                    // All permissions for "admin"
+                    if (model.Role.Name.Equals("Admin", StringComparison.InvariantCultureIgnoreCase))
+                        selectedPermissionIds = model.Role.Permissions.Select(p => p.Id).ToList();
+                    // Basic permission for "login"
+                    else if (model.Role.Name.Equals("Login", StringComparison.InvariantCultureIgnoreCase))
+                        selectedPermissionIds = Database.GetAll<AdapterDb.Permission, int>(
+                            (dbPermissions) => 
+                                dbPermissions.Where(p => p.Description.Equals("Basic", StringComparison.InvariantCultureIgnoreCase))
+                                             .Select(f => f.Id));
+                    //selectedPermissionIds = model.Role.Permissions.Where(p => 
+                    //    p.Description.Equals("Basic", StringComparison.InvariantCultureIgnoreCase)).Select(p => p.Id).ToList();
+
+                    else
+                        selectedPermissionIds = model.Role.Permissions.Where(p => p.IsSelected).Select(p => p.Id).ToList();
+
                     var mappedRole = Mapper.Map<Models.Config.Role, AdapterDb.Roles>(model.Role);
                     bool isSaved;
                     if (model.Role.Id.HasValue)
@@ -449,7 +465,9 @@ namespace DigitalSignageAdapter.Controllers
             else
             {
                 model.User = new Models.Config.User { Roles = new List<Models.Config.Role>() };
+                model.User.IsActive = true;
                 model.User.Roles.AddRange(allRoles);
+                model.User.Roles.Single(r => r.Name.Equals("Login")).IsSelected = true;
             }
 
             return View(model);
@@ -487,6 +505,9 @@ namespace DigitalSignageAdapter.Controllers
             var resCreate = await UserManager.CreateAsync(mappedUser, pwd);
             if (!resCreate.Succeeded)
                 return false;
+
+            if (selectedRoleNames.Length == 0)
+                selectedRoleNames = new string[] { "Login" };
 
             var resRoleAdd = await UserManager.AddToRolesAsync(mappedUser.Id, selectedRoleNames);
             if (!resRoleAdd.Succeeded)

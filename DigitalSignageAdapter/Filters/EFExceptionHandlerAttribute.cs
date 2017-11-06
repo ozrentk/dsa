@@ -38,7 +38,7 @@ namespace DigitalSignageAdapter.Filters
                         }
                         namedPipeClient.ReadMode = PipeTransmissionMode.Message;
 
-                        var request = new { pushi = "kurac" };
+                        var request = new object();
                         string requestJson = JsonConvert.SerializeObject(request);
                         //string responseJson = await WriteRequestReadResponse(namedPipeClient, requestJson);
                         byte[] messageBytes = Encoding.UTF8.GetBytes(requestJson);

@@ -16,7 +16,15 @@
             {
                 <tr>
                     <td>
-                        @Html.ActionLink(Model.Roles[i].Name + " »", "RoleEditor", new { roleId = Model.Roles[i].Id }, new { @class = "btn btn-default" })
+                        @*@Html.ActionLink(Model.Roles[i].Name + " »", "RoleEditor", new { roleId = Model.Roles[i].Id }, new { @class = "btn btn-default" })*@
+                        <a class="btn btn-default" href="@Url.Action("RoleEditor", new { roleId = Model.Roles[i].Id })">
+                            @if (Model.Roles[i].Name.Equals("Admin", StringComparison.InvariantCultureIgnoreCase) ||
+                                 Model.Roles[i].Name.Equals("Login", StringComparison.InvariantCultureIgnoreCase))
+                            {
+                                <span class="label label-default">Built-in</span>
+                            }
+                            @(Model.Roles[i].Name + " »")
+                        </a>
                     </td>
                     <td>
                         @if (Model.Roles[i].Permissions != null)

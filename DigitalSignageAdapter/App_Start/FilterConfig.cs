@@ -8,8 +8,8 @@ namespace DigitalSignageAdapter
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new HandleErrorAttribute());
-            filters.Add(new EFExceptionHandlerAttribute());
+            //filters.Add(new HandleErrorAttribute());
+            //filters.Add(new EFExceptionHandlerAttribute());
             filters.Add(new RestrictedAccessAttribute());
         }
     }

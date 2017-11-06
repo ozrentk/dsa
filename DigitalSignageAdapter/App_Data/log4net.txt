@@ -5918,3 +5918,1424 @@ log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Cultur
 log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
 log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
 log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\5bb80b0a\0006166f_e204d201\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 10.0.15063.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\77be2463\65e3e9dc_f656d301\DigitalSignageAdapter.dll]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using .config file section
+log4net: XmlConfigurator: Application config file is [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\web.config]
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Setting [TraceLogger] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] Level string is [DEBUG].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] level set to [name="DEBUG",value=30000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: XmlHierarchyConfigurator: Setting Property [File] to String value [App_Data\\log.txt]
+log4net: XmlHierarchyConfigurator: Setting Property [AppendToFile] to Boolean value [True]
+log4net: XmlHierarchyConfigurator: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: XmlHierarchyConfigurator: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: XmlHierarchyConfigurator: Setting Property [MaximumFileSize] to String value [10MB]
+log4net: XmlHierarchyConfigurator: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: PatternParser: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [ConversionPattern] to String value [%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n]
+log4net: PatternParser: Converter [p] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [d] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [r] Option [] Format [min=5,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ms ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [c] Option [1] Format [min=22,max=22,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [M] Option [] Format [min=18,max=18,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ - ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [m] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [n] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: RollingFileAppender: Searched for existing files in [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data]
+log4net: RollingFileAppender: curSizeRollBackups starts at [0]
+log4net: FileAppender: Opening file for writing [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data\log.txt] append [True]
+log4net: XmlHierarchyConfigurator: Created Appender [RollingLogFileAppender]
+log4net: XmlHierarchyConfigurator: Adding appender named [RollingLogFileAppender] to logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: DefaultRepositorySelector: Creating repository for assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\b605c037\8a25539b_c455d301\AdapterDb.dll]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\5bb80b0a\0006166f_e204d201\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 10.0.15063.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\77be2463\0ec7c46e_f756d301\DigitalSignageAdapter.dll]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using .config file section
+log4net: XmlConfigurator: Application config file is [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\web.config]
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Setting [TraceLogger] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] Level string is [DEBUG].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] level set to [name="DEBUG",value=30000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: XmlHierarchyConfigurator: Setting Property [File] to String value [App_Data\\log.txt]
+log4net: XmlHierarchyConfigurator: Setting Property [AppendToFile] to Boolean value [True]
+log4net: XmlHierarchyConfigurator: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: XmlHierarchyConfigurator: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: XmlHierarchyConfigurator: Setting Property [MaximumFileSize] to String value [10MB]
+log4net: XmlHierarchyConfigurator: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: PatternParser: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [ConversionPattern] to String value [%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n]
+log4net: PatternParser: Converter [p] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [d] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [r] Option [] Format [min=5,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ms ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [c] Option [1] Format [min=22,max=22,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [M] Option [] Format [min=18,max=18,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ - ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [m] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [n] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: RollingFileAppender: Searched for existing files in [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data]
+log4net: RollingFileAppender: curSizeRollBackups starts at [0]
+log4net: FileAppender: Opening file for writing [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data\log.txt] append [True]
+log4net: XmlHierarchyConfigurator: Created Appender [RollingLogFileAppender]
+log4net: XmlHierarchyConfigurator: Adding appender named [RollingLogFileAppender] to logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: DefaultRepositorySelector: Creating repository for assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\b605c037\8a25539b_c455d301\AdapterDb.dll]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\5bb80b0a\0006166f_e204d201\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 10.0.15063.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\77be2463\793ab3b0_f756d301\DigitalSignageAdapter.dll]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using .config file section
+log4net: XmlConfigurator: Application config file is [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\web.config]
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Setting [TraceLogger] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] Level string is [DEBUG].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] level set to [name="DEBUG",value=30000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: XmlHierarchyConfigurator: Setting Property [File] to String value [App_Data\\log.txt]
+log4net: XmlHierarchyConfigurator: Setting Property [AppendToFile] to Boolean value [True]
+log4net: XmlHierarchyConfigurator: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: XmlHierarchyConfigurator: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: XmlHierarchyConfigurator: Setting Property [MaximumFileSize] to String value [10MB]
+log4net: XmlHierarchyConfigurator: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: PatternParser: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [ConversionPattern] to String value [%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n]
+log4net: PatternParser: Converter [p] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [d] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [r] Option [] Format [min=5,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ms ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [c] Option [1] Format [min=22,max=22,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [M] Option [] Format [min=18,max=18,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ - ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [m] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [n] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: RollingFileAppender: Searched for existing files in [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data]
+log4net: RollingFileAppender: curSizeRollBackups starts at [0]
+log4net: FileAppender: Opening file for writing [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data\log.txt] append [True]
+log4net: XmlHierarchyConfigurator: Created Appender [RollingLogFileAppender]
+log4net: XmlHierarchyConfigurator: Adding appender named [RollingLogFileAppender] to logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: DefaultRepositorySelector: Creating repository for assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\b605c037\8a25539b_c455d301\AdapterDb.dll]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\5bb80b0a\0006166f_e204d201\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 10.0.15063.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\77be2463\8644c567_fd56d301\DigitalSignageAdapter.dll]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using .config file section
+log4net: XmlConfigurator: Application config file is [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\web.config]
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Setting [TraceLogger] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] Level string is [DEBUG].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] level set to [name="DEBUG",value=30000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: XmlHierarchyConfigurator: Setting Property [File] to String value [App_Data\\log.txt]
+log4net: XmlHierarchyConfigurator: Setting Property [AppendToFile] to Boolean value [True]
+log4net: XmlHierarchyConfigurator: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: XmlHierarchyConfigurator: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: XmlHierarchyConfigurator: Setting Property [MaximumFileSize] to String value [10MB]
+log4net: XmlHierarchyConfigurator: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: PatternParser: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [ConversionPattern] to String value [%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n]
+log4net: PatternParser: Converter [p] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [d] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [r] Option [] Format [min=5,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ms ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [c] Option [1] Format [min=22,max=22,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [M] Option [] Format [min=18,max=18,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ - ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [m] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [n] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: RollingFileAppender: Searched for existing files in [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data]
+log4net: RollingFileAppender: curSizeRollBackups starts at [0]
+log4net: FileAppender: Opening file for writing [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data\log.txt] append [True]
+log4net: XmlHierarchyConfigurator: Created Appender [RollingLogFileAppender]
+log4net: XmlHierarchyConfigurator: Adding appender named [RollingLogFileAppender] to logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: DefaultRepositorySelector: Creating repository for assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\b605c037\8a25539b_c455d301\AdapterDb.dll]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\5bb80b0a\0006166f_e204d201\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 10.0.15063.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\77be2463\3e306a83_fd56d301\DigitalSignageAdapter.dll]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using .config file section
+log4net: XmlConfigurator: Application config file is [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\web.config]
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Setting [TraceLogger] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] Level string is [DEBUG].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] level set to [name="DEBUG",value=30000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: XmlHierarchyConfigurator: Setting Property [File] to String value [App_Data\\log.txt]
+log4net: XmlHierarchyConfigurator: Setting Property [AppendToFile] to Boolean value [True]
+log4net: XmlHierarchyConfigurator: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: XmlHierarchyConfigurator: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: XmlHierarchyConfigurator: Setting Property [MaximumFileSize] to String value [10MB]
+log4net: XmlHierarchyConfigurator: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: PatternParser: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [ConversionPattern] to String value [%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n]
+log4net: PatternParser: Converter [p] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [d] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [r] Option [] Format [min=5,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ms ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [c] Option [1] Format [min=22,max=22,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [M] Option [] Format [min=18,max=18,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ - ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [m] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [n] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: RollingFileAppender: Searched for existing files in [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data]
+log4net: RollingFileAppender: curSizeRollBackups starts at [0]
+log4net: FileAppender: Opening file for writing [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data\log.txt] append [True]
+log4net: XmlHierarchyConfigurator: Created Appender [RollingLogFileAppender]
+log4net: XmlHierarchyConfigurator: Adding appender named [RollingLogFileAppender] to logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: DefaultRepositorySelector: Creating repository for assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\b605c037\0439b280_fd56d301\AdapterDb.dll]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\5bb80b0a\0006166f_e204d201\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 10.0.15063.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\77be2463\a7cf6138_fe56d301\DigitalSignageAdapter.dll]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using .config file section
+log4net: XmlConfigurator: Application config file is [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\web.config]
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Setting [TraceLogger] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] Level string is [DEBUG].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] level set to [name="DEBUG",value=30000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: XmlHierarchyConfigurator: Setting Property [File] to String value [App_Data\\log.txt]
+log4net: XmlHierarchyConfigurator: Setting Property [AppendToFile] to Boolean value [True]
+log4net: XmlHierarchyConfigurator: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: XmlHierarchyConfigurator: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: XmlHierarchyConfigurator: Setting Property [MaximumFileSize] to String value [10MB]
+log4net: XmlHierarchyConfigurator: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: PatternParser: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [ConversionPattern] to String value [%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n]
+log4net: PatternParser: Converter [p] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [d] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [r] Option [] Format [min=5,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ms ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [c] Option [1] Format [min=22,max=22,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [M] Option [] Format [min=18,max=18,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ - ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [m] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [n] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: RollingFileAppender: Searched for existing files in [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data]
+log4net: RollingFileAppender: curSizeRollBackups starts at [0]
+log4net: FileAppender: Opening file for writing [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data\log.txt] append [True]
+log4net: XmlHierarchyConfigurator: Created Appender [RollingLogFileAppender]
+log4net: XmlHierarchyConfigurator: Adding appender named [RollingLogFileAppender] to logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: DefaultRepositorySelector: Creating repository for assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\b605c037\0439b280_fd56d301\AdapterDb.dll]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\5bb80b0a\0006166f_e204d201\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 10.0.15063.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\77be2463\3a4ead81_fe56d301\DigitalSignageAdapter.dll]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using .config file section
+log4net: XmlConfigurator: Application config file is [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\web.config]
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Setting [TraceLogger] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] Level string is [DEBUG].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] level set to [name="DEBUG",value=30000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: XmlHierarchyConfigurator: Setting Property [File] to String value [App_Data\\log.txt]
+log4net: XmlHierarchyConfigurator: Setting Property [AppendToFile] to Boolean value [True]
+log4net: XmlHierarchyConfigurator: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: XmlHierarchyConfigurator: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: XmlHierarchyConfigurator: Setting Property [MaximumFileSize] to String value [10MB]
+log4net: XmlHierarchyConfigurator: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: PatternParser: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [ConversionPattern] to String value [%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n]
+log4net: PatternParser: Converter [p] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [d] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [r] Option [] Format [min=5,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ms ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [c] Option [1] Format [min=22,max=22,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [M] Option [] Format [min=18,max=18,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ - ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [m] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [n] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: RollingFileAppender: Searched for existing files in [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data]
+log4net: RollingFileAppender: curSizeRollBackups starts at [0]
+log4net: FileAppender: Opening file for writing [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data\log.txt] append [True]
+log4net: XmlHierarchyConfigurator: Created Appender [RollingLogFileAppender]
+log4net: XmlHierarchyConfigurator: Adding appender named [RollingLogFileAppender] to logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: DefaultRepositorySelector: Creating repository for assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\b605c037\0439b280_fd56d301\AdapterDb.dll]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\5bb80b0a\0006166f_e204d201\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 10.0.15063.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\77be2463\daa491c8_fe56d301\DigitalSignageAdapter.dll]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using .config file section
+log4net: XmlConfigurator: Application config file is [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\web.config]
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Setting [TraceLogger] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] Level string is [DEBUG].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] level set to [name="DEBUG",value=30000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: XmlHierarchyConfigurator: Setting Property [File] to String value [App_Data\\log.txt]
+log4net: XmlHierarchyConfigurator: Setting Property [AppendToFile] to Boolean value [True]
+log4net: XmlHierarchyConfigurator: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: XmlHierarchyConfigurator: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: XmlHierarchyConfigurator: Setting Property [MaximumFileSize] to String value [10MB]
+log4net: XmlHierarchyConfigurator: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: PatternParser: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [ConversionPattern] to String value [%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n]
+log4net: PatternParser: Converter [p] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [d] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [r] Option [] Format [min=5,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ms ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [c] Option [1] Format [min=22,max=22,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [M] Option [] Format [min=18,max=18,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ - ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [m] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [n] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: RollingFileAppender: Searched for existing files in [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data]
+log4net: RollingFileAppender: curSizeRollBackups starts at [0]
+log4net: FileAppender: Opening file for writing [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data\log.txt] append [True]
+log4net: XmlHierarchyConfigurator: Created Appender [RollingLogFileAppender]
+log4net: XmlHierarchyConfigurator: Adding appender named [RollingLogFileAppender] to logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: DefaultRepositorySelector: Creating repository for assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\b605c037\0439b280_fd56d301\AdapterDb.dll]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\5bb80b0a\0006166f_e204d201\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 10.0.15063.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\77be2463\0218127c_ff56d301\DigitalSignageAdapter.dll]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using .config file section
+log4net: XmlConfigurator: Application config file is [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\web.config]
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Setting [TraceLogger] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] Level string is [DEBUG].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] level set to [name="DEBUG",value=30000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: XmlHierarchyConfigurator: Setting Property [File] to String value [App_Data\\log.txt]
+log4net: XmlHierarchyConfigurator: Setting Property [AppendToFile] to Boolean value [True]
+log4net: XmlHierarchyConfigurator: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: XmlHierarchyConfigurator: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: XmlHierarchyConfigurator: Setting Property [MaximumFileSize] to String value [10MB]
+log4net: XmlHierarchyConfigurator: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: PatternParser: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [ConversionPattern] to String value [%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n]
+log4net: PatternParser: Converter [p] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [d] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [r] Option [] Format [min=5,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ms ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [c] Option [1] Format [min=22,max=22,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [M] Option [] Format [min=18,max=18,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ - ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [m] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [n] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: RollingFileAppender: Searched for existing files in [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data]
+log4net: RollingFileAppender: curSizeRollBackups starts at [0]
+log4net: FileAppender: Opening file for writing [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data\log.txt] append [True]
+log4net: XmlHierarchyConfigurator: Created Appender [RollingLogFileAppender]
+log4net: XmlHierarchyConfigurator: Adding appender named [RollingLogFileAppender] to logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: DefaultRepositorySelector: Creating repository for assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\b605c037\0439b280_fd56d301\AdapterDb.dll]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\5bb80b0a\0006166f_e204d201\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 10.0.15063.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\77be2463\577a68ed_ff56d301\DigitalSignageAdapter.dll]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using .config file section
+log4net: XmlConfigurator: Application config file is [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\web.config]
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Setting [TraceLogger] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] Level string is [DEBUG].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] level set to [name="DEBUG",value=30000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: XmlHierarchyConfigurator: Setting Property [File] to String value [App_Data\\log.txt]
+log4net: XmlHierarchyConfigurator: Setting Property [AppendToFile] to Boolean value [True]
+log4net: XmlHierarchyConfigurator: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: XmlHierarchyConfigurator: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: XmlHierarchyConfigurator: Setting Property [MaximumFileSize] to String value [10MB]
+log4net: XmlHierarchyConfigurator: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: PatternParser: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [ConversionPattern] to String value [%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n]
+log4net: PatternParser: Converter [p] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [d] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [r] Option [] Format [min=5,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ms ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [c] Option [1] Format [min=22,max=22,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [M] Option [] Format [min=18,max=18,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ - ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [m] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [n] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: RollingFileAppender: Searched for existing files in [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data]
+log4net: RollingFileAppender: curSizeRollBackups starts at [0]
+log4net: FileAppender: Opening file for writing [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data\log.txt] append [True]
+log4net: XmlHierarchyConfigurator: Created Appender [RollingLogFileAppender]
+log4net: XmlHierarchyConfigurator: Adding appender named [RollingLogFileAppender] to logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: DefaultRepositorySelector: Creating repository for assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\b605c037\0439b280_fd56d301\AdapterDb.dll]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\5bb80b0a\0006166f_e204d201\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 10.0.15063.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\77be2463\d3b44dac_0057d301\DigitalSignageAdapter.dll]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using .config file section
+log4net: XmlConfigurator: Application config file is [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\web.config]
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Setting [TraceLogger] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] Level string is [DEBUG].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] level set to [name="DEBUG",value=30000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: XmlHierarchyConfigurator: Setting Property [File] to String value [App_Data\\log.txt]
+log4net: XmlHierarchyConfigurator: Setting Property [AppendToFile] to Boolean value [True]
+log4net: XmlHierarchyConfigurator: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: XmlHierarchyConfigurator: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: XmlHierarchyConfigurator: Setting Property [MaximumFileSize] to String value [10MB]
+log4net: XmlHierarchyConfigurator: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: PatternParser: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [ConversionPattern] to String value [%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n]
+log4net: PatternParser: Converter [p] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [d] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [r] Option [] Format [min=5,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ms ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [c] Option [1] Format [min=22,max=22,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [M] Option [] Format [min=18,max=18,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ - ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [m] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [n] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: RollingFileAppender: Searched for existing files in [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data]
+log4net: RollingFileAppender: curSizeRollBackups starts at [0]
+log4net: FileAppender: Opening file for writing [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data\log.txt] append [True]
+log4net: XmlHierarchyConfigurator: Created Appender [RollingLogFileAppender]
+log4net: XmlHierarchyConfigurator: Adding appender named [RollingLogFileAppender] to logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: DefaultRepositorySelector: Creating repository for assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\b605c037\0439b280_fd56d301\AdapterDb.dll]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\5bb80b0a\0006166f_e204d201\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 10.0.15063.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\77be2463\95a2ba74_0257d301\DigitalSignageAdapter.dll]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using .config file section
+log4net: XmlConfigurator: Application config file is [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\web.config]
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Setting [TraceLogger] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] Level string is [DEBUG].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] level set to [name="DEBUG",value=30000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: XmlHierarchyConfigurator: Setting Property [File] to String value [App_Data\\log.txt]
+log4net: XmlHierarchyConfigurator: Setting Property [AppendToFile] to Boolean value [True]
+log4net: XmlHierarchyConfigurator: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: XmlHierarchyConfigurator: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: XmlHierarchyConfigurator: Setting Property [MaximumFileSize] to String value [10MB]
+log4net: XmlHierarchyConfigurator: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: PatternParser: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [ConversionPattern] to String value [%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n]
+log4net: PatternParser: Converter [p] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [d] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [r] Option [] Format [min=5,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ms ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [c] Option [1] Format [min=22,max=22,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [M] Option [] Format [min=18,max=18,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ - ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [m] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [n] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: RollingFileAppender: Searched for existing files in [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data]
+log4net: RollingFileAppender: curSizeRollBackups starts at [0]
+log4net: FileAppender: Opening file for writing [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data\log.txt] append [True]
+log4net: XmlHierarchyConfigurator: Created Appender [RollingLogFileAppender]
+log4net: XmlHierarchyConfigurator: Adding appender named [RollingLogFileAppender] to logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: DefaultRepositorySelector: Creating repository for assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\b605c037\0439b280_fd56d301\AdapterDb.dll]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\5bb80b0a\0006166f_e204d201\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 10.0.15063.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\77be2463\1c122e4b_0357d301\DigitalSignageAdapter.dll]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using .config file section
+log4net: XmlConfigurator: Application config file is [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\web.config]
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Setting [TraceLogger] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] Level string is [DEBUG].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] level set to [name="DEBUG",value=30000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: XmlHierarchyConfigurator: Setting Property [File] to String value [App_Data\\log.txt]
+log4net: XmlHierarchyConfigurator: Setting Property [AppendToFile] to Boolean value [True]
+log4net: XmlHierarchyConfigurator: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: XmlHierarchyConfigurator: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: XmlHierarchyConfigurator: Setting Property [MaximumFileSize] to String value [10MB]
+log4net: XmlHierarchyConfigurator: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: PatternParser: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [ConversionPattern] to String value [%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n]
+log4net: PatternParser: Converter [p] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [d] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [r] Option [] Format [min=5,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ms ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [c] Option [1] Format [min=22,max=22,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [M] Option [] Format [min=18,max=18,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ - ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [m] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [n] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: RollingFileAppender: Searched for existing files in [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data]
+log4net: RollingFileAppender: curSizeRollBackups starts at [0]
+log4net: FileAppender: Opening file for writing [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data\log.txt] append [True]
+log4net: XmlHierarchyConfigurator: Created Appender [RollingLogFileAppender]
+log4net: XmlHierarchyConfigurator: Adding appender named [RollingLogFileAppender] to logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: DefaultRepositorySelector: Creating repository for assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\b605c037\0439b280_fd56d301\AdapterDb.dll]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\5bb80b0a\0006166f_e204d201\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 10.0.15063.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\77be2463\1aa988a2_0357d301\DigitalSignageAdapter.dll]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using .config file section
+log4net: XmlConfigurator: Application config file is [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\web.config]
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Setting [TraceLogger] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] Level string is [DEBUG].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] level set to [name="DEBUG",value=30000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: XmlHierarchyConfigurator: Setting Property [File] to String value [App_Data\\log.txt]
+log4net: XmlHierarchyConfigurator: Setting Property [AppendToFile] to Boolean value [True]
+log4net: XmlHierarchyConfigurator: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: XmlHierarchyConfigurator: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: XmlHierarchyConfigurator: Setting Property [MaximumFileSize] to String value [10MB]
+log4net: XmlHierarchyConfigurator: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: PatternParser: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [ConversionPattern] to String value [%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n]
+log4net: PatternParser: Converter [p] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [d] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [r] Option [] Format [min=5,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ms ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [c] Option [1] Format [min=22,max=22,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [M] Option [] Format [min=18,max=18,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ - ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [m] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [n] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: RollingFileAppender: Searched for existing files in [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data]
+log4net: RollingFileAppender: curSizeRollBackups starts at [0]
+log4net: FileAppender: Opening file for writing [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data\log.txt] append [True]
+log4net: XmlHierarchyConfigurator: Created Appender [RollingLogFileAppender]
+log4net: XmlHierarchyConfigurator: Adding appender named [RollingLogFileAppender] to logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: DefaultRepositorySelector: Creating repository for assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\b605c037\0439b280_fd56d301\AdapterDb.dll]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\5bb80b0a\0006166f_e204d201\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 10.0.15063.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\77be2463\81f490d5_0357d301\DigitalSignageAdapter.dll]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using .config file section
+log4net: XmlConfigurator: Application config file is [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\web.config]
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Setting [TraceLogger] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] Level string is [DEBUG].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] level set to [name="DEBUG",value=30000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: XmlHierarchyConfigurator: Setting Property [File] to String value [App_Data\\log.txt]
+log4net: XmlHierarchyConfigurator: Setting Property [AppendToFile] to Boolean value [True]
+log4net: XmlHierarchyConfigurator: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: XmlHierarchyConfigurator: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: XmlHierarchyConfigurator: Setting Property [MaximumFileSize] to String value [10MB]
+log4net: XmlHierarchyConfigurator: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: PatternParser: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [ConversionPattern] to String value [%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n]
+log4net: PatternParser: Converter [p] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [d] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [r] Option [] Format [min=5,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ms ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [c] Option [1] Format [min=22,max=22,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [M] Option [] Format [min=18,max=18,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ - ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [m] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [n] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: RollingFileAppender: Searched for existing files in [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data]
+log4net: RollingFileAppender: curSizeRollBackups starts at [0]
+log4net: FileAppender: Opening file for writing [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data\log.txt] append [True]
+log4net: XmlHierarchyConfigurator: Created Appender [RollingLogFileAppender]
+log4net: XmlHierarchyConfigurator: Adding appender named [RollingLogFileAppender] to logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: DefaultRepositorySelector: Creating repository for assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\b605c037\0439b280_fd56d301\AdapterDb.dll]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\5bb80b0a\0006166f_e204d201\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 10.0.15063.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\77be2463\a2688c0c_0457d301\DigitalSignageAdapter.dll]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using .config file section
+log4net: XmlConfigurator: Application config file is [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\web.config]
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Setting [TraceLogger] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] Level string is [DEBUG].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] level set to [name="DEBUG",value=30000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: XmlHierarchyConfigurator: Setting Property [File] to String value [App_Data\\log.txt]
+log4net: XmlHierarchyConfigurator: Setting Property [AppendToFile] to Boolean value [True]
+log4net: XmlHierarchyConfigurator: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: XmlHierarchyConfigurator: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: XmlHierarchyConfigurator: Setting Property [MaximumFileSize] to String value [10MB]
+log4net: XmlHierarchyConfigurator: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: PatternParser: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [ConversionPattern] to String value [%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n]
+log4net: PatternParser: Converter [p] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [d] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [r] Option [] Format [min=5,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ms ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [c] Option [1] Format [min=22,max=22,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [M] Option [] Format [min=18,max=18,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ - ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [m] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [n] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: RollingFileAppender: Searched for existing files in [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data]
+log4net: RollingFileAppender: curSizeRollBackups starts at [0]
+log4net: FileAppender: Opening file for writing [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data\log.txt] append [True]
+log4net: XmlHierarchyConfigurator: Created Appender [RollingLogFileAppender]
+log4net: XmlHierarchyConfigurator: Adding appender named [RollingLogFileAppender] to logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: DefaultRepositorySelector: Creating repository for assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\b605c037\0439b280_fd56d301\AdapterDb.dll]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\5bb80b0a\0006166f_e204d201\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 10.0.15063.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\77be2463\345b6c2f_0457d301\DigitalSignageAdapter.dll]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using .config file section
+log4net: XmlConfigurator: Application config file is [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\web.config]
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Setting [TraceLogger] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] Level string is [DEBUG].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] level set to [name="DEBUG",value=30000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: XmlHierarchyConfigurator: Setting Property [File] to String value [App_Data\\log.txt]
+log4net: XmlHierarchyConfigurator: Setting Property [AppendToFile] to Boolean value [True]
+log4net: XmlHierarchyConfigurator: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: XmlHierarchyConfigurator: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: XmlHierarchyConfigurator: Setting Property [MaximumFileSize] to String value [10MB]
+log4net: XmlHierarchyConfigurator: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: PatternParser: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [ConversionPattern] to String value [%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n]
+log4net: PatternParser: Converter [p] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [d] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [r] Option [] Format [min=5,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ms ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [c] Option [1] Format [min=22,max=22,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [M] Option [] Format [min=18,max=18,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ - ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [m] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [n] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: RollingFileAppender: Searched for existing files in [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data]
+log4net: RollingFileAppender: curSizeRollBackups starts at [0]
+log4net: FileAppender: Opening file for writing [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data\log.txt] append [True]
+log4net: XmlHierarchyConfigurator: Created Appender [RollingLogFileAppender]
+log4net: XmlHierarchyConfigurator: Adding appender named [RollingLogFileAppender] to logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: DefaultRepositorySelector: Creating repository for assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\b605c037\0439b280_fd56d301\AdapterDb.dll]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\5bb80b0a\0006166f_e204d201\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 10.0.15063.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\77be2463\345b6c2f_0457d301\DigitalSignageAdapter.dll]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using .config file section
+log4net: XmlConfigurator: Application config file is [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\web.config]
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Setting [TraceLogger] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] Level string is [DEBUG].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] level set to [name="DEBUG",value=30000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: XmlHierarchyConfigurator: Setting Property [File] to String value [App_Data\\log.txt]
+log4net: XmlHierarchyConfigurator: Setting Property [AppendToFile] to Boolean value [True]
+log4net: XmlHierarchyConfigurator: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: XmlHierarchyConfigurator: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: XmlHierarchyConfigurator: Setting Property [MaximumFileSize] to String value [10MB]
+log4net: XmlHierarchyConfigurator: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: PatternParser: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [ConversionPattern] to String value [%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n]
+log4net: PatternParser: Converter [p] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [d] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [r] Option [] Format [min=5,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ms ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [c] Option [1] Format [min=22,max=22,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [M] Option [] Format [min=18,max=18,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ - ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [m] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [n] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: RollingFileAppender: Searched for existing files in [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data]
+log4net: RollingFileAppender: curSizeRollBackups starts at [0]
+log4net: FileAppender: Opening file for writing [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data\log.txt] append [True]
+log4net: XmlHierarchyConfigurator: Created Appender [RollingLogFileAppender]
+log4net: XmlHierarchyConfigurator: Adding appender named [RollingLogFileAppender] to logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: DefaultRepositorySelector: Creating repository for assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\b605c037\0439b280_fd56d301\AdapterDb.dll]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\5bb80b0a\0006166f_e204d201\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 10.0.15063.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\77be2463\2c134bb0_0457d301\DigitalSignageAdapter.dll]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using .config file section
+log4net: XmlConfigurator: Application config file is [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\web.config]
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Setting [TraceLogger] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] Level string is [DEBUG].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] level set to [name="DEBUG",value=30000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: XmlHierarchyConfigurator: Setting Property [File] to String value [App_Data\\log.txt]
+log4net: XmlHierarchyConfigurator: Setting Property [AppendToFile] to Boolean value [True]
+log4net: XmlHierarchyConfigurator: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: XmlHierarchyConfigurator: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: XmlHierarchyConfigurator: Setting Property [MaximumFileSize] to String value [10MB]
+log4net: XmlHierarchyConfigurator: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: PatternParser: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [ConversionPattern] to String value [%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n]
+log4net: PatternParser: Converter [p] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [d] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [r] Option [] Format [min=5,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ms ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [c] Option [1] Format [min=22,max=22,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [M] Option [] Format [min=18,max=18,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ - ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [m] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [n] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: RollingFileAppender: Searched for existing files in [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data]
+log4net: RollingFileAppender: curSizeRollBackups starts at [0]
+log4net: FileAppender: Opening file for writing [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data\log.txt] append [True]
+log4net: XmlHierarchyConfigurator: Created Appender [RollingLogFileAppender]
+log4net: XmlHierarchyConfigurator: Adding appender named [RollingLogFileAppender] to logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: DefaultRepositorySelector: Creating repository for assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\b605c037\0439b280_fd56d301\AdapterDb.dll]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\5bb80b0a\0006166f_e204d201\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 10.0.15063.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\77be2463\c236d121_0557d301\DigitalSignageAdapter.dll]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using .config file section
+log4net: XmlConfigurator: Application config file is [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\web.config]
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Setting [TraceLogger] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] Level string is [DEBUG].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] level set to [name="DEBUG",value=30000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: XmlHierarchyConfigurator: Setting Property [File] to String value [App_Data\\log.txt]
+log4net: XmlHierarchyConfigurator: Setting Property [AppendToFile] to Boolean value [True]
+log4net: XmlHierarchyConfigurator: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: XmlHierarchyConfigurator: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: XmlHierarchyConfigurator: Setting Property [MaximumFileSize] to String value [10MB]
+log4net: XmlHierarchyConfigurator: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: PatternParser: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [ConversionPattern] to String value [%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n]
+log4net: PatternParser: Converter [p] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [d] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [r] Option [] Format [min=5,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ms ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [c] Option [1] Format [min=22,max=22,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [M] Option [] Format [min=18,max=18,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ - ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [m] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [n] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: RollingFileAppender: Searched for existing files in [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data]
+log4net: RollingFileAppender: curSizeRollBackups starts at [0]
+log4net: FileAppender: Opening file for writing [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data\log.txt] append [True]
+log4net: XmlHierarchyConfigurator: Created Appender [RollingLogFileAppender]
+log4net: XmlHierarchyConfigurator: Adding appender named [RollingLogFileAppender] to logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: DefaultRepositorySelector: Creating repository for assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\b605c037\0439b280_fd56d301\AdapterDb.dll]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\5bb80b0a\0006166f_e204d201\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 10.0.15063.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\77be2463\c236d121_0557d301\DigitalSignageAdapter.dll]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using .config file section
+log4net: XmlConfigurator: Application config file is [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\web.config]
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Setting [TraceLogger] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] Level string is [DEBUG].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] level set to [name="DEBUG",value=30000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: XmlHierarchyConfigurator: Setting Property [File] to String value [App_Data\\log.txt]
+log4net: XmlHierarchyConfigurator: Setting Property [AppendToFile] to Boolean value [True]
+log4net: XmlHierarchyConfigurator: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: XmlHierarchyConfigurator: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: XmlHierarchyConfigurator: Setting Property [MaximumFileSize] to String value [10MB]
+log4net: XmlHierarchyConfigurator: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: PatternParser: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [ConversionPattern] to String value [%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n]
+log4net: PatternParser: Converter [p] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [d] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [r] Option [] Format [min=5,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ms ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [c] Option [1] Format [min=22,max=22,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [M] Option [] Format [min=18,max=18,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ - ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [m] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [n] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: RollingFileAppender: Searched for existing files in [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data]
+log4net: RollingFileAppender: curSizeRollBackups starts at [0]
+log4net: FileAppender: Opening file for writing [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data\log.txt] append [True]
+log4net: XmlHierarchyConfigurator: Created Appender [RollingLogFileAppender]
+log4net: XmlHierarchyConfigurator: Adding appender named [RollingLogFileAppender] to logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: DefaultRepositorySelector: Creating repository for assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\b605c037\0439b280_fd56d301\AdapterDb.dll]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\5bb80b0a\0006166f_e204d201\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 10.0.15063.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\77be2463\c236d121_0557d301\DigitalSignageAdapter.dll]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using .config file section
+log4net: XmlConfigurator: Application config file is [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\web.config]
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Setting [TraceLogger] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] Level string is [DEBUG].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] level set to [name="DEBUG",value=30000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: XmlHierarchyConfigurator: Setting Property [File] to String value [App_Data\\log.txt]
+log4net: XmlHierarchyConfigurator: Setting Property [AppendToFile] to Boolean value [True]
+log4net: XmlHierarchyConfigurator: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: XmlHierarchyConfigurator: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: XmlHierarchyConfigurator: Setting Property [MaximumFileSize] to String value [10MB]
+log4net: XmlHierarchyConfigurator: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: PatternParser: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [ConversionPattern] to String value [%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n]
+log4net: PatternParser: Converter [p] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [d] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [r] Option [] Format [min=5,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ms ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [c] Option [1] Format [min=22,max=22,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [M] Option [] Format [min=18,max=18,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ - ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [m] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [n] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: RollingFileAppender: Searched for existing files in [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data]
+log4net: RollingFileAppender: curSizeRollBackups starts at [0]
+log4net: FileAppender: Opening file for writing [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data\log.txt] append [True]
+log4net: XmlHierarchyConfigurator: Created Appender [RollingLogFileAppender]
+log4net: XmlHierarchyConfigurator: Adding appender named [RollingLogFileAppender] to logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: DefaultRepositorySelector: Creating repository for assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\b605c037\0439b280_fd56d301\AdapterDb.dll]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\5bb80b0a\0006166f_e204d201\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 10.0.15063.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\77be2463\0ce39863_0657d301\DigitalSignageAdapter.dll]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using .config file section
+log4net: XmlConfigurator: Application config file is [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\web.config]
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Setting [TraceLogger] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] Level string is [DEBUG].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] level set to [name="DEBUG",value=30000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: XmlHierarchyConfigurator: Setting Property [File] to String value [App_Data\\log.txt]
+log4net: XmlHierarchyConfigurator: Setting Property [AppendToFile] to Boolean value [True]
+log4net: XmlHierarchyConfigurator: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: XmlHierarchyConfigurator: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: XmlHierarchyConfigurator: Setting Property [MaximumFileSize] to String value [10MB]
+log4net: XmlHierarchyConfigurator: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: PatternParser: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [ConversionPattern] to String value [%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n]
+log4net: PatternParser: Converter [p] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [d] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [r] Option [] Format [min=5,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ms ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [c] Option [1] Format [min=22,max=22,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [M] Option [] Format [min=18,max=18,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ - ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [m] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [n] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: RollingFileAppender: Searched for existing files in [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data]
+log4net: RollingFileAppender: curSizeRollBackups starts at [0]
+log4net: FileAppender: Opening file for writing [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data\log.txt] append [True]
+log4net: XmlHierarchyConfigurator: Created Appender [RollingLogFileAppender]
+log4net: XmlHierarchyConfigurator: Adding appender named [RollingLogFileAppender] to logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: DefaultRepositorySelector: Creating repository for assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\b605c037\0439b280_fd56d301\AdapterDb.dll]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\5bb80b0a\0006166f_e204d201\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 10.0.15063.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\77be2463\9f70f942_0757d301\DigitalSignageAdapter.dll]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using .config file section
+log4net: XmlConfigurator: Application config file is [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\web.config]
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Setting [TraceLogger] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] Level string is [DEBUG].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] level set to [name="DEBUG",value=30000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: XmlHierarchyConfigurator: Setting Property [File] to String value [App_Data\\log.txt]
+log4net: XmlHierarchyConfigurator: Setting Property [AppendToFile] to Boolean value [True]
+log4net: XmlHierarchyConfigurator: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: XmlHierarchyConfigurator: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: XmlHierarchyConfigurator: Setting Property [MaximumFileSize] to String value [10MB]
+log4net: XmlHierarchyConfigurator: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: PatternParser: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [ConversionPattern] to String value [%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n]
+log4net: PatternParser: Converter [p] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [d] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [r] Option [] Format [min=5,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ms ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [c] Option [1] Format [min=22,max=22,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [M] Option [] Format [min=18,max=18,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ - ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [m] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [n] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: RollingFileAppender: Searched for existing files in [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data]
+log4net: RollingFileAppender: curSizeRollBackups starts at [0]
+log4net: FileAppender: Opening file for writing [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data\log.txt] append [True]
+log4net: XmlHierarchyConfigurator: Created Appender [RollingLogFileAppender]
+log4net: XmlHierarchyConfigurator: Adding appender named [RollingLogFileAppender] to logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: DefaultRepositorySelector: Creating repository for assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\b605c037\0439b280_fd56d301\AdapterDb.dll]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\5bb80b0a\0006166f_e204d201\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 10.0.15063.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\77be2463\99a98b8c_0857d301\DigitalSignageAdapter.dll]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using .config file section
+log4net: XmlConfigurator: Application config file is [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\web.config]
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Setting [TraceLogger] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] Level string is [DEBUG].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] level set to [name="DEBUG",value=30000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: XmlHierarchyConfigurator: Setting Property [File] to String value [App_Data\\log.txt]
+log4net: XmlHierarchyConfigurator: Setting Property [AppendToFile] to Boolean value [True]
+log4net: XmlHierarchyConfigurator: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: XmlHierarchyConfigurator: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: XmlHierarchyConfigurator: Setting Property [MaximumFileSize] to String value [10MB]
+log4net: XmlHierarchyConfigurator: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: PatternParser: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [ConversionPattern] to String value [%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n]
+log4net: PatternParser: Converter [p] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [d] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [r] Option [] Format [min=5,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ms ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [c] Option [1] Format [min=22,max=22,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [M] Option [] Format [min=18,max=18,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ - ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [m] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [n] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: RollingFileAppender: Searched for existing files in [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data]
+log4net: RollingFileAppender: curSizeRollBackups starts at [0]
+log4net: FileAppender: Opening file for writing [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data\log.txt] append [True]
+log4net: XmlHierarchyConfigurator: Created Appender [RollingLogFileAppender]
+log4net: XmlHierarchyConfigurator: Adding appender named [RollingLogFileAppender] to logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: DefaultRepositorySelector: Creating repository for assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\b605c037\0439b280_fd56d301\AdapterDb.dll]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\5bb80b0a\0006166f_e204d201\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 10.0.15063.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\77be2463\99a98b8c_0857d301\DigitalSignageAdapter.dll]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using .config file section
+log4net: XmlConfigurator: Application config file is [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\web.config]
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Setting [TraceLogger] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] Level string is [DEBUG].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] level set to [name="DEBUG",value=30000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: XmlHierarchyConfigurator: Setting Property [File] to String value [App_Data\\log.txt]
+log4net: XmlHierarchyConfigurator: Setting Property [AppendToFile] to Boolean value [True]
+log4net: XmlHierarchyConfigurator: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: XmlHierarchyConfigurator: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: XmlHierarchyConfigurator: Setting Property [MaximumFileSize] to String value [10MB]
+log4net: XmlHierarchyConfigurator: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: PatternParser: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [ConversionPattern] to String value [%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n]
+log4net: PatternParser: Converter [p] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [d] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [r] Option [] Format [min=5,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ms ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [c] Option [1] Format [min=22,max=22,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [M] Option [] Format [min=18,max=18,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ - ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [m] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [n] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: RollingFileAppender: Searched for existing files in [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data]
+log4net: RollingFileAppender: curSizeRollBackups starts at [0]
+log4net: FileAppender: Opening file for writing [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data\log.txt] append [True]
+log4net: XmlHierarchyConfigurator: Created Appender [RollingLogFileAppender]
+log4net: XmlHierarchyConfigurator: Adding appender named [RollingLogFileAppender] to logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: DefaultRepositorySelector: Creating repository for assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\b605c037\0439b280_fd56d301\AdapterDb.dll]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\5bb80b0a\0006166f_e204d201\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 10.0.15063.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\77be2463\b08a163b_0b57d301\DigitalSignageAdapter.dll]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using .config file section
+log4net: XmlConfigurator: Application config file is [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\web.config]
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Setting [TraceLogger] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] Level string is [DEBUG].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] level set to [name="DEBUG",value=30000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: XmlHierarchyConfigurator: Setting Property [File] to String value [App_Data\\log.txt]
+log4net: XmlHierarchyConfigurator: Setting Property [AppendToFile] to Boolean value [True]
+log4net: XmlHierarchyConfigurator: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: XmlHierarchyConfigurator: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: XmlHierarchyConfigurator: Setting Property [MaximumFileSize] to String value [10MB]
+log4net: XmlHierarchyConfigurator: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: PatternParser: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [ConversionPattern] to String value [%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n]
+log4net: PatternParser: Converter [p] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [d] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [r] Option [] Format [min=5,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ms ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [c] Option [1] Format [min=22,max=22,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [M] Option [] Format [min=18,max=18,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ - ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [m] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [n] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: RollingFileAppender: Searched for existing files in [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data]
+log4net: RollingFileAppender: curSizeRollBackups starts at [0]
+log4net: FileAppender: Opening file for writing [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data\log.txt] append [True]
+log4net: XmlHierarchyConfigurator: Created Appender [RollingLogFileAppender]
+log4net: XmlHierarchyConfigurator: Adding appender named [RollingLogFileAppender] to logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: DefaultRepositorySelector: Creating repository for assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\b605c037\9d385137_0b57d301\AdapterDb.dll]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\5bb80b0a\0006166f_e204d201\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 10.0.15063.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\77be2463\c7798291_0b57d301\DigitalSignageAdapter.dll]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using .config file section
+log4net: XmlConfigurator: Application config file is [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\web.config]
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Setting [TraceLogger] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] Level string is [DEBUG].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] level set to [name="DEBUG",value=30000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: XmlHierarchyConfigurator: Setting Property [File] to String value [App_Data\\log.txt]
+log4net: XmlHierarchyConfigurator: Setting Property [AppendToFile] to Boolean value [True]
+log4net: XmlHierarchyConfigurator: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: XmlHierarchyConfigurator: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: XmlHierarchyConfigurator: Setting Property [MaximumFileSize] to String value [10MB]
+log4net: XmlHierarchyConfigurator: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: PatternParser: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [ConversionPattern] to String value [%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n]
+log4net: PatternParser: Converter [p] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [d] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [r] Option [] Format [min=5,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ms ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [c] Option [1] Format [min=22,max=22,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [M] Option [] Format [min=18,max=18,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ - ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [m] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [n] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: RollingFileAppender: Searched for existing files in [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data]
+log4net: RollingFileAppender: curSizeRollBackups starts at [0]
+log4net: FileAppender: Opening file for writing [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data\log.txt] append [True]
+log4net: XmlHierarchyConfigurator: Created Appender [RollingLogFileAppender]
+log4net: XmlHierarchyConfigurator: Adding appender named [RollingLogFileAppender] to logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: DefaultRepositorySelector: Creating repository for assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\b605c037\9d385137_0b57d301\AdapterDb.dll]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: log4net assembly [log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821]. Loaded from [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\5bb80b0a\0006166f_e204d201\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 10.0.15063.0)
+log4net: DefaultRepositorySelector: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository for assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\77be2463\c7798291_0b57d301\DigitalSignageAdapter.dll]
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [DigitalSignageAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: XmlConfigurator: configuring repository [log4net-default-repository] using .config file section
+log4net: XmlConfigurator: Application config file is [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\web.config]
+log4net: XmlConfigurator: Configuring Repository [log4net-default-repository]
+log4net: XmlHierarchyConfigurator: Configuration update mode [Merge].
+log4net: XmlHierarchyConfigurator: Retrieving an instance of log4net.Repository.Logger for logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Setting [TraceLogger] additivity to [True].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] Level string is [DEBUG].
+log4net: XmlHierarchyConfigurator: Logger [TraceLogger] level set to [name="DEBUG",value=30000].
+log4net: XmlHierarchyConfigurator: Loading Appender [RollingLogFileAppender] type: [log4net.Appender.RollingFileAppender]
+log4net: XmlHierarchyConfigurator: Setting Property [File] to String value [App_Data\\log.txt]
+log4net: XmlHierarchyConfigurator: Setting Property [AppendToFile] to Boolean value [True]
+log4net: XmlHierarchyConfigurator: Setting Property [RollingStyle] to RollingMode value [Size]
+log4net: XmlHierarchyConfigurator: Setting Property [MaxSizeRollBackups] to Int32 value [10]
+log4net: XmlHierarchyConfigurator: Setting Property [MaximumFileSize] to String value [10MB]
+log4net: XmlHierarchyConfigurator: Setting Property [StaticLogFileName] to Boolean value [True]
+log4net: PatternParser: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [ConversionPattern] to String value [%-5p %d %5rms %-22.22c{1} %-18.18M - %m%n]
+log4net: PatternParser: Converter [p] Option [] Format [min=5,max=2147483647,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [d] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [r] Option [] Format [min=5,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [literal] Option [ms ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [c] Option [1] Format [min=22,max=22,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [M] Option [] Format [min=18,max=18,leftAlign=True]
+log4net: PatternParser: Converter [literal] Option [ - ] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [m] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: PatternParser: Converter [n] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: XmlHierarchyConfigurator: Setting Property [Layout] to object [log4net.Layout.PatternLayout]
+log4net: RollingFileAppender: Searched for existing files in [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data]
+log4net: RollingFileAppender: curSizeRollBackups starts at [0]
+log4net: FileAppender: Opening file for writing [D:\OneDrive\Posao\DigitalSignage\DigitalSignageAdapter\App_Data\log.txt] append [True]
+log4net: XmlHierarchyConfigurator: Created Appender [RollingLogFileAppender]
+log4net: XmlHierarchyConfigurator: Adding appender named [RollingLogFileAppender] to logger [TraceLogger].
+log4net: XmlHierarchyConfigurator: Hierarchy Threshold []
+log4net: DefaultRepositorySelector: Creating repository for assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\4c4aa7c0\4745a51\assembly\dl3\b605c037\9d385137_0b57d301\AdapterDb.dll]
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: DefaultRepositorySelector: Assembly [AdapterDb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: DefaultRepositorySelector: repository [log4net-default-repository] already exists, using repository type [log4net.Repository.Hierarchy.Hierarchy]

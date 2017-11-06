@@ -10,7 +10,6 @@
         <EntityTypeShape EntityType="AdapterDbModel.ConfigItem" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="AdapterDbModel.UserSignupTicket" Width="1.5" PointX="0.75" PointY="8.125" />
         <EntityTypeShape EntityType="AdapterDbModel.BusinessMember" Width="1.875" PointX="8.25" PointY="10.125" />
-        <EntityTypeShape EntityType="AdapterDbModel.Roles" Width="1.5" PointX="15" PointY="10.375" />
         <EntityTypeShape EntityType="AdapterDbModel.Business" Width="1.5" PointX="3" PointY="7.625" />
         <EntityTypeShape EntityType="AdapterDbModel.Line" Width="1.5" PointX="5.25" PointY="12.375" />
         <AssociationConnector Association="AdapterDbModel.FK_Business_UserSignupTicket" />
@@ -32,9 +31,10 @@
         <EntityTypeShape EntityType="AdapterDbModel.Activity" Width="1.5" PointX="15" PointY="2.375" />
         <EntityTypeShape EntityType="AdapterDbModel.Permission" Width="1.5" PointX="12.75" PointY="2.5" />
         <AssociationConnector Association="AdapterDbModel.FK_Activity_Permission" />
-        <AssociationConnector Association="AdapterDbModel.RolePermission" />
         <EntityTypeShape EntityType="AdapterDbModel.User" Width="1.5" PointX="6" PointY="16" />
         <AssociationConnector Association="AdapterDbModel.FK_BusinessMember_User" />
+        <EntityTypeShape EntityType="AdapterDbModel.Roles" Width="1.5" PointX="15" PointY="10.375" />
+        <AssociationConnector Association="AdapterDbModel.RolePermission" />
         <AssociationConnector Association="AdapterDbModel.UserRoles" />
         </Diagram>
     </edmx:Diagrams>

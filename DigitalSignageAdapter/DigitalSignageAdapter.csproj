@@ -393,7 +393,7 @@
     <Content Include="Views\Home\Diagnostics.cshtml" />
     <Content Include="Views\Home\_EmployeeStats.cshtml" />
     <Content Include="Views\Excel\Employees.cshtml" />
-    <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Error\Common.cshtml" />
     <Content Include="Views\Config\RolesOverview.cshtml" />
     <Content Include="Views\Config\RoleEditor.cshtml" />
     <Content Include="Views\Config\UsersOverview.cshtml" />
